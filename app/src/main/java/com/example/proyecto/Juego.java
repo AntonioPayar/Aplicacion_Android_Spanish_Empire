@@ -15,6 +15,8 @@ public class Juego extends AppCompatActivity {
     private MediaPlayer media;
     private int time;
 
+    //HOla Juan Pablo
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
