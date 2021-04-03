@@ -1,19 +1,25 @@
 package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
 
     private View decorView;
     private MediaPlayer media;
+    private PanelDeControl pdc;
     private int time;
+    private int contador = 0;
 
 //Crear Brunch
     // Otro ejemplo Jp
@@ -22,6 +28,12 @@ public class Juego extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
+
+        try {
+           pdc = new PanelDeControl();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
@@ -38,6 +50,33 @@ public class Juego extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void abrirDemandas(View vista){
+
+        if(contador == 0) {
+            Fragment fragment = new Demandas();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contador++;
+        }
+    }
+
+    public void cerrarFragment(View vista){
+
+//        Toast.makeText(this, "hgrksmk", Toast.LENGTH_SHORT).show();
+//        this.getFragmentManager().popBackStack();
+        this.getSupportFragmentManager().popBackStack();
+        contador--;
+//        Fragment fragment;
+//        fragment = new Demandas();
+//
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.remove(fragment);
+//        transaction.commit();
     }
 
 
@@ -100,5 +139,9 @@ public class Juego extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
+    }
+
+    public PanelDeControl getPanelDeControl(){
+        return pdc;
     }
 }
