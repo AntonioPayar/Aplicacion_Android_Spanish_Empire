@@ -1,27 +1,40 @@
 package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
 
     private View decorView;
     private MediaPlayer media;
+    private PanelDeControl pdc;
     private int time;
+    private int contador = 0;
+    private boolean mapa=false;
 
-    //HOla Juan Pablo
-    //HOlaaaaaa
+//Crear Brunch
+    // Otro ejemplo Jp
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
+
+        try {
+           pdc = new PanelDeControl();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
@@ -38,6 +51,122 @@ public class Juego extends AppCompatActivity {
                 }
             }
         });
+    }
+    /**Onclick al pulsal el Boton Cambio**/
+    public void cambioContinente(View view){
+        Fragment mapa2;
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if(this.mapa==false){
+            this.mapa=true;
+            mapa2 = new mapaFragmento03();
+            Toast.makeText(this, "America", Toast.LENGTH_SHORT).show();
+        }else{
+            this.mapa=false;
+            mapa2 = new MapaFragmento02();
+            Toast.makeText(this, "Europa", Toast.LENGTH_SHORT).show();
+        }
+        transaction.replace(R.id.fragment3, mapa2);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+    /**Onclick al pulsal el ImagenView Castilla**/
+    public void botoncastilla(View view){
+        if(mapa==false && contador==0){
+            abrirProductosEuropa();
+            Toast.makeText(this, "Castilla", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**Onclick al pulsal el ImagenView Aragon**/
+    public void botonaragon(View view){
+        if(mapa==false && contador==0){
+            abrirProductosEuropa();
+            Toast.makeText(this, "Aragon", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**Onclick al pulsal el ImagenView Flandes**/
+    public void botonborgona(View view){
+        if(mapa==false && contador==0){
+            abrirProductosEuropa();
+            Toast.makeText(this, "Borgona", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**Onclick al pulsal el ImagenView Austia**/
+    public void botonhasburgo(View view){
+        if(mapa==false && contador==0){
+            abrirProductosEuropa();
+            Toast.makeText(this, "Hasburgo", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**Onclick al pulsal el ImagenView NuevaCastilla**/
+    public void botonNuevaEspana(View view){
+        abrirProductosAmerica();
+        Toast.makeText(this, "NuevaCastilla", Toast.LENGTH_SHORT).show();
+    }
+    /**Onclick al pulsal el ImagenView Nueva Granada**/
+    public void botonNuevaGranada(View view){
+        abrirProductosAmerica();
+        Toast.makeText(this, "Nueva Granada", Toast.LENGTH_SHORT).show();
+    }
+    /**Onclick al pulsal el ImagenView Peru**/
+    public void botonPeru(View view){
+        abrirProductosAmerica();
+        Toast.makeText(this, "Peru", Toast.LENGTH_SHORT).show();
+    }
+    /**Onclick al pulsal el ImagenView Plata**/
+    public void botonPlata(View view){
+        abrirProductosAmerica();
+        Toast.makeText(this, "Plata", Toast.LENGTH_SHORT).show();
+    }
+    /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
+    public void abrirProductosAmerica(){
+        //De momento he puesto las demandas pero esto esta pensado para abrir la ventana respectiva de cada zona
+        if(contador == 0) {
+            Fragment fragment = new Demandas();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameamerica, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contador++;
+        }
+    }
+    /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
+    public void abrirProductosEuropa(){
+        //De momento he puesto las demandas pero esto esta pensado para abrir la ventana respectiva de cada zona
+        if(contador == 0) {
+            Fragment fragment = new Demandas();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameuropa, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contador++;
+        }
+    }
+
+    public void abrirDemandas(View vista){
+
+        if(contador == 0) {
+            Fragment fragment = new Demandas();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contador++;
+        }
+    }
+
+    public void cerrarFragment(View vista){
+
+//        Toast.makeText(this, "hgrksmk", Toast.LENGTH_SHORT).show();
+//        this.getFragmentManager().popBackStack();
+        this.getSupportFragmentManager().popBackStack();
+        contador--;
+//        Fragment fragment;
+//        fragment = new Demandas();
+//
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.remove(fragment);
+//        transaction.commit();
     }
 
 
@@ -100,5 +229,9 @@ public class Juego extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
+    }
+
+    public PanelDeControl getPanelDeControl(){
+        return pdc;
     }
 }
