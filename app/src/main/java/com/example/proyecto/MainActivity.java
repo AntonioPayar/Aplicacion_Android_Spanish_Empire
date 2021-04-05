@@ -52,15 +52,6 @@ public class MainActivity extends AppCompatActivity {
         media.start();
     }
 
-//    public void abrirOpciones(View vista){
-//
-//        Fragment frag = new Opciones();
-//
-//        FragmentManager manager = getFragmentManager();
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, frag).commit();
-//    }
-
     public void abrirOpciones(View vista){
 
         Intent i = new Intent(this, Opciones.class);
@@ -69,21 +60,12 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-//    public void cerrarFragment(View vista){
-//
-//        FragmentManager manager = getFragmentManager();
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        manager.getBackStackEntryCount();
-//        transaction.remove(frag);
-//        transaction.commit();
-//    }
-
     public void comenzarPartida(View vista) throws InterruptedException {
 
         Intent intent = new Intent(this, Juego.class);
         Thread.sleep(2000);
         startActivity(intent);
-        overridePendingTransition(R.anim.partida_in, R.anim.fade_out);
+        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
         this.finish();
     }
 
