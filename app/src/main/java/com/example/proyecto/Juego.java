@@ -147,7 +147,7 @@ public class Juego extends AppCompatActivity {
         Intent i = new Intent(this, CrearMercancias.class);
         i.putExtra("segundosMerc", media.getCurrentPosition());
         startActivity(i);
-        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+        overridePendingTransition(R.anim.entrada, R.anim.salida);
     }
 
     public void abrirDemandas(View vista){
@@ -215,9 +215,15 @@ public class Juego extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0){
+                    decorView.setSystemUiVisibility(hideSystemBars());
+                }
+            }
+        });
 
         time += CrearMercancias.time - time;
 

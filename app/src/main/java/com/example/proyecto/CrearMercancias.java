@@ -123,9 +123,15 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
     public void onResume() {
         super.onResume();
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0){
+                    decorView.setSystemUiVisibility(hideSystemBars());
+                }
+            }
+        });
 
         if(!media.isPlaying() && media != null){
             media = MediaPlayer.create(this, R.raw.partida);
@@ -142,14 +148,14 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
     public void onBackPressed(){
 
         Intent i = new Intent(this, Juego.class);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        overridePendingTransition(R.anim.entrada, R.anim.salida);
         this.finish();
     }
 
     public void volverAtras(View vista){
 
         onBackPressed();
-        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+        overridePendingTransition(R.anim.entrada, R.anim.salida);
         this.finish();
     }
 
@@ -225,6 +231,7 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
                         control.crearMercancias(control.getEspana().getCastilla(), Integer.parseInt(String.valueOf(trigo_kg.getText())), ProductoNombre.Trigo);
                         trigo.setText(control.getEspana().getCastilla().getRecoleccionTrigo().getNombre() + " " + control.getEspana().getCastilla().getRecoleccionTrigo().getCantidad() + " kg");
                         trigo_seekbar.setMax(control.getEspana().getCastilla().getRecoleccionTrigo().getCantidad());
+                        Toast.makeText(this, "Mercancia de Trigo creada", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getCastilla().getRecoleccionTrigo().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
                     }
@@ -244,7 +251,7 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
                         control.crearMercancias(control.getEspana().getCastilla(), Integer.parseInt(String.valueOf(uvas_kg.getText())), ProductoNombre.Uvas);
                         uvas.setText(control.getEspana().getCastilla().getRecoleccionUvas().getNombre()+" "+control.getEspana().getCastilla().getRecoleccionUvas().getCantidad()+" kg");
                         uvas_seekbar.setMax(control.getEspana().getCastilla().getRecoleccionUvas().getCantidad());
-                        Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Mercancia de Uvas creada", Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(this, "Tiene que crear una mercancia superior a "+(control.getEspana().getCastilla().getRecoleccionUvas().getCantidad()*50)/100, Toast.LENGTH_LONG).show();
                     }
@@ -263,6 +270,7 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
                         control.crearMercancias(control.getEspana().getCastilla(), Integer.parseInt(String.valueOf(hierro_kg.getText())), ProductoNombre.Hierro);
                         hierro.setText(control.getEspana().getCastilla().getRecoleccionHierro().getNombre()+" "+control.getEspana().getCastilla().getRecoleccionHierro().getCantidad()+" kg");
                         hierro_seekbar.setMax(control.getEspana().getCastilla().getRecoleccionHierro().getCantidad());
+                        Toast.makeText(this, "Mercancia de Hierro creada", Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(this," Tiene que crear una mercancia superior a "+(control.getEspana().getCastilla().getRecoleccionHierro().getCantidad()*50)/100, Toast.LENGTH_LONG).show();
                     }

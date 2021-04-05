@@ -106,9 +106,15 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+        decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0){
+                    decorView.setSystemUiVisibility(hideSystemBars());
+                }
+            }
+        });
 
         if(!media.isPlaying() && media != null){
             media = MediaPlayer.create(this, R.raw.menu_theme);
