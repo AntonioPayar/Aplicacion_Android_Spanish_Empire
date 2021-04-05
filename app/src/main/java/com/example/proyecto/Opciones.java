@@ -13,21 +13,17 @@ import android.widget.Toast;
 public class Opciones extends AppCompatActivity {
 
     private View decorView;
-    private Button volver;
     private MediaPlayer media2;
     private int time;
-    private MainActivity a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
 
-        volver = (Button)findViewById(R.id.boton_salir);
 
         time = getIntent().getIntExtra("segundos", 4);
 
-        a = new MainActivity();
         media2 = MediaPlayer.create(this, R.raw.menu_theme);
         media2.setVolume(10, 10);
         media2.setLooping(true);
@@ -75,6 +71,7 @@ public class Opciones extends AppCompatActivity {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
     }
+
     public void mensaje1(View vista){
 
         MediaPlayer media = new MediaPlayer();
@@ -84,6 +81,7 @@ public class Opciones extends AppCompatActivity {
         media.seekTo(3200);
         media.start();
     }
+
     public void mensaje2(View vista){
 
         Toast.makeText(this, "puto", Toast.LENGTH_SHORT).show();

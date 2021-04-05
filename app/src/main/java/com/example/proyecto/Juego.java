@@ -17,12 +17,9 @@ public class Juego extends AppCompatActivity {
 
     private View decorView;
     private MediaPlayer media;
-    private PanelDeControl pdc;
-    private int time;
+    private static PanelDeControl pdc;
+    private static int time;
     private int contador = 0;
-
-//Crear Brunch
-    // Otro ejemplo Jp
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +47,14 @@ public class Juego extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void abrirMercancias(View vista){
+
+        Intent i = new Intent(this, CrearMercancias.class);
+        i.putExtra("segundosMerc", media.getCurrentPosition());
+        startActivity(i);
+        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
     }
 
     public void abrirDemandas(View vista){
@@ -121,6 +126,8 @@ public class Juego extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+        time += CrearMercancias.time - time;
+
         if(!media.isPlaying() && media != null){
             media = MediaPlayer.create(this, R.raw.partida);
             Log.i("a", ""+time);
@@ -141,7 +148,7 @@ public class Juego extends AppCompatActivity {
         this.finish();
     }
 
-    public PanelDeControl getPanelDeControl(){
+    public static PanelDeControl getPanelDeControl(){
         return pdc;
     }
 }
