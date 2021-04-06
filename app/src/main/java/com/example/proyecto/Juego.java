@@ -3,14 +3,14 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
@@ -20,10 +20,8 @@ public class Juego extends AppCompatActivity {
     private static PanelDeControl pdc;
     private int time;
     private int contador = 0;
+    private int contadorVentanas = 0;
     private boolean mapa=false;
-
-//Crear Brunch
-    // Otro ejemplo Jp
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         try {
-           pdc = new PanelDeControl();
+            pdc = new PanelDeControl();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,7 +50,7 @@ public class Juego extends AppCompatActivity {
             }
         });
     }
-    /**Onclick al pulsal el Boton Cambio**/
+    /**Onclick al pulsar el Boton Cambio**/
     public void cambioContinente(View view){
         Fragment mapa2;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -142,32 +140,56 @@ public class Juego extends AppCompatActivity {
         }
     }
 
-    public void abrirMercancias(View vista){
-
-        Intent i = new Intent(this, CrearMercancias.class);
-        i.putExtra("segundosMerc", media.getCurrentPosition());
-        startActivity(i);
-        overridePendingTransition(R.anim.entrada, R.anim.salida);
-    }
-
+    /**
+     * Método que abre un fragment en el que se informa el usuario de las demandas / tareas que se debe hacer en los turnos
+     * @param vista
+     */
     public void abrirDemandas(View vista){
 
-        if(contador == 0) {
+        if(contadorVentanas == 0) {
             Fragment fragment = new Demandas();
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frameLayout, fragment);
             transaction.addToBackStack(null);
             transaction.commit();
-            contador++;
+            contadorVentanas++;
+        }else{
+            Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
         }
     }
+
+    /**
+     * Método que abre un fragment en el que se muestra los diferentes reinos que hay y asi acceder a sus mercancias disponibles
+     * @param vista
+     */
+
+    public void abrirMercanciasMenu(View vista){
+
+        if(contadorVentanas == 0) {
+            Fragment fragment = new Mercancias();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contadorVentanas++;
+        }else{
+            Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * Método que cierra el fragment actualmente abierto ( Por ejemplo el fragment de Demandas )
+     * @param vista
+     */
 
     public void cerrarFragment(View vista){
 
 //        Toast.makeText(this, "hgrksmk", Toast.LENGTH_SHORT).show();
 //        this.getFragmentManager().popBackStack();
         this.getSupportFragmentManager().popBackStack();
+        contadorVentanas--;
         contador--;
 //        Fragment fragment;
 //        fragment = new Demandas();
@@ -176,6 +198,17 @@ public class Juego extends AppCompatActivity {
 //        transaction.remove(fragment);
 //        transaction.commit();
     }
+
+//    public static void enableDisableViewGroup(ViewGroup viewGroup, boolean enabled) {
+//        int childCount = viewGroup.getChildCount();
+//        for (int i = 0; i < childCount; i++) {
+//            View view = viewGroup.getChildAt(i);
+//            view.setEnabled(enabled);
+//            if (view instanceof ViewGroup) {
+//                enableDisableViewGroup((ViewGroup) view, enabled);
+//            }
+//        }
+//    }
 
 
     @Override
@@ -247,7 +280,20 @@ public class Juego extends AppCompatActivity {
         this.finish();
     }
 
+    /**
+     * Método que devuelve la partida actual
+     * @return
+     */
+
     public static PanelDeControl getPanelDeControl(){
         return pdc;
+    }
+
+    public void setContadorVentanas(int n){
+        contadorVentanas = n;
+    }
+
+    public int getMedia(){
+        return media.getCurrentPosition();
     }
 }
