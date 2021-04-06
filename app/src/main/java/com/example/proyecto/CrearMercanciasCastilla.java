@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.proyecto.Clases.ProductoNombre;
 
-public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
+public class CrearMercanciasCastilla extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
 
     private View decorView;
     private MediaPlayer media;
@@ -41,24 +41,24 @@ public class CrearMercancias extends AppCompatActivity implements SeekBar.OnSeek
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_mercancias);
+        setContentView(R.layout.activity_crear_mercancias_castilla);
 
         control = Juego.getPanelDeControl();
         time = getIntent().getIntExtra("segundosMerc", 4);
 
-        trigo = (TextView)findViewById(R.id.trigo_txtv);
+        trigo = (TextView)findViewById(R.id.oro_txtv);
         uvas = (TextView)findViewById(R.id.uvas_txtv);
         hierro = (TextView)findViewById(R.id.hierro_txtv);
 
         trigo_seekbar = (SeekBar)findViewById(R.id.seekBar_trigo);
-        uvas_seekbar = (SeekBar)findViewById(R.id.seekBar_uvas);
-        hierro_seekbar = (SeekBar)findViewById(R.id.seekBar_hierro);
+        uvas_seekbar = (SeekBar)findViewById(R.id.seekBar_tomates);
+        hierro_seekbar = (SeekBar)findViewById(R.id.seekBar_oro);
 
-        trigo_kg = (TextView)findViewById(R.id.trigo_kilos);
+        trigo_kg = (TextView)findViewById(R.id.oro_kilos);
         uvas_kg = (TextView)findViewById(R.id.uvas_kilos);
         hierro_kg = (TextView)findViewById(R.id.hierro_kilos);
 
-        botonTrigo = (Button)findViewById(R.id.boton_trigo);
+        botonTrigo = (Button)findViewById(R.id.boton_oro);
         botonUvas = (Button)findViewById(R.id.boton_uvas);
         botonHierro = (Button)findViewById(R.id.boton_hierro);
 

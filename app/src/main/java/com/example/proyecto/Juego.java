@@ -9,8 +9,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class Juego extends AppCompatActivity {
@@ -258,7 +256,7 @@ public class Juego extends AppCompatActivity {
             }
         });
 
-        time += CrearMercancias.time - time;
+        time += CrearMercanciasCastilla.time - time;
 
         if(!media.isPlaying() && media != null){
             media = MediaPlayer.create(this, R.raw.partida);

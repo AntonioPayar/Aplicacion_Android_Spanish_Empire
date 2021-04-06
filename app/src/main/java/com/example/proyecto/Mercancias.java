@@ -57,40 +57,40 @@ public class Mercancias extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        Intent intent = new Intent(getActivity(), CrearMercancias.class);
+        Intent intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
         getActivity().overridePendingTransition(R.anim.entrada, R.anim.salida);
 
         if(v.getId() == botonCastillaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonAragonMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonBorgonaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonAustriaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonNuevaEspanaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonNuevaGranadaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }else if(v.getId() == botonPeruMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasPeru.class);
 
         }else{
 
-            intent = new Intent(getActivity(), CrearMercancias.class);
+            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
 
         }
 
