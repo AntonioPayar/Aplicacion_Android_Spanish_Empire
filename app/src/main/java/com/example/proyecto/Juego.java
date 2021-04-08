@@ -2,6 +2,7 @@ package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ public class Juego extends AppCompatActivity {
     private int contador = 0;
     private int contadorVentanas = 0;
     private boolean mapa=false;
+    private boolean frag_prod=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,92 +52,143 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsar el Boton Cambio**/
     public void cambioContinente(View view){
-
         Fragment mapa2;
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if(this.mapa==false){
-            this.mapa=true;
-            mapa2 = new mapaFragmento03();
-            Toast.makeText(this, "America", Toast.LENGTH_SHORT).show();
+        FragmentTransaction transaction ;
+        //Comprobar que ha cerrado las producciones primero
+        if(this.frag_prod==false){
+            //Si mapa es true significa que la trasicion de Fragments es de America a Europa
+            if(this.mapa==true){
+                this.mapa=false;
+                this.contador=0;
+                this.frag_prod=false;
+                FragmentManager fragMgr = this.getSupportFragmentManager();
+                mapa2= fragMgr.findFragmentById(R.id.fragment3);
+                if(mapa2!=null){
+                    transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.remove(mapa2);
+                    //transaction.addToBackStack("remove1");
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                    transaction.commit();
+                }else{
+                    Toast.makeText(this, "Error transicion mapa", Toast.LENGTH_SHORT).show();
+                }
+                //America a Europa
+            }else{
+                /**Tenemos que guardar el fragment de Europa como Fragmento "eurpoa" para tenerlo en el "historial" de los FragemntTrasction y si queremos volver
+                 * y que todo funcione como la primera vez que abrimos la aplicacion  tenemos que eliminar el fragment de America con el remove() **/
+                this.mapa=true;
+                //this.contador=0;
+                this.frag_prod=false;
+                mapa2 = new mapaFragmento03();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.add(R.id.fragment3,mapa2,"europa");
+                transaction.addToBackStack("europa");
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.commit();
+                //Europa a America
+            }
         }else{
-            this.mapa=false;
-            mapa2 = new MapaFragmento02();
-            Toast.makeText(this, "Europa", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Cierre las Producciones", Toast.LENGTH_SHORT).show();
         }
-        transaction.replace(R.id.fragment3, mapa2);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
     /**Onclick al pulsal el ImagenView Castilla**/
     public void botoncastilla(View view){
         if(mapa==false && contador==0){
-            abrirProductosEuropa();
-            Toast.makeText(this, "Castilla", Toast.LENGTH_SHORT).show();
+            abrirFrameProductos(1);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
     /**Onclick al pulsal el ImagenView Aragon**/
     public void botonaragon(View view){
         if(mapa==false && contador==0){
-            abrirProductosEuropa();
-            Toast.makeText(this, "Aragon", Toast.LENGTH_SHORT).show();
+            abrirFrameProductos(2);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
     /**Onclick al pulsal el ImagenView Flandes**/
     public void botonborgona(View view){
         if(mapa==false && contador==0){
-            abrirProductosEuropa();
-            Toast.makeText(this, "Borgona", Toast.LENGTH_SHORT).show();
+            abrirFrameProductos(3);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
     /**Onclick al pulsal el ImagenView Austia**/
     public void botonhasburgo(View view){
         if(mapa==false && contador==0){
-            abrirProductosEuropa();
-            Toast.makeText(this, "Hasburgo", Toast.LENGTH_SHORT).show();
+            abrirFrameProductos(4);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
     /**Onclick al pulsal el ImagenView NuevaCastilla**/
     public void botonNuevaEspana(View view){
-        abrirProductosAmerica();
-        Toast.makeText(this, "NuevaCastilla", Toast.LENGTH_SHORT).show();
+        if(contador==0){
+            abrirFrameProductos(5);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+        }
     }
     /**Onclick al pulsal el ImagenView Nueva Granada**/
     public void botonNuevaGranada(View view){
-        abrirProductosAmerica();
-        Toast.makeText(this, "Nueva Granada", Toast.LENGTH_SHORT).show();
+        if(contador==0){
+            abrirFrameProductos(6);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+        }
     }
     /**Onclick al pulsal el ImagenView Peru**/
     public void botonPeru(View view){
-        abrirProductosAmerica();
-        Toast.makeText(this, "Peru", Toast.LENGTH_SHORT).show();
+        if(contador==0){
+            abrirFrameProductos(7);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+        }
     }
     /**Onclick al pulsal el ImagenView Plata**/
     public void botonPlata(View view){
-        abrirProductosAmerica();
-        Toast.makeText(this, "Plata", Toast.LENGTH_SHORT).show();
-    }
-    /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
-    public void abrirProductosAmerica(){
-        //De momento he puesto las demandas pero esto esta pensado para abrir la ventana respectiva de cada zona
-        if(contador == 0) {
-            Fragment fragment = new Demandas();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frameamerica, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-            contador++;
+        if(contador==0){
+            abrirFrameProductos(8);
+        }else{
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
+
     /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
-    public void abrirProductosEuropa(){
-        //De momento he puesto las demandas pero esto esta pensado para abrir la ventana respectiva de cada zona
-        if(contador == 0) { // && abierto = false
-            Fragment fragment = new Demandas();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frameuropa, fragment);
+    public void abrirFrameProductos(int zona){
+        if(contador == 0 && this.frag_prod==false) {
+            //Toast.makeText(this, "opem", Toast.LENGTH_SHORT).show();
+            Fragment fragment;
+            FragmentTransaction transaction;
+            this.frag_prod=true;
+            //Si la el int de la zona es > que 4 se abre el frame de America si es al contrario el de Europa
+            if(zona>4){
+                fragment = new ProductosFragment(zona);
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frameamerica, fragment);
+            }else{
+                fragment = new ProductosFragment(zona);
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.addToBackStack("Fragment1");
+                transaction.replace(R.id.frameuropa, fragment);
+            }
             transaction.addToBackStack(null);
             transaction.commit();
-            contador++;
+        }else{
+            Toast.makeText(this, "Cierre las producciones primero", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**Metodo encargado de cerrar el Fragment de los Productos**/
+    public void cerrarFrameProductos(View vista){
+        if(this.frag_prod==true){
+            this.getSupportFragmentManager().popBackStack();
+            this.frag_prod=false;
+            //Toast.makeText(this, "close", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Ya esta abierto", Toast.LENGTH_SHORT).show();
         }
     }
 

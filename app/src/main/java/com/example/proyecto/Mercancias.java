@@ -65,7 +65,7 @@ public class Mercancias extends Fragment implements View.OnClickListener{
 
         }else if(v.getId() == botonAragonMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasAragon.class);
 
         }else if(v.getId() == botonBorgonaMerc.getId()){
 
@@ -81,7 +81,7 @@ public class Mercancias extends Fragment implements View.OnClickListener{
 
         }else if(v.getId() == botonNuevaGranadaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasNuevaGranada.class);
 
         }else if(v.getId() == botonPeruMerc.getId()){
 
@@ -89,7 +89,7 @@ public class Mercancias extends Fragment implements View.OnClickListener{
 
         }else{
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasPlata.class);
 
         }
 
