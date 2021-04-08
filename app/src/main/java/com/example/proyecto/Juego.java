@@ -55,7 +55,7 @@ public class Juego extends AppCompatActivity {
         Fragment mapa2;
         FragmentTransaction transaction ;
         //Comprobar que ha cerrado las producciones primero
-        if(this.frag_prod==false){
+        if(this.frag_prod==false && contadorVentanas==0){
             //Si mapa es true significa que la trasicion de Fragments es de America a Europa
             if(this.mapa==true){
                 this.mapa=false;
@@ -93,7 +93,7 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsal el ImagenView Castilla**/
     public void botoncastilla(View view){
-        if(mapa==false && contador==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
             abrirFrameProductos(1);
         }else{
             Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
@@ -101,7 +101,7 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsal el ImagenView Aragon**/
     public void botonaragon(View view){
-        if(mapa==false && contador==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
             abrirFrameProductos(2);
         }else{
             Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
@@ -109,7 +109,7 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsal el ImagenView Flandes**/
     public void botonborgona(View view){
-        if(mapa==false && contador==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
             abrirFrameProductos(3);
         }else{
             Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
@@ -117,7 +117,7 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsal el ImagenView Austia**/
     public void botonhasburgo(View view){
-        if(mapa==false && contador==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
             abrirFrameProductos(4);
         }else{
             Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
@@ -218,7 +218,7 @@ public class Juego extends AppCompatActivity {
 
     public void abrirMercanciasMenu(View vista){
 
-        if(contadorVentanas == 0) {
+        if(contadorVentanas == 0 && this.frag_prod==false) {
             Fragment fragment = new Mercancias();
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -242,8 +242,13 @@ public class Juego extends AppCompatActivity {
 //        Toast.makeText(this, "hgrksmk", Toast.LENGTH_SHORT).show();
 //        this.getFragmentManager().popBackStack();
         this.getSupportFragmentManager().popBackStack();
-        contadorVentanas--;
-        contador--;
+
+        if(this.contador>0){
+            contador--;
+        }else if(this.contadorVentanas>0){
+            contadorVentanas--;
+        }
+
 //        Fragment fragment;
 //        fragment = new Demandas();
 //
