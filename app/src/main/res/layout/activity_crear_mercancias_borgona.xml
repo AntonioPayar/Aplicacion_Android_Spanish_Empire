@@ -24,7 +24,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="64dp"
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -118,48 +118,48 @@
         app:layout_constraintVertical_bias="0.256" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="50dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hierro" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/arroz" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="50dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/tomate" />
-
-    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="50dp"
         android:layout_height="63dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/patata" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="50dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/tomate" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/arroz" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroBorgona"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hierro" />
 
     <TextView
         android:id="@+id/hierroBorgona_txtv"
@@ -228,14 +228,14 @@
         android:id="@+id/hierro_kilosBorgona"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toEndOf="@+id/seekBar_hierroBorgona"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -243,34 +243,19 @@
         android:id="@+id/arroz_kilosBorgona"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toEndOf="@+id/seekBar_arrozBorgona"
         app:layout_constraintTop_toBottomOf="@+id/hierro_kilosBorgona" />
 
     <TextView
         android:id="@+id/tomates_kilosBorgona"
-        android:layout_width="77dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginRight="208dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_tomatesBorgona"
-        app:layout_constraintTop_toBottomOf="@+id/arroz_kilosBorgona" />
-
-    <TextView
-        android:id="@+id/patatas_kilosBorgona"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="44dp"
@@ -280,7 +265,22 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_tomatesBorgona"
+        app:layout_constraintTop_toBottomOf="@+id/arroz_kilosBorgona" />
+
+    <TextView
+        android:id="@+id/patatas_kilosBorgona"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toEndOf="@+id/seekBar_patatasBorgona"
         app:layout_constraintTop_toBottomOf="@+id/tomates_kilosBorgona" />
 
@@ -314,13 +314,13 @@
         android:id="@+id/boton_hierroBorgona"
         android:layout_width="130dp"
         android:layout_height="54dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/boton_mercancias"
         android:text="Crear Mercancia Hierro"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
@@ -328,13 +328,13 @@
         android:id="@+id/boton_arrozBorgona"
         android:layout_width="130dp"
         android:layout_height="54dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/boton_mercancias"
         android:text="Crear Mercancia Arroz"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/boton_hierroBorgona" />
 
@@ -342,13 +342,13 @@
         android:id="@+id/boton_tomatesBorgona"
         android:layout_width="130dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/boton_mercancias"
         android:text="Crear Mercancia Tomates"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/boton_arrozBorgona" />
 
@@ -364,8 +364,9 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/boton_tomatesBorgona" />
+        app:layout_constraintTop_toBottomOf="@+id/boton_tomatesBorgona"
+        app:layout_constraintVertical_bias="0.947" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

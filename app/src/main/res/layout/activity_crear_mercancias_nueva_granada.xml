@@ -24,7 +24,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="56dp"
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -121,9 +121,9 @@
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="63dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintEnd_toStartOf="@+id/seekBar_oroNuevaGranada"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/oro" />
@@ -228,14 +228,14 @@
         android:id="@+id/oro_kilosNuevaGranada"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toEndOf="@+id/seekBar_oroNuevaGranada"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -243,19 +243,34 @@
         android:id="@+id/plata_kilosNuevaGranada"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toEndOf="@+id/seekBar_plataNuevaGranada"
         app:layout_constraintTop_toBottomOf="@+id/oro_kilosNuevaGranada" />
 
     <TextView
         android:id="@+id/tabaco_kilosNuevaGranada"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_tabacoNuevaGranada"
+        app:layout_constraintTop_toBottomOf="@+id/plata_kilosNuevaGranada" />
+
+    <TextView
+        android:id="@+id/cafe_kilosNuevaGranada"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="52dp"
@@ -265,22 +280,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_tabacoNuevaGranada"
-        app:layout_constraintTop_toBottomOf="@+id/plata_kilosNuevaGranada" />
-
-    <TextView
-        android:id="@+id/cafe_kilosNuevaGranada"
-        android:layout_width="77dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginRight="208dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toEndOf="@+id/seekBar_cafeNuevaGranada"
         app:layout_constraintTop_toBottomOf="@+id/tabaco_kilosNuevaGranada" />
 
@@ -328,13 +328,13 @@
         android:id="@+id/boton_plataNuevaGranada"
         android:layout_width="130dp"
         android:layout_height="54dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/boton_mercancias"
         android:text="Crear Mercancia Plata"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/boton_oroNuevaGranada" />
 
@@ -342,13 +342,13 @@
         android:id="@+id/boton_tabacoNuevaGranada"
         android:layout_width="130dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/boton_mercancias"
         android:text="Crear Mercancia Tabaco"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/boton_plataNuevaGranada" />
 
@@ -364,8 +364,9 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.726"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/boton_tabacoNuevaGranada" />
+        app:layout_constraintTop_toBottomOf="@+id/boton_tabacoNuevaGranada"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

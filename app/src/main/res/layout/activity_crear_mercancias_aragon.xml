@@ -24,12 +24,12 @@
         android:id="@+id/trigo_kilosAragon"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="152dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toEndOf="@+id/seekBar_trigoAragon"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,12 +61,12 @@
         android:id="@+id/uvas_kilosAragon"
         android:layout_width="77dp"
         android:layout_height="29dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toEndOf="@+id/seekBar_uvasAragon"
         app:layout_constraintTop_toBottomOf="@+id/trigo_kilosAragon" />
 
@@ -74,7 +74,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="84dp"
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"

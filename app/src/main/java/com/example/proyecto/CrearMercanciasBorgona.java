@@ -215,7 +215,7 @@ public class CrearMercanciasBorgona extends AppCompatActivity implements Mercanc
         }else if(seekBar.getId() == tomates_seekbar.getId()){
             tomates_kg.setText(""+progress);
         }else{
-            hierro_kg.setText(""+progress);
+            patatas_kg.setText(""+progress);
         }
     }
 
