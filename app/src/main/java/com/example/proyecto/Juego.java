@@ -16,7 +16,7 @@ public class Juego extends AppCompatActivity {
     private View decorView;
     private MediaPlayer media;
     private static PanelDeControl pdc;
-    private int time;
+    private static int time;
     private int contador = 0;
     private int contadorVentanas = 0;
     private boolean mapa=false;
@@ -50,6 +50,7 @@ public class Juego extends AppCompatActivity {
     }
     /**Onclick al pulsar el Boton Cambio**/
     public void cambioContinente(View view){
+
         Fragment mapa2;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if(this.mapa==false){
@@ -128,7 +129,7 @@ public class Juego extends AppCompatActivity {
     /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
     public void abrirProductosEuropa(){
         //De momento he puesto las demandas pero esto esta pensado para abrir la ventana respectiva de cada zona
-        if(contador == 0) {
+        if(contador == 0) { // && abierto = false
             Fragment fragment = new Demandas();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frameuropa, fragment);
@@ -172,6 +173,7 @@ public class Juego extends AppCompatActivity {
             transaction.addToBackStack(null);
             transaction.commit();
             contadorVentanas++;
+            //abierto = true;
         }else{
             Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
         }
@@ -256,7 +258,7 @@ public class Juego extends AppCompatActivity {
             }
         });
 
-        time += CrearMercanciasCastilla.time - time;
+//        time += CrearMercanciasCastilla.time - time;
 
         if(!media.isPlaying() && media != null){
             media = MediaPlayer.create(this, R.raw.partida);
@@ -294,4 +296,6 @@ public class Juego extends AppCompatActivity {
     public int getMedia(){
         return media.getCurrentPosition();
     }
+
+    public static void setMedia(int time){ Juego.time = time; }
 }

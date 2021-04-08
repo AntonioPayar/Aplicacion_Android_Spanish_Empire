@@ -9,7 +9,7 @@
 
     <SeekBar
         android:outlineSpotShadowColor="@color/white"
-        android:id="@+id/seekBar_trigo"
+        android:id="@+id/seekBar_trigoCastilla"
         android:layout_width="309dp"
         android:layout_height="36dp"
         android:background="@color/marron_opciones"
@@ -22,7 +22,7 @@
 
     <SeekBar
         android:outlineSpotShadowColor="@color/white"
-        android:id="@+id/seekBar_oro"
+        android:id="@+id/seekBar_hierroCastilla"
         android:layout_width="309dp"
         android:layout_height="36dp"
         android:background="@color/marron_opciones"
@@ -35,7 +35,7 @@
 
     <SeekBar
         android:outlineSpotShadowColor="@color/white"
-        android:id="@+id/seekBar_tomates"
+        android:id="@+id/seekBar_uvasCastilla"
         android:layout_width="309dp"
         android:layout_height="36dp"
         android:background="@color/marron_opciones"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.575" />
 
     <TextView
-        android:id="@+id/oro_kilos"
+        android:id="@+id/trigo_kilosCastilla"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="96dp"
@@ -56,11 +56,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_trigo"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_trigoCastilla"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/uvas_kilos"
+        android:id="@+id/uvas_kilosCastilla"
         android:layout_width="77dp"
         android:layout_height="29dp"
         android:layout_marginTop="84dp"
@@ -69,11 +69,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_tomates"
-        app:layout_constraintTop_toBottomOf="@+id/oro_kilos" />
+        app:layout_constraintStart_toEndOf="@+id/seekBar_uvasCastilla"
+        app:layout_constraintTop_toBottomOf="@+id/trigo_kilosCastilla" />
 
     <TextView
-        android:id="@+id/hierro_kilos"
+        android:id="@+id/hierro_kilosCastilla"
         android:layout_width="72dp"
         android:layout_height="29dp"
         android:gravity="center"
@@ -82,8 +82,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_oro"
-        app:layout_constraintTop_toBottomOf="@+id/uvas_kilos"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_hierroCastilla"
+        app:layout_constraintTop_toBottomOf="@+id/uvas_kilosCastilla"
         app:layout_constraintVertical_bias="0.617" />
 
     <TextView
@@ -94,9 +94,9 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boton_hierro"
+        app:layout_constraintEnd_toStartOf="@+id/boton_hierroCastilla"
         app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toEndOf="@+id/hierro_kilos"
+        app:layout_constraintStart_toEndOf="@+id/hierro_kilosCastilla"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.616" />
 
@@ -105,7 +105,7 @@
         android:layout_width="64dp"
         android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_oro"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_hierroCastilla"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
@@ -117,7 +117,7 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_tomates"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_uvasCastilla"
         app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -128,7 +128,7 @@
         android:layout_width="100dp"
         android:layout_height="78dp"
         android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_trigo"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_trigoCastilla"
         app:layout_constraintHorizontal_bias="0.263"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -143,7 +143,7 @@
         android:text="Mercancía de Castilla"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_trigo"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_trigoCastilla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,13 +151,13 @@
         app:layout_constraintVertical_bias="0.14" />
 
     <TextView
-        android:id="@+id/oro_txtv"
+        android:id="@+id/trigoCastilla_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_trigo"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_trigoCastilla"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -165,35 +165,35 @@
         app:layout_constraintVertical_bias="0.761" />
 
     <TextView
-        android:id="@+id/uvas_txtv"
+        android:id="@+id/uvasCastilla_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_tomates"
-        app:layout_constraintEnd_toStartOf="@+id/uvas_kilos"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_uvasCastilla"
+        app:layout_constraintEnd_toStartOf="@+id/uvas_kilosCastilla"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_trigo"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_trigoCastilla"
         app:layout_constraintVertical_bias="0.575" />
 
     <TextView
-        android:id="@+id/hierro_txtv"
+        android:id="@+id/hierroCastilla_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_oro"
-        app:layout_constraintEnd_toStartOf="@+id/hierro_kilos"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_hierroCastilla"
+        app:layout_constraintEnd_toStartOf="@+id/hierro_kilosCastilla"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_tomates"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_uvasCastilla"
         app:layout_constraintVertical_bias="0.632" />
 
     <Button
-        android:id="@+id/boton_hierro"
+        android:id="@+id/boton_hierroCastilla"
         android:layout_width="134dp"
         android:layout_height="61dp"
         android:background="@drawable/boton_mercancias"
@@ -203,8 +203,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.776"
-        app:layout_constraintStart_toEndOf="@+id/hierro_kilos"
-        app:layout_constraintTop_toBottomOf="@+id/boton_uvas"
+        app:layout_constraintStart_toEndOf="@+id/hierro_kilosCastilla"
+        app:layout_constraintTop_toBottomOf="@+id/boton_uvasCastilla"
         app:layout_constraintVertical_bias="0.644" />
 
     <ImageButton
@@ -214,7 +214,7 @@
         android:background="?selectableItemBackground"
         android:onClick="volverAtras"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/oro_kilos"
+        app:layout_constraintBottom_toTopOf="@+id/trigo_kilosCastilla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -223,7 +223,7 @@
         app:srcCompat="@drawable/atras" />
 
     <Button
-        android:id="@+id/boton_uvas"
+        android:id="@+id/boton_uvasCastilla"
         android:layout_width="125dp"
         android:layout_height="58dp"
         android:layout_marginTop="52dp"
@@ -233,11 +233,11 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.648"
-        app:layout_constraintStart_toEndOf="@+id/uvas_kilos"
-        app:layout_constraintTop_toBottomOf="@+id/boton_oro" />
+        app:layout_constraintStart_toEndOf="@+id/uvas_kilosCastilla"
+        app:layout_constraintTop_toBottomOf="@+id/boton_trigoCastilla" />
 
     <Button
-        android:id="@+id/boton_oro"
+        android:id="@+id/boton_trigoCastilla"
         android:layout_width="130dp"
         android:layout_height="54dp"
         android:layout_marginTop="8dp"
@@ -247,7 +247,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.686"
-        app:layout_constraintStart_toEndOf="@+id/oro_kilos"
+        app:layout_constraintStart_toEndOf="@+id/trigo_kilosCastilla"
         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <TextView
@@ -258,9 +258,9 @@
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/boton_uvas"
+        app:layout_constraintEnd_toStartOf="@+id/boton_uvasCastilla"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/uvas_kilos"
+        app:layout_constraintStart_toEndOf="@+id/uvas_kilosCastilla"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
@@ -271,9 +271,9 @@
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/boton_oro"
+        app:layout_constraintEnd_toStartOf="@+id/boton_trigoCastilla"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/oro_kilos"
+        app:layout_constraintStart_toEndOf="@+id/trigo_kilosCastilla"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

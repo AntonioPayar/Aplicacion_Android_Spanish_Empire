@@ -57,8 +57,7 @@ public class Mercancias extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        Intent intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
-        getActivity().overridePendingTransition(R.anim.entrada, R.anim.salida);
+        Intent intent = null;
 
         if(v.getId() == botonCastillaMerc.getId()){
 
@@ -70,15 +69,15 @@ public class Mercancias extends Fragment implements View.OnClickListener{
 
         }else if(v.getId() == botonBorgonaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasBorgona.class);
 
         }else if(v.getId() == botonAustriaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasAustria.class);
 
         }else if(v.getId() == botonNuevaEspanaMerc.getId()){
 
-            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+            intent = new Intent(getActivity(), CrearMercanciasNuevaEspana.class);
 
         }else if(v.getId() == botonNuevaGranadaMerc.getId()){
 

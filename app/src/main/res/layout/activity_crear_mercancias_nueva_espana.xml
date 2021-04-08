@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tablas"
-    tools:context=".CrearMercanciasPeru">
+    tools:context=".CrearMercanciasNuevaEspana">
 
     <TextView
         android:id="@+id/textView10"
@@ -17,20 +17,20 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tomates_kilosPeru"
+        app:layout_constraintStart_toEndOf="@+id/tomates_kilosNuevaEspana"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="44dp"
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/patatas_kilosPeru"
+        app:layout_constraintStart_toEndOf="@+id/trigo_kilosNuevaEspana"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
@@ -40,10 +40,10 @@
         android:layout_marginTop="16dp"
         android:fontFamily="monospace"
         android:gravity="center"
-        android:text="Mercancía de Perú"
+        android:text="Mercancía de Nueva España"
         android:textColor="@color/black"
         android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_oroPeru"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
         android:background="?selectableItemBackground"
         android:onClick="volverAtras"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/oro_kilosPeru"
+        app:layout_constraintBottom_toTopOf="@+id/oro_kilosNuevaEspana"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.831"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -66,7 +66,7 @@
         app:srcCompat="@drawable/atras" />
 
     <SeekBar
-        android:id="@+id/seekBar_patatasPeru"
+        android:id="@+id/seekBar_TrigoNuevaEspana"
         android:layout_width="306dp"
         android:layout_height="38dp"
         android:background="@color/marron_opciones"
@@ -75,11 +75,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_tomatesPeru"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_tomatesNuevaEspana"
         app:layout_constraintVertical_bias="0.741" />
 
     <SeekBar
-        android:id="@+id/seekBar_maizPeru"
+        android:id="@+id/seekBar_maizNuevaEspana"
         android:layout_width="306dp"
         android:layout_height="38dp"
         android:background="@color/marron_opciones"
@@ -88,11 +88,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_oroPeru"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintVertical_bias="0.22" />
 
     <SeekBar
-        android:id="@+id/seekBar_tomatesPeru"
+        android:id="@+id/seekBar_tomatesNuevaEspana"
         android:layout_width="306dp"
         android:layout_height="38dp"
         android:background="@color/marron_opciones"
@@ -101,11 +101,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_maizPeru"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_maizNuevaEspana"
         app:layout_constraintVertical_bias="0.304" />
 
     <SeekBar
-        android:id="@+id/seekBar_oroPeru"
+        android:id="@+id/seekBar_oroNuevaEspana"
         android:layout_width="306dp"
         android:layout_height="38dp"
         android:background="@color/marron_opciones"
@@ -122,7 +122,7 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroPeru"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -133,7 +133,7 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroPeru"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
@@ -144,7 +144,7 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroPeru"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
@@ -155,14 +155,14 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroPeru"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/patata" />
+        app:srcCompat="@drawable/trigo" />
 
     <TextView
-        android:id="@+id/oroPeru_txtv"
+        android:id="@+id/oroNuevaEspana_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="352dp"
@@ -170,14 +170,14 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_oroPeru"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/maizPeru_txtv"
+        android:id="@+id/maizNuevaEspana_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="352dp"
@@ -185,15 +185,15 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_maizPeru"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_maizNuevaEspana"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_oroPeru"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintVertical_bias="0.68" />
 
     <TextView
-        android:id="@+id/tomatesPeru_txtv"
+        android:id="@+id/tomatesNuevaEspana_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="356dp"
@@ -201,14 +201,14 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_tomatesPeru"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_tomatesNuevaEspana"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_maizPeru" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_maizNuevaEspana" />
 
     <TextView
-        android:id="@+id/patatasPeru_txtv"
+        android:id="@+id/trigoNuevaEspana_txtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -217,15 +217,15 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_patatasPeru"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar_TrigoNuevaEspana"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_tomatesPeru"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_tomatesNuevaEspana"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/oro_kilosPeru"
+        android:id="@+id/oro_kilosNuevaEspana"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="84dp"
@@ -235,12 +235,12 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_trigoCastilla"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_oroNuevaEspana"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/maiz_kilosPeru"
+        android:id="@+id/maiz_kilosNuevaEspana"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="56dp"
@@ -250,12 +250,12 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_trigoCastilla"
-        app:layout_constraintTop_toBottomOf="@+id/oro_kilosPeru" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_maizNuevaEspana"
+        app:layout_constraintTop_toBottomOf="@+id/oro_kilosNuevaEspana" />
 
     <TextView
-        android:id="@+id/tomates_kilosPeru"
+        android:id="@+id/tomates_kilosNuevaEspana"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="52dp"
@@ -265,24 +265,24 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_trigoCastilla"
-        app:layout_constraintTop_toBottomOf="@+id/maiz_kilosPeru" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_tomatesNuevaEspana"
+        app:layout_constraintTop_toBottomOf="@+id/maiz_kilosNuevaEspana" />
 
     <TextView
-        android:id="@+id/patatas_kilosPeru"
+        android:id="@+id/trigo_kilosNuevaEspana"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_trigoCastilla"
-        app:layout_constraintTop_toBottomOf="@+id/tomates_kilosPeru" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_TrigoNuevaEspana"
+        app:layout_constraintTop_toBottomOf="@+id/tomates_kilosNuevaEspana" />
 
     <TextView
         android:id="@+id/textView5"
@@ -294,7 +294,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/oro_kilosPeru"
+        app:layout_constraintStart_toEndOf="@+id/oro_kilosNuevaEspana"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -307,11 +307,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/maiz_kilosPeru"
+        app:layout_constraintStart_toEndOf="@+id/maiz_kilosNuevaEspana"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/boton_oroPeru"
+        android:id="@+id/boton_oroNuevaEspana"
         android:layout_width="130dp"
         android:layout_height="54dp"
         android:layout_marginTop="8dp"
@@ -325,46 +325,47 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <Button
-        android:id="@+id/boton_maizPeru"
+        android:id="@+id/boton_maizNuevaEspana"
         android:layout_width="130dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/boton_mercancias"
-        android:text="Crear Mercancia Maíz"
+        android:text="Crear Mercancia Maiz"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/boton_oroPeru" />
+        app:layout_constraintTop_toBottomOf="@+id/boton_oroNuevaEspana" />
 
     <Button
-        android:id="@+id/boton_tomatePeru"
+        android:id="@+id/boton_tomatesNuevaEspana"
         android:layout_width="130dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/boton_mercancias"
-        android:text="Crear Mercancia Tomate"
+        android:text="Crear Mercancia Tomates"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/boton_maizPeru" />
+        app:layout_constraintTop_toBottomOf="@+id/boton_maizNuevaEspana" />
 
     <Button
-        android:id="@+id/boton_patatasPeru"
+        android:id="@+id/boton_trigoNuevaEspana"
         android:layout_width="130dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/boton_mercancias"
-        android:text="Crear Mercancia Patatas"
+        android:text="Crear Mercancia Trigo"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/boton_tomatePeru" />
-
+        app:layout_constraintTop_toBottomOf="@+id/boton_tomatesNuevaEspana" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

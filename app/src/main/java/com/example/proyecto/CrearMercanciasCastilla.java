@@ -46,21 +46,21 @@ public class CrearMercanciasCastilla extends AppCompatActivity implements SeekBa
         control = Juego.getPanelDeControl();
         time = getIntent().getIntExtra("segundosMerc", 4);
 
-        trigo = (TextView)findViewById(R.id.oro_txtv);
-        uvas = (TextView)findViewById(R.id.uvas_txtv);
-        hierro = (TextView)findViewById(R.id.hierro_txtv);
+        trigo = (TextView)findViewById(R.id.trigoCastilla_txtv);
+        uvas = (TextView)findViewById(R.id.uvasCastilla_txtv);
+        hierro = (TextView)findViewById(R.id.hierroCastilla_txtv);
 
-        trigo_seekbar = (SeekBar)findViewById(R.id.seekBar_trigo);
-        uvas_seekbar = (SeekBar)findViewById(R.id.seekBar_tomates);
-        hierro_seekbar = (SeekBar)findViewById(R.id.seekBar_oro);
+        trigo_seekbar = (SeekBar)findViewById(R.id.seekBar_trigoCastilla);
+        uvas_seekbar = (SeekBar)findViewById(R.id.seekBar_uvasCastilla);
+        hierro_seekbar = (SeekBar)findViewById(R.id.seekBar_hierroCastilla);
 
-        trigo_kg = (TextView)findViewById(R.id.oro_kilos);
-        uvas_kg = (TextView)findViewById(R.id.uvas_kilos);
-        hierro_kg = (TextView)findViewById(R.id.hierro_kilos);
+        trigo_kg = (TextView)findViewById(R.id.trigo_kilosCastilla);
+        uvas_kg = (TextView)findViewById(R.id.uvas_kilosCastilla);
+        hierro_kg = (TextView)findViewById(R.id.hierro_kilosCastilla);
 
-        botonTrigo = (Button)findViewById(R.id.boton_oro);
-        botonUvas = (Button)findViewById(R.id.boton_uvas);
-        botonHierro = (Button)findViewById(R.id.boton_hierro);
+        botonTrigo = (Button)findViewById(R.id.boton_trigoCastilla);
+        botonUvas = (Button)findViewById(R.id.boton_uvasCastilla);
+        botonHierro = (Button)findViewById(R.id.boton_hierroCastilla);
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
@@ -147,13 +147,14 @@ public class CrearMercanciasCastilla extends AppCompatActivity implements SeekBa
     @Override
     public void onBackPressed(){
 
-        Intent i = new Intent(this, Juego.class);
+        Juego.setMedia(media.getCurrentPosition());
         overridePendingTransition(R.anim.entrada, R.anim.salida);
         this.finish();
     }
 
     public void volverAtras(View vista){
 
+        Juego.setMedia(media.getCurrentPosition());
         onBackPressed();
         overridePendingTransition(R.anim.entrada, R.anim.salida);
         this.finish();

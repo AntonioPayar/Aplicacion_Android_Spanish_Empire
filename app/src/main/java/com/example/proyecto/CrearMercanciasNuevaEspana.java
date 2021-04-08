@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.proyecto.Clases.ProductoNombre;
 
-public class CrearMercanciasPeru extends AppCompatActivity implements MercanciasInterfaz {
+public class CrearMercanciasNuevaEspana extends AppCompatActivity implements MercanciasInterfaz {
 
     private View decorView;
     private MediaPlayer media;
@@ -24,52 +24,52 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
 
     private TextView oro;
     private TextView maiz;
-    private TextView tomates;
-    private TextView patatas;
+    private TextView tomate;
+    private TextView trigo;
 
     private SeekBar oro_seekbar;
     private SeekBar maiz_seekbar;
-    private SeekBar tomates_seekbar;
-    private SeekBar patatas_seekbar;
+    private SeekBar tomate_seekbar;
+    private SeekBar trigo_seekbar;
 
     private TextView oro_kg;
     private TextView maiz_kg;
-    private TextView tomates_kg;
-    private TextView patatas_kg;
+    private TextView tomate_kg;
+    private TextView trigo_kg;
 
     private Button botonOro;
     private Button botonMaiz;
     private Button botonTomates;
-    private Button botonPatatas;
+    private Button botonTrigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_mercancias_peru);
+        setContentView(R.layout.activity_crear_mercancias_nueva_espana);
 
         control = Juego.getPanelDeControl();
         time = getIntent().getIntExtra("segundosMerc", 4);
 
-        oro = (TextView)findViewById(R.id.oroPeru_txtv);
-        maiz = (TextView)findViewById(R.id.maizPeru_txtv);
-        tomates = (TextView)findViewById(R.id.tomatesPeru_txtv);
-        patatas = (TextView)findViewById(R.id.patatasPeru_txtv);
+        oro = (TextView)findViewById(R.id.oroNuevaEspana_txtv);
+        maiz = (TextView)findViewById(R.id.maizNuevaEspana_txtv);
+        tomate = (TextView)findViewById(R.id.tomatesNuevaEspana_txtv);
+        trigo = (TextView)findViewById(R.id.trigoNuevaEspana_txtv);
 
-        oro_seekbar = (SeekBar)findViewById(R.id.seekBar_oroPeru);
-        maiz_seekbar = (SeekBar)findViewById(R.id.seekBar_maizPeru);
-        tomates_seekbar = (SeekBar)findViewById(R.id.seekBar_tomatesPeru);
-        patatas_seekbar = (SeekBar)findViewById(R.id.seekBar_patatasPeru);
+        oro_seekbar = (SeekBar)findViewById(R.id.seekBar_oroNuevaEspana);
+        maiz_seekbar = (SeekBar)findViewById(R.id.seekBar_maizNuevaEspana);
+        tomate_seekbar = (SeekBar)findViewById(R.id.seekBar_tomatesNuevaEspana);
+        trigo_seekbar = (SeekBar)findViewById(R.id.seekBar_TrigoNuevaEspana);
 
-        oro_kg = (TextView)findViewById(R.id.oro_kilosPeru);
-        maiz_kg = (TextView)findViewById(R.id.maiz_kilosPeru);
-        tomates_kg = (TextView)findViewById(R.id.tomates_kilosPeru);
-        patatas_kg = (TextView)findViewById(R.id.patatas_kilosPeru);
+        oro_kg = (TextView)findViewById(R.id.oro_kilosNuevaEspana);
+        maiz_kg = (TextView)findViewById(R.id.maiz_kilosNuevaEspana);
+        tomate_kg = (TextView)findViewById(R.id.tomates_kilosNuevaEspana);
+        trigo_kg = (TextView)findViewById(R.id.trigo_kilosNuevaEspana);
 
 
-        botonOro = (Button)findViewById(R.id.boton_oroPeru);
-        botonMaiz = (Button)findViewById(R.id.boton_maizPeru);
-        botonTomates = (Button)findViewById(R.id.boton_tomatePeru);
-        botonPatatas = (Button)findViewById(R.id.boton_patatasPeru);
+        botonOro = (Button)findViewById(R.id.boton_oroNuevaEspana);
+        botonMaiz = (Button)findViewById(R.id.boton_maizNuevaEspana);
+        botonTomates = (Button)findViewById(R.id.boton_tomatesNuevaEspana);
+        botonTrigo = (Button)findViewById(R.id.boton_trigoNuevaEspana);
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
@@ -92,7 +92,7 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
         botonOro.setOnClickListener(this);
         botonMaiz.setOnClickListener(this);
         botonTomates.setOnClickListener(this);
-        botonPatatas.setOnClickListener(this);
+        botonTrigo.setOnClickListener(this);
     }
 
 
@@ -170,24 +170,20 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
         this.finish();
     }
 
-    /*public int devolverSegundos(){
+    public int devolverSegundos(){
 
         int segundos = 0;
 
         segundos = media.getCurrentPosition();
         return segundos;
-    }*/
+    }
 
     public void mostrarCantidadProductos() {
 
-        //Oro ------ x Kg
-        oro.setText(control.getEspana().getPeru().getRecoleccionOro().getNombre()+" "+control.getEspana().getPeru().getRecoleccionOro().getCantidad()+" kg");
-        //Maiz ------ x Kg
-        maiz.setText(control.getEspana().getPeru().getRecoleccionMaiz().getNombre()+" "+control.getEspana().getPeru().getRecoleccionMaiz().getCantidad()+" kg");
-        //Tomates ------ x Kg
-        tomates.setText(control.getEspana().getPeru().getRecoleccionTomate().getNombre()+" "+control.getEspana().getPeru().getRecoleccionTomate().getCantidad()+" kg");
-        //Patatas ------ x Kg
-        patatas.setText(control.getEspana().getPeru().getRecoleccionPatata().getNombre()+" "+control.getEspana().getPeru().getRecoleccionPatata().getCantidad()+" kg");
+        oro.setText(control.getEspana().getNuevaEspana().getRecoleccionOro().getNombre()+" "+control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad()+" kg");
+        maiz.setText(control.getEspana().getNuevaEspana().getRecoleccionMaiz().getNombre()+" "+control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad()+" kg");
+        tomate.setText(control.getEspana().getNuevaEspana().getRecoleccionTomate().getNombre()+" "+control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad()+" kg");
+        trigo.setText(control.getEspana().getNuevaEspana().getRecoleccionTrigo().getNombre()+" "+control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad()+" kg");
     }
 
     /**
@@ -197,15 +193,15 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
 
     public void colocarSeekBars() {
 
-        oro_seekbar.setMax(control.getEspana().getPeru().getRecoleccionOro().getCantidad());
-        maiz_seekbar.setMax(control.getEspana().getPeru().getRecoleccionMaiz().getCantidad());
-        tomates_seekbar.setMax(control.getEspana().getPeru().getRecoleccionTomate().getCantidad());
-        patatas_seekbar.setMax(control.getEspana().getPeru().getRecoleccionPatata().getCantidad());
+        oro_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad());
+        maiz_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad());
+        tomate_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad());
+        trigo_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad());
 
         oro_seekbar.setOnSeekBarChangeListener(this);
         maiz_seekbar.setOnSeekBarChangeListener(this);
-        tomates_seekbar.setOnSeekBarChangeListener(this);
-        patatas_seekbar.setOnSeekBarChangeListener(this);
+        tomate_seekbar.setOnSeekBarChangeListener(this);
+        trigo_seekbar.setOnSeekBarChangeListener(this);
 
     }
 
@@ -216,10 +212,10 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
             oro_kg.setText(""+progress);
         }else if(seekBar.getId() == maiz_seekbar.getId()){
             maiz_kg.setText(""+progress);
-        }else if(seekBar.getId() == tomates_seekbar.getId()){
-            tomates_kg.setText(""+progress);
+        }else if(seekBar.getId() == tomate_seekbar.getId()){
+            tomate_kg.setText(""+progress);
         }else{
-            patatas_kg.setText(""+progress);
+            trigo_kg.setText(""+progress);
         }
     }
 
@@ -240,13 +236,13 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
 
             try {
                 if (!oro_kg.getText().equals("0") && !oro_kg.getText().equals("")) {
-                    if (Integer.parseInt(String.valueOf(oro_kg.getText())) > (control.getEspana().getPeru().getRecoleccionOro().getCantidad() * 50) / 100) {
-                        control.crearMercancias(control.getEspana().getPeru(), Integer.parseInt(String.valueOf(oro_kg.getText())), ProductoNombre.Oro);
-                        oro.setText(control.getEspana().getPeru().getRecoleccionOro().getNombre() + " " + control.getEspana().getPeru().getRecoleccionOro().getCantidad() + " kg");
-                        oro_seekbar.setMax(control.getEspana().getPeru().getRecoleccionOro().getCantidad());
+                    if (Integer.parseInt(String.valueOf(oro_kg.getText())) > (control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad() * 50) / 100) {
+                        control.crearMercancias(control.getEspana().getNuevaEspana(), Integer.parseInt(String.valueOf(oro_kg.getText())), ProductoNombre.Oro);
+                        oro.setText(control.getEspana().getNuevaEspana().getRecoleccionOro().getNombre() + " " + control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad() + " kg");
+                        oro_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad());
                         Toast.makeText(this, "Mercancia de Oro creada", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getPeru().getRecoleccionOro().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getNuevaEspana().getRecoleccionOro().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
                     }
 
                 }else {
@@ -260,13 +256,13 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
 
             try {
                 if (!maiz_kg.getText().equals("0") && !maiz_kg.getText().equals("")) {
-                    if (Integer.parseInt(String.valueOf(maiz_kg.getText())) > (control.getEspana().getPeru().getRecoleccionMaiz().getCantidad() * 50) / 100) {
-                        control.crearMercancias(control.getEspana().getPeru(), Integer.parseInt(String.valueOf(maiz_kg.getText())), ProductoNombre.Maiz);
-                        maiz.setText(control.getEspana().getPeru().getRecoleccionMaiz().getNombre() + " " + control.getEspana().getPeru().getRecoleccionMaiz().getCantidad() + " kg");
-                        maiz_seekbar.setMax(control.getEspana().getPeru().getRecoleccionMaiz().getCantidad());
-                        Toast.makeText(this, "Mercancia de Maíz creada", Toast.LENGTH_SHORT).show();
+                    if (Integer.parseInt(String.valueOf(maiz_kg.getText())) > (control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad() * 50) / 100) {
+                        control.crearMercancias(control.getEspana().getNuevaEspana(), Integer.parseInt(String.valueOf(maiz_kg.getText())), ProductoNombre.Maiz);
+                        maiz.setText(control.getEspana().getNuevaEspana().getRecoleccionMaiz().getNombre() + " " + control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad() + " kg");
+                        maiz_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad());
+                        Toast.makeText(this, "Mercancia de Maiz creada", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getPeru().getRecoleccionMaiz().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getNuevaEspana().getRecoleccionMaiz().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
                     }
 
                 }else {
@@ -279,14 +275,14 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
         }else if(v.getId() == botonTomates.getId()){
 
             try {
-                if (!tomates_kg.getText().equals("0") && !tomates_kg.getText().equals("")) {
-                    if (Integer.parseInt(String.valueOf(tomates_kg.getText())) > (control.getEspana().getPeru().getRecoleccionTomate().getCantidad() * 50) / 100) {
-                        control.crearMercancias(control.getEspana().getPeru(), Integer.parseInt(String.valueOf(tomates_kg.getText())), ProductoNombre.Tomate);
-                        tomates.setText(control.getEspana().getPeru().getRecoleccionTomate().getNombre() + " " + control.getEspana().getPeru().getRecoleccionTomate().getCantidad() + " kg");
-                        tomates_seekbar.setMax(control.getEspana().getPeru().getRecoleccionTomate().getCantidad());
+                if (!tomate_kg.getText().equals("0") && !tomate_kg.getText().equals("")) {
+                    if (Integer.parseInt(String.valueOf(tomate_kg.getText())) > (control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad() * 50) / 100) {
+                        control.crearMercancias(control.getEspana().getNuevaEspana(), Integer.parseInt(String.valueOf(tomate_kg.getText())), ProductoNombre.Tomate);
+                        tomate.setText(control.getEspana().getNuevaEspana().getRecoleccionTomate().getNombre() + " " + control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad() + " kg");
+                        tomate_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad());
                         Toast.makeText(this, "Mercancia de Tomates creada", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getPeru().getRecoleccionTomate().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getNuevaEspana().getRecoleccionTomate().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
                     }
 
                 }else {
@@ -298,14 +294,14 @@ public class CrearMercanciasPeru extends AppCompatActivity implements Mercancias
         }else{
 
             try {
-                if (!patatas_kg.getText().equals("0") && !patatas_kg.getText().equals("")) {
-                    if (Integer.parseInt(String.valueOf(patatas_kg.getText())) > (control.getEspana().getPeru().getRecoleccionPatata().getCantidad() * 50) / 100) {
-                        control.crearMercancias(control.getEspana().getPeru(), Integer.parseInt(String.valueOf(patatas_kg.getText())), ProductoNombre.Patata);
-                        patatas.setText(control.getEspana().getPeru().getRecoleccionPatata().getNombre() + " " + control.getEspana().getPeru().getRecoleccionPatata().getCantidad() + " kg");
-                        patatas_seekbar.setMax(control.getEspana().getPeru().getRecoleccionPatata().getCantidad());
-                        Toast.makeText(this, "Mercancia de Patatas creada", Toast.LENGTH_SHORT).show();
+                if (!trigo_kg.getText().equals("0") && !trigo_kg.getText().equals("")) {
+                    if (Integer.parseInt(String.valueOf(trigo_kg.getText())) > (control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad() * 50) / 100) {
+                        control.crearMercancias(control.getEspana().getNuevaEspana(), Integer.parseInt(String.valueOf(trigo_kg.getText())), ProductoNombre.Trigo);
+                        trigo.setText(control.getEspana().getNuevaEspana().getRecoleccionTrigo().getNombre() + " " + control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad() + " kg");
+                        trigo_seekbar.setMax(control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad());
+                        Toast.makeText(this, "Mercancia de Trigo creada", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getPeru().getRecoleccionPatata().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, " Tiene que crear una mercancia superior a " + (control.getEspana().getNuevaEspana().getRecoleccionTrigo().getCantidad() * 50)/100, Toast.LENGTH_LONG).show();
                     }
 
                 }else {
