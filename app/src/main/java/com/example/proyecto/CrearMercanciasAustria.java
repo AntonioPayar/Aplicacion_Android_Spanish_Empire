@@ -22,6 +22,8 @@ public class CrearMercanciasAustria extends AppCompatActivity implements Mercanc
     public static int time;
     private int contador = 0;
 
+    //njihibhibbhiu
+
     private TextView arroz;
     private TextView plata;
     private TextView uvas;
