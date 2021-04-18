@@ -198,7 +198,7 @@ public class Juego extends AppCompatActivity {
      */
     public void abrirDemandas(View vista){
 
-        if(contadorVentanas == 0) {
+        if(contadorVentanas == 0 && this.frag_prod==false) {
             Fragment fragment = new Demandas();
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -219,7 +219,23 @@ public class Juego extends AppCompatActivity {
     public void abrirMercanciasMenu(View vista){
 
         if(contadorVentanas == 0 && this.frag_prod==false) {
-            Fragment fragment = new Mercancias();
+            Fragment fragment = new SelectorZona(1);
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contadorVentanas++;
+            //abierto = true;
+        }else{
+            Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void abrirFlotassMenu(View vista){
+
+        if(contadorVentanas == 0 && this.frag_prod==false) {
+            Fragment fragment = new SelectorZona(2);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frameLayout, fragment);

@@ -25,7 +25,8 @@ public class Mercancia {
 	/**
 	 * El nombre del pa�s de origen
 	 */
-	
+	//Int que indica la posicion en el Linkedhasmap de las mercancias de cada zona CHAPUZA pero estoy hasta los huevos jajajSalu2
+	private int valor_chapuza;
 	
 	/**
 	 * 
@@ -37,6 +38,14 @@ public class Mercancia {
 		this.producto = null;
 		this.totalkg=0;
 		this.origen=origen;
+	}
+
+	/**Constructor de copia**/
+	public Mercancia(Mercancia mercancia_copia) {
+		this.nombre=mercancia_copia.getNombre();
+		this.producto = mercancia_copia.getProducto();
+		this.totalkg=mercancia_copia.getTotalkg();
+		this.origen=mercancia_copia.getOrigen();
 	}
 
 //	public void verProductos() {
@@ -134,6 +143,14 @@ public class Mercancia {
 
 	public void setOrigen(String origen) {
 		this.origen = origen;
+	}
+
+	public void setvalor_chapuza(int numero) {
+		this.valor_chapuza = numero;
+	}
+
+	public int getvalor_chapuz() {
+		return valor_chapuza;
 	}
 	
 	@Override
