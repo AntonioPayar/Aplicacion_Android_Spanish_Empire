@@ -28,6 +28,7 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
     private RadioGroup radio;
     private Button embarca;
     private ImageView imagen;
+    private String texto;
 
     private View decorView;
     private MediaPlayer media;
@@ -40,6 +41,7 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
 
         time = getIntent().getIntExtra("segundosMerc", 4);
 
+        texto = "";
         control = Juego.getPanelDeControl();
         contenedor = (LinearLayout)findViewById(R.id.contenedorPeru);
         radio = (RadioGroup)findViewById(R.id.radioGroupPeru);
@@ -271,20 +273,27 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        int index = radio.indexOfChild(findViewById(radio.getCheckedRadioButtonId()));
-        RadioButton r = (RadioButton)findViewById(index);
+//        int index = radio.indexOfChild(findViewById(radio.getCheckedRadioButtonId()));
+//        RadioButton r = (RadioButton)findViewById(index);
+//        String txt2 = r.getText().toString();
+//        Toast.makeText(this, txt2, Toast.LENGTH_SHORT).show();
+//          Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
+
+        //He de hacer los radio
 
         if(control.getEspana().getPeru().getFlota().getArrayMercancias().size()!=0) {
             try {
-                String texto = r.getText().toString().toUpperCase();
                 if(texto.equals("")){
                     Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
                 }else{
                     switch (texto) {
                         case "NUEVA ESPAÑA":
+//                            Toast.makeText(this, "Entro en nueva españa 1", Toast.LENGTH_SHORT).show();
                             control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaEspana());
+//                            Toast.makeText(this, "Entro en nueva españa 2", Toast.LENGTH_SHORT).show();
                             System.out.println("Importaciones Nueva España");
                             control.getEspana().getNuevaEspana().verMercanciasImportacion();
+//                            Toast.makeText(this, "envio flota nueva españa 3", Toast.LENGTH_SHORT).show();
                             break;
                         case "NUEVA GRANADA":
                             control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaGranda());
@@ -318,15 +327,13 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
                             break;
                         default:
 //                        throw new IllegalArgumentException(box2.getSelectedItem().toString().toUpperCase());
-                            Toast.makeText(this, "No existe", Toast.LENGTH_SHORT).show();
                     }
+                    Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
+                    contenedor.removeAllViews();
                 }
 
 //                jmenu.removeAll();
                 //Elimino las mercancias de la interfaz
-                contenedor.removeAllViews();
-
-                Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
 
                 System.out.println("Mercancias Reino Castilla");
                 control.getEspana().getPeru().verMercancias();
@@ -335,7 +342,7 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
 
 
             }catch (Exception o) {
-
+                System.out.println(o.getMessage());
             }
         }else {
             Toast.makeText(this, "No hay Mercancias disponibles para transportar", Toast.LENGTH_SHORT).show();
@@ -354,29 +361,52 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
 //        radio.clearCheck();
 
 //        View radioButton = group.findViewById(checkedId);
-//        int index = radio.indexOfChild(radioButton);
+//        int index = radio.indexOfChild(radioButton)
+        int id;
+        RadioButton rb;
 
         switch (checkedId) {
             case R.id.peruAragon:
                 Log.i("adfwaf", "4gerokogjerojk");
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.peru_to_aragon);
                 break;
             case R.id.peruCastilla:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();;
                 imagen.setBackgroundResource(R.drawable.peru_to_castilla);
                 break;
             case R.id.peruBorgona:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.peru_to_borgona);
                 break;
             case R.id.peruNuevaEspana:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();;
                 imagen.setBackgroundResource(R.drawable.peru_to_nueva_espana);
                 break;
             case R.id.peruNuevaGranada:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();;
                 imagen.setBackgroundResource(R.drawable.peru_to_nueva_granada);
                 break;
             case R.id.peruPlata:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();;
                 imagen.setBackgroundResource(R.drawable.peru_to_plata);
                 break;
             case R.id.peruAustria:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();;
                 imagen.setBackgroundResource(R.drawable.peru_to_austria);
                 break;
         }

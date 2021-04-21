@@ -10,6 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.proyecto.Flotas.EnviarFlotasAragon;
+import com.example.proyecto.Flotas.EnviarFlotasAustria;
+import com.example.proyecto.Flotas.EnviarFlotasBorgona;
+import com.example.proyecto.Flotas.EnviarFlotasCastilla;
+import com.example.proyecto.Flotas.EnviarFlotasNuevaEspana;
+import com.example.proyecto.Flotas.EnviarFlotasNuevaGranada;
+import com.example.proyecto.Flotas.EnviarFlotasPeru;
+import com.example.proyecto.Flotas.EnviarFlotasPlata;
+
 public class SelectorZona extends Fragment implements View.OnClickListener{
 
 
@@ -73,6 +82,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Castilla");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasCastilla.class);
                     break;
             }
 
@@ -86,6 +96,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Aragon");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasAragon.class);
                     break;
             }
 
@@ -99,6 +110,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Borgona");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasBorgona.class);
                     break;
             }
 
@@ -112,6 +124,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Austria");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasAustria.class);
                     break;
             }
 
@@ -125,6 +138,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "NuevaEspana");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasNuevaEspana.class);
                     break;
             }
 
@@ -138,6 +152,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "NuevaGranada");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasNuevaGranada.class);
                     break;
             }
 
@@ -151,6 +166,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Peru");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasPeru.class);
                     break;
             }
 
@@ -164,6 +180,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
                     intent.putExtra("zona", "Plata");
                     break;
                 case 3:
+                    intent = new Intent(getActivity(), EnviarFlotasPlata.class);
                     break;
             }
         }

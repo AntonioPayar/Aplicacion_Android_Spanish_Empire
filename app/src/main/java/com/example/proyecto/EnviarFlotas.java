@@ -35,16 +35,16 @@ public class EnviarFlotas extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View frag = inflater.inflate(R.layout.fragment_enviar_flotas, container, false);
+        View frag = inflater.inflate(R.layout.fragment_selector_zona, container, false);
 
-        botonAragonMerc = (Button)frag.findViewById(R.id.botonAragonEnviarFlotas);
-        botonAustriaMerc = (Button)frag.findViewById(R.id.botonAustriaEnviarFlotas);
-        botonCastillaMerc = (Button)frag.findViewById(R.id.botonCastillaEnviarFlotas);
-        botonBorgonaMerc = (Button)frag.findViewById(R.id.botonBorgonaEnviarFlotas);
-        botonNuevaEspanaMerc = (Button)frag.findViewById(R.id.botonNuevaEspanaEnviarFlotas);
-        botonNuevaGranadaMerc = (Button)frag.findViewById(R.id.botonNuevaGranadaEnviarFlotas);
-        botonPeruMerc = (Button)frag.findViewById(R.id.botonPeruEnviarFlotas);
-        botonPlataMerc = (Button)frag.findViewById(R.id.botonPlataEnviarFlotas);
+        botonAragonMerc = (Button)frag.findViewById(R.id.botonAragonMerc);
+        botonAustriaMerc = (Button)frag.findViewById(R.id.botonAustriaMerc);
+        botonCastillaMerc = (Button)frag.findViewById(R.id.botonCastillaMerc);
+        botonBorgonaMerc = (Button)frag.findViewById(R.id.botonBorgonaMerc);
+        botonNuevaEspanaMerc = (Button)frag.findViewById(R.id.botonNuevaEspanaMerc);
+        botonNuevaGranadaMerc = (Button)frag.findViewById(R.id.botonNuevaGranadaMerc);
+        botonPeruMerc = (Button)frag.findViewById(R.id.botonPeruMerc);
+        botonPlataMerc = (Button)frag.findViewById(R.id.botonPlataMerc);
 
         botonAragonMerc.setOnClickListener(this);
         botonAustriaMerc.setOnClickListener(this);

@@ -28,6 +28,7 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
     private RadioGroup radio;
     private Button embarca;
     private ImageView imagen;
+    private String texto;
 
     private View decorView;
     private MediaPlayer media;
@@ -39,6 +40,7 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_enviar_flotas_borgona);
 
         time = getIntent().getIntExtra("segundosMerc", 4);
+        texto = "";
 
         control = Juego.getPanelDeControl();
         contenedor = (LinearLayout)findViewById(R.id.contenedorBorgona);
@@ -271,57 +273,57 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
 
-        int index = radio.indexOfChild(findViewById(radio.getCheckedRadioButtonId()));
-        RadioButton r = (RadioButton)findViewById(index);
-
         if(control.getEspana().getBorgona().getFlota().getArrayMercancias().size()!=0) {
             try {
-                String texto = r.getText().toString().toUpperCase();
-                switch (texto) {
-                    case "NUEVA ESPAÑA":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getNuevaEspana());
-                        System.out.println("Importaciones Nueva España");
-                        control.getEspana().getNuevaEspana().verMercanciasImportacion();
-                        break;
-                    case "NUEVA GRANADA":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getNuevaGranda());
-                        System.out.println("Importaciones Nueva Granada");
-                        control.getEspana().getNuevaGranda().verMercanciasImportacion();
-                        break;
-                    case "PERU":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getPeru());
-                        System.out.println("Importaciones Peru");
-                        control.getEspana().getPeru().verMercanciasImportacion();
-                        break;
-                    case "PLATA":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getPlata());
-                        System.out.println("Importaciones Plata");
-                        control.getEspana().getPlata().verMercanciasImportacion();
-                        break;
-                    case "AUSTRIA":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getAustria());
-                        System.out.println("Importaciones Austria ");
-                        control.getEspana().getAustria().verMercanciasImportacion();
-                        break;
-                    case "ARAGON":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getAragon());
-                        System.out.println("Importaciones Aragón");
-                        control.getEspana().getBorgona().verMercanciasImportacion();
-                        break;
-                    case "CASTILLA":
-                        control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getCastilla());
-                        System.out.println("Importaciones Castilla");
-                        control.getEspana().getCastilla().verMercanciasImportacion();
-                        break;
-                    default:
+                if(texto.equals("")){
+                    Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
+                }else {
+                    switch (texto) {
+                        case "NUEVA ESPAÑA":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getNuevaEspana());
+                            System.out.println("Importaciones Nueva España");
+                            control.getEspana().getNuevaEspana().verMercanciasImportacion();
+                            break;
+                        case "NUEVA GRANADA":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getNuevaGranda());
+                            System.out.println("Importaciones Nueva Granada");
+                            control.getEspana().getNuevaGranda().verMercanciasImportacion();
+                            break;
+                        case "PERU":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getPeru());
+                            System.out.println("Importaciones Peru");
+                            control.getEspana().getPeru().verMercanciasImportacion();
+                            break;
+                        case "PLATA":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getPlata());
+                            System.out.println("Importaciones Plata");
+                            control.getEspana().getPlata().verMercanciasImportacion();
+                            break;
+                        case "AUSTRIA":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getAustria());
+                            System.out.println("Importaciones Austria ");
+                            control.getEspana().getAustria().verMercanciasImportacion();
+                            break;
+                        case "ARAGON":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getAragon());
+                            System.out.println("Importaciones Aragón");
+                            control.getEspana().getBorgona().verMercanciasImportacion();
+                            break;
+                        case "CASTILLA":
+                            control.getEspana().enviarFlota(control.getEspana().getBorgona(), control.getEspana().getCastilla());
+                            System.out.println("Importaciones Castilla");
+                            control.getEspana().getCastilla().verMercanciasImportacion();
+                            break;
+                        default:
 //                        throw new IllegalArgumentException(box2.getSelectedItem().toString().toUpperCase());
-                        Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
+                    }
+                    contenedor.removeAllViews();
+                    Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
                 }
 
-//                jmenu.removeAll();
-                contenedor.removeAllViews();
 
-                Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
+//                jmenu.removeAll();
 
                 System.out.println("Mercancias Reino Castilla");
                 control.getEspana().getAragon().verMercancias();
@@ -351,27 +353,50 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
 //        View radioButton = group.findViewById(checkedId);
 //        int index = radio.indexOfChild(radioButton);
 
+        int id;
+        RadioButton rb;
+
         switch (checkedId) {
             case R.id.borgonaAragon:
-                Log.i("adfwaf", "4gerokogjerojk");
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_aragon);
                 break;
             case R.id.borgonaAustria:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_austria);
                 break;
             case R.id.borgonaCastilla:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_castilla);
                 break;
             case R.id.borgonaNuevaEspana:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_nueva_espana);
                 break;
             case R.id.borgonaNuevaGranada:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_nueva_granada);
                 break;
             case R.id.borgonaPeru:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_peru);
                 break;
             case R.id.borgonaPlata:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.borgona_to_plata);
                 break;
         }

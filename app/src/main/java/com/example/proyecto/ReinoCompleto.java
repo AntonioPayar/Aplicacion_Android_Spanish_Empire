@@ -129,7 +129,7 @@ public class ReinoCompleto {
 					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaGranada());
 					this.llegadaFlotaDestino(reino, destino);
 					break;
-				case "NUEVA ESPA�A":
+				case "NUEVA ESPAÑA":
 					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaEspana());
 					this.llegadaFlotaDestino(reino, destino);
 					break;
@@ -142,7 +142,7 @@ public class ReinoCompleto {
 					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaAustria());
 					this.llegadaFlotaDestino(reino, destino);
 					break;
-				case "BORGO�A":
+				case "BORGOÑA":
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaBorgo�a());
 					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaBorgona());
 					this.llegadaFlotaDestino(reino, destino);

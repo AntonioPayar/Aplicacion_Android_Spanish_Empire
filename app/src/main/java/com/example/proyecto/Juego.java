@@ -251,7 +251,7 @@ public class Juego extends AppCompatActivity {
     public void abrirEnviarFlotas(View vista){
 
         if(contadorVentanas == 0 && this.frag_prod==false) {
-            Fragment fragment = new EnviarFlotas();
+            Fragment fragment = new SelectorZona(3);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frameLayout, fragment);

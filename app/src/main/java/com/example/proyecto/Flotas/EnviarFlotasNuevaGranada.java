@@ -28,6 +28,7 @@ public class EnviarFlotasNuevaGranada extends AppCompatActivity implements View.
     private RadioGroup radio;
     private Button embarca;
     private ImageView imagen;
+    private String texto;
 
     private View decorView;
     private MediaPlayer media;
@@ -39,6 +40,7 @@ public class EnviarFlotasNuevaGranada extends AppCompatActivity implements View.
         setContentView(R.layout.activity_enviar_flotas_nueva_granada);
 
         time = getIntent().getIntExtra("segundosMerc", 4);
+        texto = "";
 
         control = Juego.getPanelDeControl();
         contenedor = (LinearLayout)findViewById(R.id.contenedorNuevaGranada);
@@ -271,12 +273,8 @@ public class EnviarFlotasNuevaGranada extends AppCompatActivity implements View.
     @Override
     public void onClick(View v) {
 
-        int index = radio.indexOfChild(findViewById(radio.getCheckedRadioButtonId()));
-        RadioButton r = (RadioButton)findViewById(index);
-
         if(control.getEspana().getNuevaGranda().getFlota().getArrayMercancias().size()!=0) {
             try {
-                String texto = r.getText().toString().toUpperCase();
                 if(texto.equals("")){
                     Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
                 }else{
@@ -318,15 +316,13 @@ public class EnviarFlotasNuevaGranada extends AppCompatActivity implements View.
                             break;
                         default:
 //                        throw new IllegalArgumentException(box2.getSelectedItem().toString().toUpperCase());
-                            Toast.makeText(this, "No existe", Toast.LENGTH_SHORT).show();
                     }
+                    Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
+                    contenedor.removeAllViews();
                 }
 
 //                jmenu.removeAll();
                 //Elimino las mercancias de la interfaz
-                contenedor.removeAllViews();
-
-                Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
 
                 System.out.println("Mercancias Reino Castilla");
                 control.getEspana().getNuevaGranda().verMercancias();
@@ -356,27 +352,50 @@ public class EnviarFlotasNuevaGranada extends AppCompatActivity implements View.
 //        View radioButton = group.findViewById(checkedId);
 //        int index = radio.indexOfChild(radioButton);
 
+        int id;
+        RadioButton rb;
+
         switch (checkedId) {
             case R.id.NGcastilla:
-                Log.i("adfwaf", "4gerokogjerojk");
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_castilla);
                 break;
             case R.id.NGNuevaEspana:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_nueva_espana);
                 break;
             case R.id.NGaragon:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_aragon);
                 break;
             case R.id.NGborgona:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_borgona);
                 break;
             case R.id.NGaustria:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_austria);
                 break;
             case R.id.NGperu:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_peru);
                 break;
             case R.id.NGplata:
+                id = group.getCheckedRadioButtonId();
+                rb = (RadioButton)findViewById(id);
+                texto = rb.getText().toString().toUpperCase();
                 imagen.setBackgroundResource(R.drawable.nueva_granada_to_plata);
                 break;
         }
