@@ -1,6 +1,4 @@
-package com.example.proyecto;
-
-import com.example.proyecto.Clases.ProductoNombre;
+package com.example.proyecto.Clases;
 
 public class MateriasPrimas extends Productos {
 	

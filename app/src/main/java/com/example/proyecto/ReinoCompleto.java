@@ -182,7 +182,7 @@ public class ReinoCompleto {
 					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaGranada());
 					this.llegadaFlotaDestino(reino, destino);
 					break;
-				case "NUEVA ESPA�A":
+				case "NUEVA ESPAÑA":
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaPeru());
 					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaEspana());
 					this.llegadaFlotaDestino(reino, destino);
@@ -197,7 +197,7 @@ public class ReinoCompleto {
 					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaAustria());
 					this.llegadaFlotaDestino(reino, destino);
 					break;
-				case "BORGO�A":
+				case "BORGOÑA":
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaBorgona());
 					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaBorgona());
 					this.llegadaFlotaDestino(reino, destino);
@@ -227,7 +227,7 @@ public class ReinoCompleto {
 		
 		turno=PanelDeControl.getContadorTurnos();
 		
-		if(origen.getNombre().equals("Nueva Espa�a")) {
+		if(origen.getNombre().equals("Nueva España")) {
 			codigoPais="NE";
 		}else if(origen.getNombre().equals("Nueva Granada")) {
 			codigoPais="NG";
@@ -362,7 +362,7 @@ public class ReinoCompleto {
 	 * M�todo encargado de ver hacer una manera mas visual todos los productos del Reino Demandados
 	 */
 	public void verProductosDemandadosElReino() {
-		System.out.println("--- Nueva Espa�a ");
+		System.out.println("--- Nueva España ");
 		nuevaEspana.verProductosDemandados();
 		System.out.println("--- Nueva Granada ");
 		nuevaGranda.verProductosDemandados();
@@ -374,7 +374,7 @@ public class ReinoCompleto {
 		castilla.verProductosDemandados();
 		System.out.println("--- Aragon ");
 		aragon.verProductosDemandados();
-		System.out.println("--- Borgo�a ");
+		System.out.println("--- Borgoña ");
 		borgona.verProductosDemandados();
 		System.out.println("--- Austria ");
 		austria.verProductosDemandados();
@@ -384,7 +384,7 @@ public class ReinoCompleto {
 	 * M�todo encargado de ver hacer una manera mas visual todas las flotas creadas en el Reino
 	 */
 	public void verFlotasConMercancias() {
-		System.out.println("--- Nueva Espa�a ");
+		System.out.println("--- Nueva España ");
 		nuevaEspana.getFlota().verMercancias();
 		System.out.println("--- Nueva Granada ");
 		nuevaGranda.getFlota().verMercancias();
@@ -396,7 +396,7 @@ public class ReinoCompleto {
 		castilla.getFlota().verMercancias();
 		System.out.println("--- Aragon ");
 		aragon.getFlota().verMercancias();
-		System.out.println("--- Borgo�a ");
+		System.out.println("--- Borgoña ");
 		borgona.getFlota().verMercancias();
 		System.out.println("--- Austria ");
 		austria.getFlota().verMercancias();

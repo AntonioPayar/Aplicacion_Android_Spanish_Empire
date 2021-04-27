@@ -273,14 +273,6 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-//        int index = radio.indexOfChild(findViewById(radio.getCheckedRadioButtonId()));
-//        RadioButton r = (RadioButton)findViewById(index);
-//        String txt2 = r.getText().toString();
-//        Toast.makeText(this, txt2, Toast.LENGTH_SHORT).show();
-//          Toast.makeText(this, texto, Toast.LENGTH_SHORT).show();
-
-        //He de hacer los radio
-
         if(control.getEspana().getPeru().getFlota().getArrayMercancias().size()!=0) {
             try {
                 if(texto.equals("")){

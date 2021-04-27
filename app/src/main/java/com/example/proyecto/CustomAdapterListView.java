@@ -8,10 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.proyecto.Clases.Mercancia;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CustomAdapterListView extends BaseAdapter {
     /**Clase encargada de crear y generar el ListView de la clase CrearFloras**/

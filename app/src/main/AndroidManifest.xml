@@ -42,35 +42,35 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasAragon"
+            android:name=".Mercancias.CrearMercanciasAragon"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasPlata"
+            android:name=".Mercancias.CrearMercanciasPlata"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasNuevaGranada"
+            android:name=".Mercancias.CrearMercanciasNuevaGranada"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasNuevaEspana"
+            android:name=".Mercancias.CrearMercanciasNuevaEspana"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasBorgona"
+            android:name=".Mercancias.CrearMercanciasBorgona"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasAustria"
+            android:name=".Mercancias.CrearMercanciasAustria"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasPeru"
+            android:name=".Mercancias.CrearMercanciasPeru"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CrearMercanciasCastilla"
+            android:name=".Mercancias.CrearMercanciasCastilla"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

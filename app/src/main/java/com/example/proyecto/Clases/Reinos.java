@@ -1,15 +1,11 @@
 package com.example.proyecto.Clases;
 import com.example.proyecto.Flota;
-import com.example.proyecto.Mercancia;
-import com.example.proyecto.Productos;
 import com.example.proyecto.Territorio;
 
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Random;
-
-import com.example.proyecto.PanelDeControl;
 
 public abstract class Reinos extends Territorio {
 

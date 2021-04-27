@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.proyecto.Clases;
 
 import android.os.Bundle;
 
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.proyecto.Juego;
+import com.example.proyecto.PanelDeControl;
+import com.example.proyecto.R;
 
 public class Demandas extends Fragment {
 

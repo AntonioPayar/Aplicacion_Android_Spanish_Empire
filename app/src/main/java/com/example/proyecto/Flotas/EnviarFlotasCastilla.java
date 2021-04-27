@@ -280,6 +280,7 @@ public class EnviarFlotasCastilla extends AppCompatActivity implements View.OnCl
                 }else{
                     switch (texto) {
                         case "NUEVA ESPAÑA":
+                            Toast.makeText(this, "aaaa", Toast.LENGTH_SHORT).show();
                             control.getEspana().enviarFlota(control.getEspana().getCastilla(), control.getEspana().getNuevaEspana());
                             System.out.println("Importaciones Nueva España");
                             control.getEspana().getNuevaEspana().verMercanciasImportacion();

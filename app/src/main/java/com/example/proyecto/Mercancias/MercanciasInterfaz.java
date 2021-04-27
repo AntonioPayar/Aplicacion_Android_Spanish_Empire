@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.proyecto.Mercancias;
 
 import android.content.Intent;
 import android.media.MediaPlayer;

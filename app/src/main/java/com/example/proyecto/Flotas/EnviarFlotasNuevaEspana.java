@@ -157,7 +157,7 @@ public class EnviarFlotasNuevaEspana extends AppCompatActivity implements View.O
 
         int contador = 0;
         TextView tv;
-        Iterator it = this.control.getEspana().getCastilla().getFlota().getArrayMercancias().keySet().iterator();
+        Iterator it = this.control.getEspana().getNuevaEspana().getFlota().getArrayMercancias().keySet().iterator();
 
         while(it.hasNext()) {
             int id;

@@ -1,4 +1,6 @@
 package com.example.proyecto;
+import com.example.proyecto.Clases.Mercancia;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
@@ -13,7 +15,7 @@ public class Flota {
 	/**
 	 * Nombre de la flota
 	 */
-	private LinkedHashMap <Integer,Mercancia>arrayMercancias;
+	private LinkedHashMap <Integer, Mercancia>arrayMercancias;
 	/**
 	 * lista con un n�mero identificador donde se almacenan las mercanc�as 
 	 */

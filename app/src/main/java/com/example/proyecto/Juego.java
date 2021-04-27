@@ -5,39 +5,59 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.proyecto.Clases.Demandas;
+import com.example.proyecto.RetornarFlotas.RetornarFlotas;
+
 public class Juego extends AppCompatActivity {
 
     private View decorView;
-    private MediaPlayer media;
+    private static MediaPlayer media;
     private static PanelDeControl pdc;
     private static int time;
-    private int contador = 0;
-    private int contadorVentanas = 0;
+    private static int contador = 0;
+    private static int contadorVentanas = 0;
     private boolean mapa=false;
     private boolean frag_prod=false;
+    private int sec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        sec = 0;
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
         try {
-            pdc = new PanelDeControl();
+            if(pdc.getContadorTurnos() == 0){
+                pdc = new PanelDeControl();
+            }else{
+//                sec = sharedPref.getInt("sec", 0);
+//                editor.commit();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        Toast.makeText(this, "bbb"+pdc.getContadorTurnos(), Toast.LENGTH_SHORT).show();
+
+//        Toast.makeText(this, "aaaa "+sec, Toast.LENGTH_SHORT).show();
+
+//        int sec = getIntent().getIntExtra("sec", 0);
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
         media.setLooping(true);
-        media.seekTo(0);
+        media.seekTo(sec);
         media.start();
 
         decorView = getWindow().getDecorView();
@@ -264,6 +284,23 @@ public class Juego extends AppCompatActivity {
         }
     }
 
+    public void siguienteTurno(View vista) {
+
+        if(contadorVentanas == 0 && this.frag_prod==false) {
+            Fragment fragment = new RetornarFlotas();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout2, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            contadorVentanas++;
+        }else{
+            Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
     /**
      * Método que cierra el fragment actualmente abierto ( Por ejemplo el fragment de Demandas )
      * @param vista
@@ -379,13 +416,28 @@ public class Juego extends AppCompatActivity {
         return pdc;
     }
 
-    public void setContadorVentanas(int n){
-        contadorVentanas = n;
-    }
+//    public void setContadorVentanas(int n){
+//        contadorVentanas = n;
+//    }
 
-    public int getMedia(){
+    public static int getMedia(){
         return media.getCurrentPosition();
     }
 
     public static void setMedia(int time){ Juego.time = time; }
+
+    public static int getContador(){
+        return contador;
+    }
+    public static int getContadorVentanas(){
+        return contadorVentanas;
+    }
+
+    public static void setContador(int contador2){
+        contador = contador2;
+    }
+    public static void setContadorVentanas(int contador){
+        contadorVentanas = contador;
+    }
+
 }

@@ -1,8 +1,7 @@
-package com.example.proyecto;
+package com.example.proyecto.Mercancias;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyecto.Clases.ProductoNombre;
+import com.example.proyecto.Juego;
+import com.example.proyecto.PanelDeControl;
+import com.example.proyecto.R;
 
 public class CrearMercanciasAustria extends AppCompatActivity implements MercanciasInterfaz {
 

@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.proyecto.Mercancias;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyecto.Clases.ProductoNombre;
+import com.example.proyecto.Juego;
+import com.example.proyecto.PanelDeControl;
+import com.example.proyecto.R;
 
 public class CrearMercanciasCastilla extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
 

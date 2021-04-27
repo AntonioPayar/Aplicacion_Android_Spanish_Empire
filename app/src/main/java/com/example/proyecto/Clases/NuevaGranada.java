@@ -1,9 +1,5 @@
 package com.example.proyecto.Clases;
 
-import com.example.proyecto.MateriasPrimas;
-import com.example.proyecto.Mercancia;
-import com.example.proyecto.Productos;
-
 import java.util.Random;
 
 
