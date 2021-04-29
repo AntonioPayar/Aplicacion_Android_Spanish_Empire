@@ -10,16 +10,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyecto.Clases.Alimentos;
 import com.example.proyecto.Juego;
 import com.example.proyecto.PanelDeControl;
 import com.example.proyecto.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class EnviarFlotasAragon extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
@@ -157,20 +163,54 @@ public class EnviarFlotasAragon extends AppCompatActivity implements View.OnClic
 
         int contador = 0;
         TextView tv;
+        String texto;
+        String nombre;
+        int iv = 0;
         Iterator it = this.control.getEspana().getAragon().getFlota().getArrayMercancias().keySet().iterator();
+        List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
         while(it.hasNext()) {
             int id;
             id=(int) it.next();
 
-            tv = new TextView(getApplicationContext());
-            tv.setText(id+" "+this.control.getEspana().getAragon().getFlota().getArrayMercancias().get(id).getNombre()+" cantidad "+this.control.getEspana().getAragon().getFlota().getArrayMercancias().get(id).getTotalkg()+" kg ");
-            tv.setWidth(contenedor.getWidth());
-            tv.setTextColor(Color.WHITE);
-            tv.setTextSize(15);
-            contenedor.addView(tv);
+//            tv = new TextView(getApplicationContext());
+            texto = this.control.getEspana().getAragon().getFlota().getArrayMercancias().get(id).getNombre()+" cantidad "+this.control.getEspana().getAragon().getFlota().getArrayMercancias().get(id).getTotalkg()+" kg ";
+            nombre = this.control.getEspana().getAragon().getFlota().getArrayMercancias().get(id).getNombre().toUpperCase();
+            nombre = nombre.substring(13, nombre.length());
+
+            switch(nombre){
+                case "TRIGO":
+                    iv = R.drawable.trigo;
+                    break;
+                case "UVAS":
+                    iv = R.drawable.uvas;
+                    break;
+                case "MAIZ":
+                    iv = R.drawable.hierro;
+                    break;
+                case "ARROZ":
+                    iv = R.drawable.arroz;
+                    break;
+            }
+
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_title", texto);
+            hm.put("listview_image", Integer.toString(iv));
+            aList.add(hm);
+
+//            tv.setWidth(contenedor.getWidth());
+//            tv.setTextColor(Color.WHITE);
+//            tv.setTextSize(15);
+//            contenedor.addView(tv);
             contador++;
         }
+
+        String[] from = {"listview_image", "listview_title"};
+        int[] to = {R.id.listview_image, R.id.listview_item_title};
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.list_view_imagenes, from, to);
+        ListView androidListView = (ListView) findViewById(R.id.listViewMercancias);
+        androidListView.setAdapter(simpleAdapter);
 
         if(contador == 0){
             tv = new TextView(getApplicationContext());

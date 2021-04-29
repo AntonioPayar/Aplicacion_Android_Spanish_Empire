@@ -51,15 +51,20 @@
 
     <LinearLayout
         android:id="@+id/contenedorPlata"
-        android:layout_width="184dp"
-        android:layout_height="235dp"
+        android:layout_width="244dp"
+        android:layout_height="237dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.682">
+
+        <ListView
+            android:id="@+id/listViewMercancias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <ImageButton

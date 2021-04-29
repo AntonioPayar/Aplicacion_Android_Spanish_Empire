@@ -39,12 +39,12 @@ public class Juego extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPref.edit();
 
         try {
-            if(pdc.getContadorTurnos() == 0){
+            if(pdc.getContadorTurnos() == 0)
                 pdc = new PanelDeControl();
-            }else{
-//                sec = sharedPref.getInt("sec", 0);
-//                editor.commit();
-            }
+//            }else{
+////                sec = sharedPref.getInt("sec", 0);
+////                editor.commit();
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
