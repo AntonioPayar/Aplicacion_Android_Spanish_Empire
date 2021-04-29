@@ -3,8 +3,10 @@ package com.example.proyecto;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +29,7 @@ public class CrearFlotaCastilla extends AppCompatActivity {
     private View decorView;
     private PanelDeControl control;
     public static int time;
+    private static SharedPreferences sharedPref;
 
     private CustomAdapterListView adaptador;
     private ListView listview_mercancias;
@@ -40,6 +43,8 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         setContentView(R.layout.activity_crear_flota_castilla);
         //instancier el controlador
         control = Juego.getPanelDeControl();
+
+        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         //instanciar gif
         ImageView imageView = (ImageView)findViewById(R.id.imageView8);
         Glide.with(getApplicationContext()).load(R.drawable.mar).into(imageView);
@@ -48,6 +53,9 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         mostrarMercancias();
         //poner musica
         time = getIntent().getIntExtra("segundosMerc", 4);
+        if(sharedPref.getBoolean("insertado", false) == true){
+            time = sharedPref.getInt("sec", 4);
+        }
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
         media.setLooping(true);
@@ -103,6 +111,10 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         meterCargamentoFlota(posicion);
         Intent intent = new Intent(this, CrearFlotaCastilla.class);
         intent.putExtra("zona", this.zona);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("sec", media.getCurrentPosition());
+        editor.putBoolean("insertado", true);
+        editor.commit();
         startActivity(intent);
         finish();
     }
@@ -224,6 +236,9 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         Juego.setMedia(media.getCurrentPosition());
         onBackPressed();
         overridePendingTransition(R.anim.entrada, R.anim.salida);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("insertado", false);
+        editor.commit();
         this.finish();
     }
 
@@ -248,6 +263,9 @@ public class CrearFlotaCastilla extends AppCompatActivity {
             media.stop();
             media.release();
         }
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("insertado", false);
+        editor.commit();
     }
 
     @Override
@@ -290,6 +308,10 @@ public class CrearFlotaCastilla extends AppCompatActivity {
 
         Juego.setMedia(media.getCurrentPosition());
         overridePendingTransition(R.anim.entrada, R.anim.salida);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("insertado", false);
+        editor.commit();
         this.finish();
     }
+
 }
