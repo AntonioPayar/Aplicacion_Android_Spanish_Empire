@@ -12,8 +12,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.proyecto.Clases.Demandas;
 import com.example.proyecto.RetornarFlotas.RetornarFlotas;
 
@@ -28,6 +30,7 @@ public class Juego extends AppCompatActivity {
     private boolean mapa=false;
     private boolean frag_prod=false;
     private int sec;
+    private ImageView monarca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
 
         sec = 0;
+        monarca = (ImageView)findViewById(R.id.imagenMonarca);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
@@ -59,6 +63,8 @@ public class Juego extends AppCompatActivity {
         media.setLooping(true);
         media.seekTo(sec);
         media.start();
+
+        colocarImagenMonarca();
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -336,6 +342,29 @@ public class Juego extends AppCompatActivity {
 //            }
 //        }
 //    }
+
+    public void colocarImagenMonarca() {
+
+        Glide.with(getApplicationContext()).load(R.drawable.carlos_i).into(monarca);
+
+        if(pdc.getContadorTurnos()<10) {
+            Glide.with(getApplicationContext()).load(R.drawable.carlos_i).into(monarca);
+
+        }else if(pdc.getContadorTurnos()>=10) {
+            Glide.with(getApplicationContext()).load(R.drawable.felipe_ii).into(monarca);
+
+        }else if(pdc.getContadorTurnos()>=20) {
+            Glide.with(getApplicationContext()).load(R.drawable.felipe_iii).into(monarca);
+
+        }else if(pdc.getContadorTurnos()>=30) {
+            Glide.with(getApplicationContext()).load(R.drawable.felipe_iv).into(monarca);
+
+        }else if(pdc.getContadorTurnos()>=40) {
+            Glide.with(getApplicationContext()).load(R.drawable.carlos_ii).into(monarca);
+        }else
+            Glide.with(getApplicationContext()).load(R.drawable.odin).into(monarca);
+
+    }
 
 
     @Override
