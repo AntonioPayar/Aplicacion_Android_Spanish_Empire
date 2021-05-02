@@ -42,6 +42,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
     private int zona;
     private PanelDeControl control;
     private boolean disponible;
+    private boolean sublevacion;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,162 +91,208 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
         adb.setMessage("La flota no está disponible");
         adb.setPositiveButton("Volver atrás", null);
 
+        AlertDialog.Builder adb2=new AlertDialog.Builder(getActivity());
+        adb2.setTitle("Confirmar");
+        adb2.setMessage("No disponible debido a que no se cumplió la demanda del reino");
+        adb2.setPositiveButton("Volver atrás", null);
+
         disponible = false;
+        sublevacion = false;
 
         if(v.getId() == botonCastillaMerc.getId()) {
-            if (control.getEspana().getCastilla().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Castilla");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasCastilla.class);
-                        break;
+            if(control.getEspana().getCastilla().isSublevaciones()==false) {
+                if (control.getEspana().getCastilla().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasCastilla.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Castilla");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasCastilla.class);
+                            break;
+                    }
+                } else {
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonAragonMerc.getId()){
-            if (control.getEspana().getAragon().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasAragon.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Aragon");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasAragon.class);
-                        break;
+            if(control.getEspana().getAragon().isSublevaciones()==false) {
+                if (control.getEspana().getAragon().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasAragon.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Aragon");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasAragon.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonBorgonaMerc.getId()){
-            if (control.getEspana().getBorgona().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasBorgona.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Borgona");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasBorgona.class);
-                        break;
+            if(control.getEspana().getBorgona().isSublevaciones()==false) {
+                if (control.getEspana().getBorgona().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasBorgona.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Borgona");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasBorgona.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonAustriaMerc.getId()){
-            if (control.getEspana().getAustria().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasAustria.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Austria");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasAustria.class);
-                        break;
+            if(control.getEspana().getAustria().isSublevaciones()==false) {
+                if (control.getEspana().getAustria().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasAustria.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Austria");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasAustria.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonNuevaEspanaMerc.getId()){
-            if (control.getEspana().getNuevaEspana().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasNuevaEspana.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "NuevaEspana");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasNuevaEspana.class);
-                        break;
+            if(control.getEspana().getNuevaEspana().isSublevaciones()==false) {
+                if (control.getEspana().getNuevaEspana().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasNuevaEspana.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "NuevaEspana");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasNuevaEspana.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonNuevaGranadaMerc.getId()){
-            if (control.getEspana().getNuevaGranda().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasNuevaGranada.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "NuevaGranada");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasNuevaGranada.class);
-                        break;
+            if(control.getEspana().getNuevaGranda().isSublevaciones()==false) {
+                if (control.getEspana().getNuevaGranda().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasNuevaGranada.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "NuevaGranada");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasNuevaGranada.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonPeruMerc.getId()){
-            if (control.getEspana().getPeru().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasPeru.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Peru");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasPeru.class);
-                        break;
+            if(control.getEspana().getPeru().isSublevaciones()==false) {
+                if (control.getEspana().getPeru().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasPeru.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Peru");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasPeru.class);
+                            break;
+                    }
+                }else{
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
 
         }else if(v.getId() == botonPlataMerc.getId()){
-            if (control.getEspana().getPlata().getFlota().isDisponible()) {
-                switch (this.zona) {
-                    case 1:
-                        intent = new Intent(getActivity(), CrearMercanciasPlata.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), CrearFlotaCastilla.class);
-                        intent.putExtra("zona", "Plata");
-                        break;
-                    case 3:
-                        intent = new Intent(getActivity(), EnviarFlotasPlata.class);
-                        break;
+            if(control.getEspana().getPlata().isSublevaciones()==false) {
+                if (control.getEspana().getPlata().getFlota().isDisponible()) {
+                    switch (this.zona) {
+                        case 1:
+                            intent = new Intent(getActivity(), CrearMercanciasPlata.class);
+                            break;
+                        case 2:
+                            intent = new Intent(getActivity(), CrearFlotaCastilla.class);
+                            intent.putExtra("zona", "Plata");
+                            break;
+                        case 3:
+                            intent = new Intent(getActivity(), EnviarFlotasPlata.class);
+                            break;
+                    }
+                } else {
+                    disponible = true;
+                    adb.show();
                 }
             }else{
-                disponible = true;
-                adb.show();
+                sublevacion = true;
+                adb2.show();
             }
         }
 
-        if(disponible != true) {
+        if(disponible != true && sublevacion != true) {
             intent.putExtra("segundosMerc", ((Juego) getActivity()).getMedia());
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.entrada, R.anim.salida);
@@ -253,7 +300,6 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
             ((Juego) getActivity()).setContadorVentanas(0);
         }
 
-        disponible = false;
     }
 
 }

@@ -1,11 +1,13 @@
 package com.example.proyecto;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -37,13 +39,15 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
 
+        contadorVentanas = 0;
+        frag_prod = false;
         sec = 0;
         monarca = (ImageView)findViewById(R.id.imagenMonarca);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         try {
-            if(pdc.getContadorTurnos() == 0)
+//            if(pdc.getContadorTurnos() == 0)
                 pdc = new PanelDeControl();
 //            }else{
 ////                sec = sharedPref.getInt("sec", 0);
@@ -431,9 +435,20 @@ public class Juego extends AppCompatActivity {
     public void onBackPressed(){
 
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        this.finish();
+
+        AlertDialog.Builder adb=new AlertDialog.Builder(this);
+        adb.setTitle("Volver al menú");
+        adb.setMessage("¿Está seguro de que desea salir de la partida? La partida no se guardará");
+        adb.setNegativeButton("Volver atrás", null);
+        adb.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            }
+        });
+        adb.show();
     }
 
     /**
