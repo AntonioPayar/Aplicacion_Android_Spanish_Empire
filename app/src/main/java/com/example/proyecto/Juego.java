@@ -33,11 +33,20 @@ public class Juego extends AppCompatActivity {
     private boolean frag_prod=false;
     private int sec;
     private ImageView monarca;
+    private static boolean tutorial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
+
+//        tutorial = getIntent().getBooleanExtra("tutorial", false);
+//
+//        if(!tutorial){
+//            setContentView(R.layout.activity_juego);
+//        }else{
+//            setContentView(R.layout.activity_juego_tutorial);
+//        }
 
         contadorVentanas = 0;
         frag_prod = false;

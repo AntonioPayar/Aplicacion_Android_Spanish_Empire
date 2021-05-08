@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import com.bumptech.glide.Glide;
 
@@ -64,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, Juego.class);
         Thread.sleep(2000);
+
+        if(Opciones.getTutorial() == true) {
+            intent = new Intent(this, Tutorial.class);
+            intent.putExtra("tutorial", true);
+        }else{
+            intent.putExtra("tutorial", false);
+        }
         startActivity(intent);
         overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
         this.finish();

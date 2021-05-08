@@ -9,20 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto">
-        <activity android:name=".CrearFlotaCastilla"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Flotas.EnviarFlotasPlata"
+        <activity android:name=".Tutorial"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".Flotas.EnviarFlotasNuevaGranada"
+        <activity
+            android:name=".CrearFlotaCastilla"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Flotas.EnviarFlotasNuevaEspana"
+        <activity
+            android:name=".Flotas.EnviarFlotasPlata"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".Flotas.EnviarFlotasNuevaGranada"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Flotas.EnviarFlotasPeru"
+        <activity
+            android:name=".Flotas.EnviarFlotasNuevaEspana"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Flotas.EnviarFlotasPeru"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

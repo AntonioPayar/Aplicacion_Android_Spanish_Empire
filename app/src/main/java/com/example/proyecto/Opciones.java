@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
-public class Opciones extends AppCompatActivity {
+public class Opciones extends AppCompatActivity{
 
     private View decorView;
     private Button volver;
     private MediaPlayer media2;
     private int time;
     private MainActivity a;
+    private static boolean tutorialActivo = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class Opciones extends AppCompatActivity {
         setContentView(R.layout.activity_opciones);
 
         volver = (Button)findViewById(R.id.boton_salir);
+
+        Switch tutorial = findViewById(R.id.tutorial);
 
         time = getIntent().getIntExtra("segundos", 4);
 
@@ -43,7 +47,19 @@ public class Opciones extends AppCompatActivity {
                 }
             }
         });
+
+        tutorial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    tutorialActivo = true;
+                }else{
+                    tutorialActivo = false;
+                }
+            }
+        });
     }
+
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus){
@@ -139,6 +155,11 @@ public class Opciones extends AppCompatActivity {
         segundos = media2.getCurrentPosition();
         return segundos;
     }
+
+    public static boolean getTutorial(){
+        return tutorialActivo;
+    }
+
 
 
 }
