@@ -18,7 +18,7 @@ public class Opciones extends AppCompatActivity{
     private MediaPlayer media2;
     private int time;
     private MainActivity a;
-    private static boolean tutorialActivo = true;
+    private static boolean tutorialActivo = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
