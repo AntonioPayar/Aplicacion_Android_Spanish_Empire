@@ -1,5 +1,7 @@
 package com.example.proyecto.Clases;
 
+import com.example.proyecto.PanelDeControl;
+
 import java.util.Random;
 
 /**
@@ -46,6 +48,20 @@ public class Austria extends Europa {
 		this.recoleccionPlata = new MateriasPrimas(ProductoNombre.Plata, 0, 0, 0, 0, 0, 10);
 		calcularProduccionMensual(recoleccionPlata);
 		this.calcularProductosDemandados();
+		addFlota();
+		baseDatosDemandas();
+	}
+
+	protected void baseDatosDemandas(){
+		if(this.getProductosDemandados().length>0){
+			for(ProductoNombre products :this.getProductosDemandados()){
+				PanelDeControl.database.insertDemandas(products,this.getNombre());
+			}
+		}
+	}
+
+	protected  void addFlota(){
+		PanelDeControl.database.insertFLotas(this.getNombre());
 	}
 
 	/**

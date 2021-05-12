@@ -1,5 +1,7 @@
 package com.example.proyecto.Clases;
 
+import com.example.proyecto.PanelDeControl;
+
 import java.util.Random;
 
 
@@ -47,6 +49,20 @@ public class NuevaEspana extends Virreinatos {
 		this.recoleccionTrigo = new Alimentos(ProductoNombre.Trigo, 0, 0, 0, 0, "semilla", 0);
 		calcularProduccionMensual(recoleccionTrigo);
 		this.calcularProductosDemandados();
+		addFlota();
+		baseDatosDemandas();
+	}
+
+	protected void baseDatosDemandas(){
+		if(this.getProductosDemandados().length>0){
+			for(ProductoNombre products :this.getProductosDemandados()){
+				PanelDeControl.database.insertDemandas(products,this.getNombre());
+			}
+		}
+	}
+
+	protected  void addFlota(){
+		PanelDeControl.database.insertFLotas(this.getNombre());
 	}
 
 	/**

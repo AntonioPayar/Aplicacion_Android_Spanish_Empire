@@ -1,5 +1,6 @@
 package com.example.proyecto.Clases;
 import com.example.proyecto.Flota;
+import com.example.proyecto.PanelDeControl;
 import com.example.proyecto.Territorio;
 
 import java.sql.SQLException;
@@ -58,6 +59,7 @@ public abstract class Reinos extends Territorio {
 		this.sublevaciones=false;
 		this.idMercancias=1;
 		this.idImportaciones=1;
+		addPaisBaseDatos();
 	}
 
 	/**
@@ -70,6 +72,10 @@ public abstract class Reinos extends Territorio {
 		this.importacionMercancia=obj.getImportacionMercancia();
 		this.dineroTotal=obj.getDineroTotal();
 		this.sublevaciones=obj.isSublevaciones();
+	}
+
+	protected void addPaisBaseDatos(){
+		PanelDeControl.database.insertPaises(this.getNombre(),this.getContinente(),+this.getPoblacion());
 	}
 
 
@@ -93,11 +99,13 @@ public abstract class Reinos extends Territorio {
 			 *  de un determinado producto por el n�mero de personas de su pa�s determinado mas un n�mero aleatorio con el que se podr� comerciar con el resto de Pa�ses.
 			 */
 			product.setCantidad((4*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			//El objetivo es meter los datos de la produccion integra en la base de datos produccion total
 			cosumoProductos(product);
 			break;
 		case Tomate:
 			product.setCantidad((2*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 //		case Cacao:
@@ -106,23 +114,28 @@ public abstract class Reinos extends Territorio {
 //			break;
 		case Maiz:
 			product.setCantidad((6*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Trigo:
 			product.setCantidad((5*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Arroz:
 			product.setCantidad((3*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Uvas:
 			product.setCantidad((1*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Hierro:
 			random2=rnd.nextInt((200-10)+10)+200;
 			product.setCantidad(random2);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 //		case Algodon:
@@ -132,19 +145,23 @@ public abstract class Reinos extends Territorio {
 		case Oro:
 			random2=rnd.nextInt((50-10)+10)+50;
 			product.setCantidad(random2);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Plata:
 			random2=rnd.nextInt((50-10)+10)+50;
 			product.setCantidad(random2);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Tabaco:
 			product.setCantidad((1*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		case Cafe:
 			product.setCantidad((3*this.poblacion)+random);
+			PanelDeControl.database.insertProducciones(product,this.getNombre());
 			cosumoProductos(product);
 			break;
 		default:
@@ -217,6 +234,7 @@ public abstract class Reinos extends Territorio {
 			for(int i=0;i<this.productosDemandados.length;i++) {
 				if(this.productosDemandados[i]!=null) {
 					if(this.productosDemandados[i].equals(this.importacionMercancia.get(key).getProducto().getNombre())) {
+						PanelDeControl.database.updateDemandasRealizadas(this.importacionMercancia.get(key).getProducto(),this.getNombre());
 						this.productosDemandados[i]=null;
 						this.importacionMercancia.remove(key);
 					}
@@ -348,7 +366,17 @@ public abstract class Reinos extends Territorio {
 	}
 
 	public void setSublevaciones(boolean sublevaciones) {
+		insertarBaseDatosSublevacion();
 		this.sublevaciones = sublevaciones;
+	}
+
+	/**Metodo encargado de una vez se establezca una sublevacion esta sea introducida en la base de datos**/
+	protected void insertarBaseDatosSublevacion() {
+		PanelDeControl.database.insertarSublevaciones(this.getNombre());
+		//id_turno_y_id_partida= SELECT turno,id_partida FROM Turnos WHERE id_partida=MAX(id_partida)FROM Partidas;
+		//id_pais=SELECT id_pais FROM Paises WHERE nombre=this.getNombre();
+		//id_demandas=SELECT id_demandas FROM Demandas WHERE descripcion=this.productosDemandados[i] and id_pais=id_pais and id_partida =id_turno_y_id_partida and id_turno=id_turno_y_id_partida;
+		//INSERT INTO Sublevaciones(id_pais,hora,id_turno,id_partida) VALUES(id_pais,now(),id_turno_y_id_partida,id_turno_y_id_partida);
 	}
 
 	public int getIdMercancias() {

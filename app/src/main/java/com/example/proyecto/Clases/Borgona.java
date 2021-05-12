@@ -1,5 +1,7 @@
 package com.example.proyecto.Clases;
 
+import com.example.proyecto.PanelDeControl;
+
 import java.util.Random;
 
 
@@ -48,7 +50,21 @@ public class Borgona extends Europa{
             this.recoleccionPatatas= new Alimentos(ProductoNombre.Patata, 0, 0, 0, 0, "Tub�rculo ", 0);
             calcularProduccionMensual(recoleccionPatatas);
             this.calcularProductosDemandados();
-        }
+			addFlota();
+			baseDatosDemandas();
+		}
+
+	protected void baseDatosDemandas(){
+		if(this.getProductosDemandados().length>0){
+			for(ProductoNombre products :this.getProductosDemandados()){
+				PanelDeControl.database.insertDemandas(products,this.getNombre());
+			}
+		}
+	}
+
+	protected  void addFlota(){
+		PanelDeControl.database.insertFLotas(this.getNombre());
+	}
 
         /**
          * Constructor de copia

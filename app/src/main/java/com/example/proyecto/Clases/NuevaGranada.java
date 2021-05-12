@@ -1,5 +1,7 @@
 package com.example.proyecto.Clases;
 
+import com.example.proyecto.PanelDeControl;
+
 import java.util.Random;
 
 
@@ -46,6 +48,20 @@ public class NuevaGranada extends Virreinatos {
 		this.recoleccionCafe = new MateriasPrimas(ProductoNombre.Cafe, 0, 0, 0, 0, 0, 10);
 		calcularProduccionMensual(this.recoleccionCafe);
 		this.calcularProductosDemandados();
+		addFlota();
+		baseDatosDemandas();
+	}
+
+	protected void baseDatosDemandas(){
+		if(this.getProductosDemandados().length>0){
+			for(ProductoNombre products :this.getProductosDemandados()){
+				PanelDeControl.database.insertDemandas(products,this.getNombre());
+			}
+		}
+	}
+
+	protected  void addFlota(){
+		PanelDeControl.database.insertFLotas(this.getNombre());
 	}
 
 	/**

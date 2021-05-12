@@ -13,16 +13,36 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.proyecto.Base.BaseDatos;
 
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer media;
     private static int time;
     private View decorView;
+    private EditText etusuaio;
+
+    public void abrirOpciones(View vista){
+
+        Intent i = new Intent(this, Opciones.class);
+        i.putExtra("segundos", media.getCurrentPosition());
+        startActivity(i);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void abrirOpcionesBaseDatos(View vista){
+
+        Intent i = new Intent(this, OpcionesBaseDatos.class);
+        i.putExtra("segundos", media.getCurrentPosition());
+        startActivity(i);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView imageView = (ImageView)findViewById(R.id.imageView);
+        this.etusuaio=findViewById(R.id.editTextTextPersonName);
         Glide.with(getApplicationContext()).load(R.drawable.barconav).into(imageView);
 
         decorView = getWindow().getDecorView();
@@ -53,28 +74,35 @@ public class MainActivity extends AppCompatActivity {
         media.start();
     }
 
-    public void abrirOpciones(View vista){
-
-        Intent i = new Intent(this, Opciones.class);
-        i.putExtra("segundos", media.getCurrentPosition());
-        startActivity(i);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-    }
-
     public void comenzarPartida(View vista) throws InterruptedException {
-
-        Intent intent = new Intent(this, Juego.class);
-        Thread.sleep(2000);
+        BaseDatos database= new BaseDatos(this);
+        Intent intent;
 
         if(Opciones.getTutorial() == true) {
             intent = new Intent(this, Tutorial.class);
             intent.putExtra("tutorial", true);
+            startActivity(intent);
+            overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+            this.finish();
         }else{
-            intent.putExtra("tutorial", false);
+            if(this.etusuaio.getText().length()>2){
+                if(database.recorrerNombrePartida(this.etusuaio.getText().toString())){
+                    intent = new Intent(this, Juego.class);
+                    Thread.sleep(2000);
+                    //Intent intent = new Intent(this, Juego.class);
+                    intent.putExtra("tutorial", false);
+                    intent.putExtra("user",this.etusuaio.getText().toString());
+                    Thread.sleep(2000);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+                    this.finish();
+                }else{
+                    Toast.makeText(this, "Cambie el nombre ese ya esta disponible", Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(this, "Introduzca un nombre de usuario", Toast.LENGTH_SHORT).show();
+            }
         }
-        startActivity(intent);
-        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
-        this.finish();
     }
 
     @Override
