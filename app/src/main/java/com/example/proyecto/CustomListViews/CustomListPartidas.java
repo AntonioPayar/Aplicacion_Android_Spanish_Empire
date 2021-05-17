@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.proyecto.CustomListViews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.proyecto.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class CustomListPartidas extends ArrayAdapter<String> {
     private List<String> partidas;
     private Context contexto;
     private  int resorceLayout;
+    private View view;
 
 
     public CustomListPartidas(@NonNull Context context, int resource, @NonNull List<String> objects) {
@@ -31,7 +34,7 @@ public class CustomListPartidas extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view=convertView;
+        view=convertView;
 
         if(view==null){
             view = LayoutInflater.from(this.contexto).inflate(this.resorceLayout,null);
@@ -45,9 +48,11 @@ public class CustomListPartidas extends ArrayAdapter<String> {
         TextView texto01 = view.findViewById(R.id.textViewrowPartida);
         texto01.setText(partida_seleccionada);
 
-        TextView texto02 = view.findViewById(R.id.textViewrowPartida02);
-        texto02.setText("");
-
         return view;
+    }
+
+    public void elementoSeleccionado(int posicion){
+        ImageView imagen02 = view.findViewById(R.id.Imagenselect);
+        //imagen02.setImageResource(R.drawable.select);
     }
 }

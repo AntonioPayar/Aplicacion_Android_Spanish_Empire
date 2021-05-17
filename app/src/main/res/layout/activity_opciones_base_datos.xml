@@ -21,6 +21,7 @@
         android:onClick="atras"/>
 
     <RadioGroup
+        android:id="@+id/radioGroup01"
         android:layout_width="188dp"
         android:layout_height="280dp"
         android:background="#BC873A"
@@ -32,7 +33,7 @@
         app:layout_constraintVertical_bias="0.79">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/rbproducciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Producciones" />
@@ -78,7 +79,9 @@
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.44" >
+
+    </ListView>
 
     <TextView
         android:id="@+id/textView16"
@@ -89,21 +92,50 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintVertical_bias="0.009" />
 
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="89dp"
-        android:layout_height="59dp"
+        android:layout_width="79dp"
+        android:layout_height="60dp"
+        android:background="@drawable/enter"
+        android:onClick="botonEnter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="149dp"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946"
-        android:background="@drawable/enter" />
+        app:layout_constraintVertical_bias="0.93" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

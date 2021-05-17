@@ -8,7 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.QueryClase.QueryDemandas;
+import com.example.QueryClase.QueryFlotasEnviadas;
+import com.example.QueryClase.QueryMercancias;
+import com.example.QueryClase.QueryMercanciasFlotas;
+import com.example.QueryClase.QuerySublevaciones;
 import com.example.proyecto.Clases.ProductoNombre;
+import com.example.QueryClase.QueryProductos;
 import com.example.proyecto.Clases.Reinos;
 import com.example.proyecto.Clases.Mercancia;
 import com.example.proyecto.Clases.Productos;
@@ -207,5 +213,128 @@ public class BaseDatos extends SQLiteOpenHelper {
             partidas.add(cursor.getString(0));
         }
         return partidas;
+    }
+
+    public ArrayList<QueryProductos> selectProductos(String partida){
+        SQLiteDatabase db;
+        ArrayList<QueryProductos>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+
+        while(cursor.moveToNext()){
+            String paiss =cursor.getString(0);
+            int turn =cursor.getInt(1);
+            String produ=cursor.getString(2);
+            int cantida=cursor.getInt(3);
+            //Problemas columna 5
+            String user=cursor.getString(4);
+            productos.add(new QueryProductos(paiss,turn+"",produ,cantida+"",user));
+            //productos.add(new QueryProductos(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+        }
+        return productos;
+    }
+
+    public ArrayList<QueryDemandas> selectDemandas(String partida){
+        SQLiteDatabase db;
+        ArrayList<QueryDemandas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Demandas.descripcion,Paises.nombre,Demandas.realizada,Partidas.usuario FROM Demandas,Paises,Partidas WHERE Demandas.id_pais=Paises.id_pais and Demandas.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"';",null);
+
+        while(cursor.moveToNext()){
+            String descripcion =cursor.getString(0);
+            String pais =cursor.getString(1);
+            String realizada=cursor.getString(2);
+            String usuario=cursor.getString(3);
+
+            productos.add(new QueryDemandas(descripcion,pais,realizada,usuario));
+        }
+        return productos;
+    }
+
+    public ArrayList<QueryMercancias> selectMercancias(String partida){
+        SQLiteDatabase db;
+        ArrayList<QueryMercancias>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+
+        while(cursor.moveToNext()){
+            String producto =cursor.getString(0);
+            String pais =cursor.getString(1);
+            int cantidadTotal=cursor.getInt(2);
+            int cantidad=cursor.getInt(3);
+            int turno=cursor.getInt(4);
+            //Problemas columna 5
+
+            productos.add(new QueryMercancias(producto,pais,cantidadTotal+"",cantidad+"",turno+""));
+            //productos.add(new QueryProductos(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+        }
+        return productos;
+    }
+
+    public ArrayList<QueryMercanciasFlotas> selectMercanciasFlota(String partida){
+        SQLiteDatabase db;
+        ArrayList<QueryMercanciasFlotas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.producto,Turnos.turno,Partidas.usuario FROM MercanciasFlota,Flota,Paises,Mercancias,Partidas,Producciones,Turnos WHERE MercanciasFlota.id_flota=Flota.id_flota and Flota.id_pais=Paises.id_pais and MercanciasFlota.id_mercancia=Mercancias.id_mercancia and Mercancias.id_produccion=Producciones.id_produccion and MercanciasFlota.id_turno=Turnos.id_turno and MercanciasFlota.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+
+        while(cursor.moveToNext()){
+            String paiss =cursor.getString(0);
+            String mercan =cursor.getString(1);
+            int turno=cursor.getInt(2);
+            String partidaa=cursor.getString(3);
+            //Problemas columna 5
+            productos.add(new QueryMercanciasFlotas(paiss,mercan,turno+"",partidaa));
+            //productos.add(new QueryProductos(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+        }
+        return productos;
+    }
+
+    public ArrayList<QueryFlotasEnviadas> selectFlotaEnviada(String partida){
+        SQLiteDatabase db;
+        ArrayList<QueryFlotasEnviadas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT origen.nombre as origen,FlotaEnviada.cantidad_almacenada,Turnos.turno,Partidas.usuario,destino.nombre as destino,FlotaEnviada.distancia_destino FROM FlotaEnviada,Paises AS origen,Paises AS destino,Flota,Partidas,Turnos where FlotaEnviada.id_flota=Flota.id_flota and Flota.id_pais=origen.id_pais and FlotaEnviada.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and FlotaEnviada.id_turno=Turnos.id_turno and FlotaEnviada.pais_envio=destino.id_pais\n",null);
+
+        while(cursor.moveToNext()){
+            String paiss =cursor.getString(0);
+            int cantidad =cursor.getInt(1);
+            int turno=cursor.getInt(2);
+            String usuario=cursor.getString(3);
+            String destino=cursor.getString(4);
+            int distancia=cursor.getInt(5);
+
+            productos.add(new QueryFlotasEnviadas(paiss,cantidad+"",usuario,turno+"",destino,distancia+""));
+        }
+        return productos;
+    }
+
+    public ArrayList<QuerySublevaciones> selectSublevaciones(String partida){
+        SQLiteDatabase db;
+        ArrayList<QuerySublevaciones>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Sublevaciones.hora,Turnos.turno,Partidas.usuario FROM Sublevaciones,Paises,Turnos,Partidas WHERE Sublevaciones.id_pais=Paises.id_pais and Sublevaciones.id_turno=Turnos.id_turno and Sublevaciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+
+        while(cursor.moveToNext()){
+            String paiss =cursor.getString(0);
+            String hora =cursor.getString(1);
+            int turno=cursor.getInt(2);
+            String user=cursor.getString(3);
+
+            productos.add(new QuerySublevaciones(paiss,hora,turno+"",user));
+            //productos.add(new QueryProductos(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
+        }
+        return productos;
     }
 }

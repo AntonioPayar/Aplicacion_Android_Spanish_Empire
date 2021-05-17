@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.proyecto.CustomListViews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyecto.Clases.Mercancia;
+import com.example.proyecto.R;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
