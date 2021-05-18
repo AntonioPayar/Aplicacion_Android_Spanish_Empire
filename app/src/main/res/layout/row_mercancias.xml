@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercID"
+        android:textColor="#070707"
+        android:layout_marginLeft="20dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercMercancia"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/textViewrowMercID"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercPais"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/textViewrowMercMercancia"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercaPro"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/textViewrowMercPais"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercCantidad"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_toLeftOf="@id/textViewrowMercTurno"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewrowMercTurno"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

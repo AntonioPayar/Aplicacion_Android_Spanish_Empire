@@ -34,6 +34,7 @@ public class Juego extends AppCompatActivity {
     private int sec;
     private ImageView monarca;
     private static boolean tutorial;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,8 @@ public class Juego extends AppCompatActivity {
 
         try {
 //            if(pdc.getContadorTurnos() == 0)
-                pdc = new PanelDeControl();
+            this.usuario=getIntent().getStringExtra("user");
+            pdc = new PanelDeControl(this,usuario);
 //            }else{
 ////                sec = sharedPref.getInt("sec", 0);
 ////                editor.commit();

@@ -225,10 +225,10 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
 
             public void onClick(DialogInterface dialog, int which) {
 
-                if(!radio1.isSelected() && radio1.getVisibility()==View.VISIBLE) {
+                if(!radio1.isChecked() && radio1.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getCastilla().getNombre()+","+control.getEspana().getCastilla().getFlota().getDestino());
 
-                }else if(radio1.isSelected() && radio1.getVisibility()==View.VISIBLE) {
+                }else if(radio1.isChecked() && radio1.getVisibility()==View.VISIBLE) {
                     Toast.makeText(getActivity(), "castilla 1", Toast.LENGTH_SHORT).show();
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getCastilla().getNombre()+","+control.getEspana().getCastilla().getFlota().getDestino());
                     radio1.setVisibility(View.INVISIBLE);
@@ -236,68 +236,68 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                     Toast.makeText(getActivity(), "castilla 2", Toast.LENGTH_SHORT).show();
                 }
 
-                if(!radio2.isSelected() && radio2.getVisibility()==View.VISIBLE) {
+                if(!radio2.isChecked() && radio2.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getAragon().getNombre()+","+control.getEspana().getAragon().getFlota().getDestino());
 
 
-                }else if(radio2.isSelected() && radio2.getVisibility()==View.VISIBLE) {
+                }else if(radio2.isChecked() && radio2.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getAragon().getNombre()+","+control.getEspana().getAragon().getFlota().getDestino());
                     radio2.setVisibility(View.INVISIBLE);
                     aragonRetorno.setVisibility(View.INVISIBLE);
                 }
 
-                if(!radio3.isSelected() && radio3.getVisibility()==View.VISIBLE) {
+                if(!radio3.isChecked() && radio3.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getBorgona().getNombre()+","+control.getEspana().getBorgona().getFlota().getDestino());
 
-                }else if(radio3.isSelected() && radio3.getVisibility()==View.VISIBLE) {
+                }else if(radio3.isChecked() && radio3.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getBorgona().getNombre()+","+control.getEspana().getBorgona().getFlota().getDestino());
                     radio3.setVisibility(View.INVISIBLE);
                     borgonaRetorno.setVisibility(View.INVISIBLE);
                 }
 
-                if(!radio4.isSelected() && radio4.getVisibility()==View.VISIBLE) {
+                if(!radio4.isChecked() && radio4.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getAustria().getNombre()+","+control.getEspana().getAustria().getFlota().getDestino());
 
-                }else if(radio4.isSelected() && radio4.getVisibility()==View.VISIBLE) {
+                }else if(radio4.isChecked() && radio4.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getAustria().getNombre()+","+control.getEspana().getAustria().getFlota().getDestino());
                     radio4.setVisibility(View.INVISIBLE);
                     austriaRetorno.setVisibility(View.INVISIBLE);
                 }
 
-                if(!radio5.isSelected() && radio5.getVisibility()==View.VISIBLE) {
+                if(!radio5.isChecked() && radio5.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getPeru().getNombre()+","+control.getEspana().getPeru().getFlota().getDestino());
 
-                }else if(radio5.isSelected() && radio5.getVisibility()==View.VISIBLE) {
+                }else if(radio5.isChecked() && radio5.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getPeru().getNombre()+","+control.getEspana().getPeru().getFlota().getDestino());
                     radio5.setVisibility(View.INVISIBLE);
                     PeruRetorno.setVisibility(View.INVISIBLE);
                 }
 
-                if(!radio6.isSelected() && radio6.getVisibility()==View.VISIBLE) {
+                if(!radio6.isChecked() && radio6.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getNuevaEspana().getNombre()+","+control.getEspana().getNuevaEspana().getFlota().getDestino());
 
 
-                }else if(radio6.isSelected() && radio6.getVisibility()==View.VISIBLE) {
+                }else if(radio6.isChecked() && radio6.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getNuevaEspana().getNombre()+","+control.getEspana().getNuevaEspana().getFlota().getDestino());
                     radio6.setVisibility(View.INVISIBLE);
                     NEretorno.setVisibility(View.INVISIBLE);
                 }
 
 
-                if(!radio7.isSelected() && radio7.getVisibility()==View.VISIBLE) {
+                if(!radio7.isChecked() && radio7.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getNuevaGranda().getNombre()+","+control.getEspana().getNuevaGranda().getFlota().getDestino());
 
 
-                }else if(radio7.isSelected() && radio7.getVisibility()==View.VISIBLE) {
+                }else if(radio7.isChecked() && radio7.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getNuevaGranda().getNombre()+","+control.getEspana().getNuevaGranda().getFlota().getDestino());
                     radio7.setVisibility(View.INVISIBLE);
                     NGretorno.setVisibility(View.INVISIBLE);
                 }
 
-                if(!radio8.isSelected() && radio8.getVisibility()==View.VISIBLE) {
+                if(!radio8.isChecked() && radio8.getVisibility()==View.VISIBLE) {
                     control.meterZonaSinFlota(control.getEspana().getPlata().getNombre()+","+control.getEspana().getPlata().getFlota().getDestino());
 
-                }else if(radio8.isSelected() && radio8.getVisibility()==View.VISIBLE) {
+                }else if(radio8.isChecked() && radio8.getVisibility()==View.VISIBLE) {
                     control.quitarReinoDeZonasSinFlota(control.getEspana().getPlata().getNombre()+","+control.getEspana().getPlata().getFlota().getDestino());
                     radio8.setVisibility(View.INVISIBLE);
                     plataRetorno.setVisibility(View.INVISIBLE);

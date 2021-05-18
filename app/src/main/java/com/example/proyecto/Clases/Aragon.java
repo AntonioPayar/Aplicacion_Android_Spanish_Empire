@@ -1,5 +1,6 @@
 package com.example.proyecto.Clases;
 
+import com.example.proyecto.PanelDeControl;
 import java.util.Random;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Random;
  *
  */
 public class Aragon extends Europa {
-	
+
 	private Alimentos recoleccionTrigo;
 	/**
 	 * atributo que almacena la cantidad de trigo producida en el Reino
@@ -45,6 +46,20 @@ public class Aragon extends Europa {
 		this.recoleccionArroz = new Alimentos(ProductoNombre.Arroz, 0, 0, 0, 0, "Cereal", 0);
 		calcularProduccionMensual(recoleccionArroz);
 		this.calcularProductosDemandados();
+		addFlota();
+		baseDatosDemandas();
+	}
+
+	protected void baseDatosDemandas(){
+		if(this.getProductosDemandados().length>0){
+			for(ProductoNombre products :this.getProductosDemandados()){
+				PanelDeControl.database.insertDemandas(products,this.getNombre());
+			}
+		}
+	}
+
+	protected  void addFlota(){
+		PanelDeControl.database.insertFLotas(this.getNombre());
 	}
 
 	/**
@@ -77,7 +92,7 @@ public class Aragon extends Europa {
 				newProduct.setCantidad(cantidad);
 				mercancia= new Mercancia("Trigo",this.getNombre());
 				mercancia.anadirProducto(newProduct);
-				this.getMercancia().put(this.getIdMercancias(), mercancia);	
+				this.getMercancia().put(this.getIdMercancias(), mercancia);
 				this.setIdMercancias(this.getIdMercancias()+1);
 			}else {
 				throw new IllegalArgumentException(this.getNombre()+" no tiene " + cantidad+" kg de "+producto);
@@ -91,7 +106,7 @@ public class Aragon extends Europa {
 				newProduct.setCantidad(cantidad);
 				mercancia= new Mercancia("Uvas",this.getNombre());
 				mercancia.anadirProducto(newProduct);
-				this.getMercancia().put(this.getIdMercancias(), mercancia);	
+				this.getMercancia().put(this.getIdMercancias(), mercancia);
 				this.setIdMercancias(this.getIdMercancias()+1);
 			}else {
 				throw new IllegalArgumentException(this.getNombre()+" no tiene " + cantidad+" kg de "+producto);
@@ -105,7 +120,7 @@ public class Aragon extends Europa {
 				newProduct.setCantidad(cantidad);
 				mercancia= new Mercancia("Arroz",this.getNombre());
 				mercancia.anadirProducto(newProduct);
-				this.getMercancia().put(this.getIdMercancias(), mercancia);	
+				this.getMercancia().put(this.getIdMercancias(), mercancia);
 				this.setIdMercancias(this.getIdMercancias()+1);
 			}else {
 				throw new IllegalArgumentException(this.getNombre()+" no tiene " + cantidad+" kg de "+producto);
@@ -119,7 +134,7 @@ public class Aragon extends Europa {
 				newProduct.setCantidad(cantidad);
 				mercancia= new Mercancia("Maiz",this.getNombre());
 				mercancia.anadirProducto(newProduct);
-				this.getMercancia().put(this.getIdMercancias(), mercancia);	
+				this.getMercancia().put(this.getIdMercancias(), mercancia);
 				this.setIdMercancias(this.getIdMercancias()+1);
 			}else {
 				throw new IllegalArgumentException(this.getNombre()+" no tiene " + cantidad+" kg de "+producto);
@@ -130,21 +145,21 @@ public class Aragon extends Europa {
 			throw new IllegalArgumentException("Este reino no produce " + producto);
 		}
 	}
-	
+
 	/**
 	 * M�todo, encargado de calcular cu�les de los producotos que no producen, van a demandar
 	 */
 	private void calcularProductosDemandados() {
 		int valor;
 		ProductoNombre productoNombre;
-		
+
 		for(int i=0;i<this.getProductosDemandados().length;i++) {
 			do {
 				valor = new Random().nextInt(ProductoNombre.values().length);
 				productoNombre=ProductoNombre.values()[valor];
-			}while(productoNombre==ProductoNombre.Uvas || productoNombre==ProductoNombre.Trigo);			
+			}while(productoNombre==ProductoNombre.Uvas || productoNombre==ProductoNombre.Trigo);
 			this.getProductosDemandados()[i]=productoNombre;
-		}	
+		}
 	}
 
 	/**
@@ -154,7 +169,7 @@ public class Aragon extends Europa {
 	public String  verproduccionMensual() {
 		return super.verproduccionMensual()+"Produccion de : "+this.recoleccionTrigo.toString() + "/ Produccion de de : "+ this.recoleccionUvas.toString()+ "/ Produccion de de : "+ this.recoleccionMaiz.toString()+ "/ Produccion de de : "+ this.recoleccionArroz.toString();
 	}
-	
+
 	public Alimentos getRecoleccionTrigo() {
 		return recoleccionTrigo;
 	}

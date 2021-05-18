@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.proyecto.Clases.Mercancia;
+import com.example.proyecto.CustomListViews.CustomAdapterListView;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

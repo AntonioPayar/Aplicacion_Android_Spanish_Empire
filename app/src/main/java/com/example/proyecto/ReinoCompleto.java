@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 /**
- * 
+ *
  * @author Grupo
  *
  */
@@ -58,7 +58,7 @@ public class ReinoCompleto {
 	 */
 
 	/**
-	 * 
+	 *
 	 * @throws Exception envia una Excepcion si no encuentra un Producto
 	 */
 
@@ -85,9 +85,8 @@ public class ReinoCompleto {
 
 		if(reino.getFlota().isDisponible()) {
 			pesoDisponibleFlota=reino.getFlota().anadirMercancia(reino.getMercancia().get(idMercancia));
+			PanelDeControl.database.insertarMercanciasFlotas(reino,idMercancia);
 			reino.getMercancia().remove(idMercancia);
-
-
 			return "La flota todavia puede transportar "+pesoDisponibleFlota;
 		}else {
 			throw new Exception("La flota no esta disponible ");
@@ -95,60 +94,77 @@ public class ReinoCompleto {
 	}
 
 	/**
-	 * M�todo encargado de enviar una flota con mercanc�as a una determinada zona depositar toda la mercanc�a de la misma 
+	 * M�todo encargado de enviar una flota con mercanc�as a una determinada zona depositar toda la mercanc�a de la misma
 	 * @param destino zona a la que se env�a la flota
 	 * @param reino zona desde la que se env�a la flota
 	 * @throws Exception env�o de Excepcion si no se introduce el nombre correctamente
 	 */
 	public void enviarFlota(Reinos reino ,Reinos destino) throws Exception {
+		int distancia;
 
 		if(reino instanceof Virreinatos) {
 
 			if(reino.getFlota().isDisponible()) {
-				
+
 				enviarBaseDatosIdMercancias(reino,destino);
 
 				switch (destino.getNombre().toUpperCase()) {
-				case "PERU":
+					case "PERU":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaPeru());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaPeru());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "PLATA":
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaPeru());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "PLATA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaPlata());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaPlata());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "CASTILLA":
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaPlata());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "CASTILLA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaCastilla());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaCastilla());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "NUEVA GRANADA":
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaCastilla());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "NUEVA GRANADA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaNuevaGranada());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaGranada());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "NUEVA ESPAÑA":
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaEspana());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "ARAGON":
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaAragon());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "AUSTRIA":
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaGranada());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "NUEVA ESPAÑA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaNuevaEspana());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "ARAGON":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaAragon());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "AUSTRIA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaAustria());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaAustria());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "BORGOÑA":
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaAustria());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "BORGOÑA":
+						distancia=((Virreinatos) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Virreinatos) reino).getDistanciaBorgo�a());
-					reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaBorgona());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				default:
-					throw new IllegalArgumentException(destino+" no esta disponible en las rutas de "+reino.getNombre());
+						reino.getFlota().enviarFLota(((Virreinatos) reino).getDistanciaBorgona());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					default:
+						throw new IllegalArgumentException(destino+" no esta disponible en las rutas de "+reino.getNombre());
 				}
 			}
 			else {
@@ -158,52 +174,68 @@ public class ReinoCompleto {
 		}else if(reino instanceof Europa) {
 
 			if(reino.getFlota().isDisponible()) {
-				
+
 				enviarBaseDatosIdMercancias(reino,destino);
 
 				switch (destino.getNombre().toUpperCase()) {
-				case "PERU":
+					case "PERU":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaPeru());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaPeru());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "PLATA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaPeru());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "PLATA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaPlata());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaPlata());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "CASTILLA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaPlata());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "CASTILLA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaCastilla());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaCastilla());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "NUEVA GRANADA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaCastilla());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "NUEVA GRANADA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaNuevaGranada());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaGranada());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "NUEVA ESPAÑA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaGranada());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "NUEVA ESPAÑA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaPeru());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaEspana());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "ARAGON":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaNuevaEspana());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "ARAGON":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaAragon());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaAragon());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "AUSTRIA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaAragon());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "AUSTRIA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaAustria());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaAustria());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				case "BORGOÑA":
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaAustria());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					case "BORGOÑA":
+						distancia=((Europa) reino).getDistanciaBorgona();
+						PanelDeControl.database.insertFlotaEnviada(reino,destino,distancia);
 //					reino.getFlota().setDestino(((Europa) reino).getDistanciaBorgona());
-					reino.getFlota().enviarFLota(((Europa) reino).getDistanciaBorgona());
-					this.llegadaFlotaDestino(reino, destino);
-					break;
-				default:
-					throw new IllegalArgumentException(destino+" no esta disponible en las rutas de "+reino.getNombre());
+						reino.getFlota().enviarFLota(((Europa) reino).getDistanciaBorgona());
+						this.llegadaFlotaDestino(reino, destino);
+						break;
+					default:
+						throw new IllegalArgumentException(destino+" no esta disponible en las rutas de "+reino.getNombre());
 				}
 			}
 			else {
@@ -211,7 +243,7 @@ public class ReinoCompleto {
 			}
 		}
 	}
-	
+
 	/**
 	 * Metodo encargado de instertar las importaciones a la Base de datos
 	 * @param origen
@@ -224,9 +256,9 @@ public class ReinoCompleto {
 		int turno;
 		String codigoPais;
 		String aux;
-		
+
 		turno=PanelDeControl.getContadorTurnos();
-		
+
 		if(origen.getNombre().equals("Nueva España")) {
 			codigoPais="NE";
 		}else if(origen.getNombre().equals("Nueva Granada")) {
@@ -234,19 +266,19 @@ public class ReinoCompleto {
 		}else {
 			codigoPais=origen.getNombre().substring(0,2);
 		}
-		
+
 		aux=codigoPais;
-		
+
 		while(it.hasNext()) {
 			codigoPais=aux;
 			id=(int) it.next();
-			
+
 			codigoPais+=id;
 			System.out.println(codigoPais);
-			
+
 //			IntroducirDatos.insertarImportaciones(codigoPais.toUpperCase(),origen.getNombre().toString(),destino.getNombre().toString(),turno);
 		}
-			
+
 	}
 
 	/**
@@ -262,7 +294,7 @@ public class ReinoCompleto {
 	 * M�todo encargado de la importaci�n de las Mercancias
 	 * @param origen Desde donde se env�a la Importaci�n
 	 * @param destino Lugar al que se env�a 
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	private void llegadaFlotaDestino(Reinos origen,Reinos destino) throws Exception {
 		if(!origen.equals(destino)) {
@@ -284,7 +316,7 @@ public class ReinoCompleto {
 	public void sublevaciones(Reinos zona) {
 
 	}
-	
+
 	/**
 	 * M�todo encargado de comprobar si todas las regiones tienen los productos demandados por las mismas
 	 * @return retorna una lista que contiene las zonas donde no se han satisfecho las necesidades que ped�an
@@ -292,51 +324,51 @@ public class ReinoCompleto {
 	public HashSet pasarTurno() {
 		//uso de HashSet para que no haya repeticiones
 		HashSet<String> zonasSinProductosDemandados= new HashSet<String>();
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(nuevaEspana));
-	
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(nuevaGranda));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(peru));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(plata));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(castilla));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(aragon));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(borgona));
-		
+
 		zonasSinProductosDemandados.add(this.comprobarProducotosDemandadosZonas(austria));
-		
+
 		zonasSinProductosDemandados.remove(null);
-		
+
 		return zonasSinProductosDemandados;
 	}
-	
+
 	/**
 	 * M�todo hermano del  "PasarTurno", su principal funci�n es ir al m�todo "comprobarProductosDemandados" de cada zona y comprobar si es "true" or "false"
 	 * @param reino  se pasa como par�metro el pa�s en cuesti�n del que se quiere comprobar su m�todo 
 	 * @return retorna el nombre de la zona, si en la misma no se han satisfecho las necesidades y en cambio "nada", si en esa zona no hay necesidad de productos
 	 */
 	private String comprobarProducotosDemandadosZonas(Reinos reino) {
-		
+
 		if(reino.getProductosDemandados().length>0) {
-			
+
 			if(reino.getProductosDemandados()[0]!=null) {
 				return reino.getNombre();
 			}else {
 				return null;
 			}
-			
+
 		}else {
 			return null;
 		}
-		
+
 
 
 	}
-	
+
 
 	/**
 	 * M�todo que se encarga de retornar las distancias de cada Reino del resto 
