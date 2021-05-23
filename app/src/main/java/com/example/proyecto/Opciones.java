@@ -91,6 +91,7 @@ public class Opciones extends AppCompatActivity{
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
     }
+
     public void mensaje1(View vista){
 
         MediaPlayer media = new MediaPlayer();

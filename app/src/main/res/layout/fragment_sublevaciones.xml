@@ -12,23 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageSubleId"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageSubleId"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.09"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageSublePais"
+        <Button
+            android:id="@+id/botonFiltroSublevacionPais"
             android:layout_width="50dp"
             android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
+            android:background="@drawable/boton_mercancias"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.29"
@@ -36,23 +36,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
-            android:id="@+id/imageSubleTurno"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.65"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageSubleTurno"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.65"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageSubleProducto"
+        <Button
+            android:id="@+id/botonFiltroSublevacionTurno"
             android:layout_width="50dp"
             android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
+            android:background="@drawable/boton_mercancias"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.94"

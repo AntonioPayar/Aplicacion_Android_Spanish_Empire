@@ -71,6 +71,7 @@ public class PanelDeControl {
         if(contadorTurnos!=0) {
             contadorTurnos++;
             PanelDeControl.database.updateDemandasNoRealizadas(this.contadorTurnos);
+            constructor();
             pasarTurno(espana);
             recorrerLista(espana);
             recorrerListaFlotas();
@@ -78,9 +79,10 @@ public class PanelDeControl {
 //            this.principal.dispose();
         }else {
             contadorTurnos++;
+            constructor();
         }
         insertarBaseDatosTurnos();
-        constructor();
+//        constructor();
         System.out.println("Nueva España"+this.espana.getNuevaEspana().isSublevaciones());
         System.out.println("Nueva Granada"+this.espana.getNuevaGranda().isSublevaciones());
         System.out.println("Peru"+this.espana.getPeru().isSublevaciones());

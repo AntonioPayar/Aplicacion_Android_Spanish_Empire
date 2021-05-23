@@ -26,11 +26,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.19" />
 
-        <ImageView
+        <Button
             android:id="@+id/imageMercCantidad2"
+            android:background="@drawable/boton_mercancias"
             android:layout_width="50dp"
             android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.9"
@@ -38,20 +38,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
-            android:id="@+id/imageMercId"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.04"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageMercId"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:src="@drawable/boton_opciones"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.04"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
+        <Button
             android:id="@+id/imageMercPais"
+            android:background="@drawable/boton_mercancias"
             android:layout_width="50dp"
             android:layout_height="42dp"
             android:src="@drawable/boton_opciones"
@@ -62,8 +64,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
+        <Button
             android:id="@+id/imageMercTurno"
+            android:background="@drawable/boton_mercancias"
             android:layout_width="50dp"
             android:layout_height="42dp"
             android:src="@drawable/boton_opciones"
@@ -74,29 +77,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
-            android:id="@+id/imageMercProducto"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageMercProducto"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:src="@drawable/boton_opciones"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.49"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageMercCantidad"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageMercCantidad"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:src="@drawable/boton_opciones"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.7"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
         <TextView
             android:id="@+id/textMercId"

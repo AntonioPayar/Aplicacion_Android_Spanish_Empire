@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class Tutorial extends AppCompatActivity {
 
     private View decorView;
@@ -29,6 +31,7 @@ public class Tutorial extends AppCompatActivity {
     private static int contador = 0;
 
     private ImageButton botonHaciaAtras;
+    private ImageButton imagenVolverAtras;
     private ImageButton pasarPic;
     private ImageButton comenzarPartida;
     private ConstraintLayout imagenDiapositiva;
@@ -40,8 +43,12 @@ public class Tutorial extends AppCompatActivity {
 
         String cadena = "!Saludos viajero¡ Bienvenido a SyberPun, en este sencillo tutorial te enseñaré poco a poco como es el juego. ¡Comenzemos!";
 
+        ImageView iv = (ImageView)findViewById(R.id.fondoTutorial);
+        Glide.with(getApplicationContext()).load(R.drawable.mar).into(iv);
+
         txtTutorial = (TextView)findViewById(R.id.textoTutorial);
 //        txtTutorial.setText(cadena);
+        imagenVolverAtras = (ImageButton)findViewById(R.id.volverAtrasPic2);
         imagenDiapositiva = (ConstraintLayout)findViewById(R.id.imagenTutorial);
         comenzarPartida = (ImageButton)findViewById(R.id.comenzarPartida);
         botonHaciaAtras = (ImageButton)findViewById(R.id.volverAtrasPic);
@@ -119,7 +126,7 @@ public class Tutorial extends AppCompatActivity {
 
                         if (diapositiva == 0 || diapositiva == -1) {
                             pasarPic.setVisibility(View.VISIBLE);
-                        } else if (diapositiva == 24) {
+                        } else if (diapositiva == 23) {
                             botonHaciaAtras.setVisibility(View.VISIBLE);
                             comenzarPartida.setVisibility(View.VISIBLE);
                         } else {
@@ -273,18 +280,14 @@ public class Tutorial extends AppCompatActivity {
                 cadena = "Y así sucesivamente hasta perder la amistad de todos los Reinos, entonces es cuando se acabará la partida";
                 imagenDiapositiva.setBackgroundResource(R.drawable.tutorial);
                 txtTutorial.setText(cadena);
+                comenzarPartida.setVisibility(View.INVISIBLE);
+                imagenVolverAtras.setVisibility(View.VISIBLE);
                 mostrarTexto(cadena);
                 break;
             case 23:
-                cadena = "Para desactivar este tutorial vaya a las opciones del menú y desactive el tutorial";
-                imagenDiapositiva.setBackgroundResource(R.drawable.tutorial15);
-                txtTutorial.setText(cadena);
-                comenzarPartida.setVisibility(View.INVISIBLE);
-                mostrarTexto(cadena);
-                break;
-            case 24:
                 cadena = "¡Dicho esto, mucha suerte y a disfrutar viajero!";
                 imagenDiapositiva.setBackgroundResource(R.drawable.tutorial);
+                imagenVolverAtras.setVisibility(View.INVISIBLE);
                 txtTutorial.setText(cadena);
                 mostrarTexto(cadena);
                 break;
@@ -292,10 +295,17 @@ public class Tutorial extends AppCompatActivity {
         }
     }
 
-    public void comenzarPartida(View vista){
-        Intent i = new Intent(this, Juego.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+//    public void comenzarPartida(View vista){
+//        Intent i = new Intent(this, Juego.class);
+//        startActivity(i);
+//        overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+//        this.finish();
+//    }
+
+    public void volverAtras(View vista){
+
+        onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
     }
 

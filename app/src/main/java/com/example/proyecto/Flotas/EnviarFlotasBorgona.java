@@ -1,6 +1,7 @@
 package com.example.proyecto.Flotas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -17,6 +18,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyecto.FragmentoGoogleMaps;
 import com.example.proyecto.Juego;
 import com.example.proyecto.PanelDeControl;
 import com.example.proyecto.R;
@@ -32,7 +34,7 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
     private PanelDeControl control;
     private RadioGroup radio;
     private Button embarca;
-    private ImageView imagen;
+    private FragmentoGoogleMaps fragmentMaps;
     private String texto;
 
     private View decorView;
@@ -51,14 +53,17 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
         contenedor = (LinearLayout)findViewById(R.id.contenedorBorgona);
         radio = (RadioGroup)findViewById(R.id.radioGroupBorgona);
         embarca = (Button)findViewById(R.id.embarcarBotonBorgona);
-        imagen = (ImageView)findViewById(R.id.imageViewBorgona);
-        imagen.setBackgroundResource(R.drawable.continentes_por_defecto);
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
         media.setLooping(true);
         media.seekTo(time);
         media.start();
+
+        //GOGLE MAPAS
+        Fragment fragmentMaps01 = new FragmentoGoogleMaps();
+        this.fragmentMaps= (FragmentoGoogleMaps) fragmentMaps01;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment4,fragmentMaps01).commit();
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -392,49 +397,50 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
 
         int id;
         RadioButton rb;
+        this.fragmentMaps.ponerPutoOrigen("Borgona");
 
         switch (checkedId) {
             case R.id.borgonaAragon:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_aragon);
+                this.fragmentMaps.cambiarmapa("Aragon");
                 break;
             case R.id.borgonaAustria:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_austria);
+                this.fragmentMaps.cambiarmapa("Austria");
                 break;
             case R.id.borgonaCastilla:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_castilla);
+                this.fragmentMaps.cambiarmapa("Castilla");
                 break;
             case R.id.borgonaNuevaEspana:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_nueva_espana);
+                this.fragmentMaps.cambiarmapa("Nueva Espana");
                 break;
             case R.id.borgonaNuevaGranada:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_nueva_granada);
+                this.fragmentMaps.cambiarmapa("Nueva Granada");
                 break;
             case R.id.borgonaPeru:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_peru);
+                this.fragmentMaps.cambiarmapa("Peru");
                 break;
             case R.id.borgonaPlata:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.borgona_to_plata);
+                this.fragmentMaps.cambiarmapa("Plata");
                 break;
         }
 

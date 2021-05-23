@@ -100,7 +100,7 @@ public class SelectorZona extends Fragment implements View.OnClickListener{
         sublevacion = false;
 
         if(v.getId() == botonCastillaMerc.getId()) {
-            if(control.getEspana().getCastilla().isSublevaciones()==false) {
+            if(this.control.getEspana().getCastilla().isSublevaciones()==false) {
                 if (control.getEspana().getCastilla().getFlota().isDisponible()) {
                     switch (this.zona) {
                         case 1:

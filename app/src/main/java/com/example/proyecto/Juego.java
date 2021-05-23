@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -60,6 +61,8 @@ public class Juego extends AppCompatActivity {
 //            if(pdc.getContadorTurnos() == 0)
             this.usuario=getIntent().getStringExtra("user");
             pdc = new PanelDeControl(this,usuario);
+            TextView texto_turno = findViewById(R.id.textView20);
+            texto_turno.setText("TURNO\n"+this.pdc.getContadorTurnos());
 //            }else{
 ////                sec = sharedPref.getInt("sec", 0);
 ////                editor.commit();
@@ -315,6 +318,8 @@ public class Juego extends AppCompatActivity {
             transaction.addToBackStack(null);
             transaction.commit();
             contadorVentanas++;
+            TextView texto_turno=findViewById(R.id.textView20);
+            texto_turno.setText("TURNO\n"+this.pdc.getContadorTurnos());
         }else{
             Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
         }

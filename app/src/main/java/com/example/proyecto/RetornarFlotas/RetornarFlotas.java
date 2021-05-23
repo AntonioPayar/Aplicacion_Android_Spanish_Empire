@@ -71,6 +71,7 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
         View frag = inflater.inflate(R.layout.fragment_retornar_flotas, container, false);
 
         control = Juego.getPanelDeControl();
+
         contenedor = (LinearLayout)frag.findViewById(R.id.linearLayoutRetornarFlotas);
 
         castillaRetorno = (TextView)frag.findViewById(R.id.castillaRetorno);
@@ -343,6 +344,8 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                     }else if(Juego.getContadorVentanas()>0){
                         Juego.setContadorVentanas(0);
                     }
+
+                    getActivity().getSupportFragmentManager().popBackStack();
 
 //                    Intent i = new Intent(getActivity(), Juego.class);
 //                    startActivity(i);

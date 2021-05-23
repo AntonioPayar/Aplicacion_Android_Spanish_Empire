@@ -2,6 +2,8 @@ package com.example.proyecto;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.app.ActionBar;
@@ -33,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText etusuaio;
     private BaseDatos database;
 
-    public void abrirOpciones(View vista){
+    public void abrirTutorial(View vista){
 
-        Intent i = new Intent(this, Opciones.class);
+        Intent i = new Intent(this, Tutorial.class);
         i.putExtra("segundos", media.getCurrentPosition());
         startActivity(i);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -73,8 +75,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ImageView imageView = (ImageView)findViewById(R.id.imageView);
+//        ImageView imageView2 = (ImageView)findViewById(R.id.fondoMenu);
         this.etusuaio=findViewById(R.id.editTextTextPersonName);
+
         Glide.with(getApplicationContext()).load(R.drawable.barconav).into(imageView);
+//        Glide.with(getApplicationContext()).load(R.drawable.mar).into(imageView2);
+
+        /**Poner gif de backgroud**/
+        ImageView imageView02 = (ImageView)findViewById(R.id.imageView20);
+        Glide.with(getApplicationContext()).load(R.drawable.mar).into(imageView02);
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -101,32 +110,32 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent;
 
-        if(Opciones.getTutorial() == true) {
-            intent = new Intent(this, Tutorial.class);
-            intent.putExtra("tutorial", true);
-            startActivity(intent);
-            overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
-            this.finish();
-        }else{
-            if(this.etusuaio.getText().length()>2){
-                if (database.recorrerNombrePartida(this.etusuaio.getText().toString())) {
-                    intent = new Intent(this, Juego.class);
-                    Thread.sleep(2000);
-                    //Intent intent = new Intent(this, Juego.class);
-                    intent.putExtra("tutorial", false);
-                    intent.putExtra("user", this.etusuaio.getText().toString());
-                    Thread.sleep(2000);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
-                    this.finish();
-                    Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Cambie el nombre ese ya esta disponible", Toast.LENGTH_LONG).show();
-                }
-            }else{
-                Toast.makeText(this, "Introduzca un nombre de usuario de minimo 3 caracteres", Toast.LENGTH_SHORT).show();
+//        if(Opciones.getTutorial() == true) {
+//            intent = new Intent(this, Tutorial.class);
+//            intent.putExtra("tutorial", true);
+//            startActivity(intent);
+//            overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+//            this.finish();
+//        }else{
+        if(this.etusuaio.getText().length()>2){
+            if (database.recorrerNombrePartida(this.etusuaio.getText().toString())) {
+                intent = new Intent(this, Juego.class);
+                Thread.sleep(2000);
+                //Intent intent = new Intent(this, Juego.class);
+                intent.putExtra("tutorial", false);
+                intent.putExtra("user", this.etusuaio.getText().toString());
+                Thread.sleep(2000);
+                startActivity(intent);
+                overridePendingTransition(R.anim.partida_in, R.anim.partida_out);
+                this.finish();
+                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Cambie el nombre ese ya esta disponible", Toast.LENGTH_LONG).show();
             }
+        }else{
+            Toast.makeText(this, "Introduzca un nombre de usuario de minimo 3 caracteres", Toast.LENGTH_SHORT).show();
         }
+//        }
     }
 
     @Override

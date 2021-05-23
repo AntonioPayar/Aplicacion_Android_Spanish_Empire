@@ -412,17 +412,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
 
-        while(cursor.moveToNext()){
-            String producto =cursor.getString(0);
-            String pais =cursor.getString(1);
-            int cantidadTotal=cursor.getInt(2);
-            int cantidad=cursor.getInt(3);
-            int turno=cursor.getInt(4);
-            //Problemas columna 5
-
-            productos.add(new QueryMercancias(producto,pais,cantidadTotal+"",cantidad+"",turno+""));
-            //productos.add(new QueryProductos(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5)));
-        }
+        cursorFiltroMercancias(productos, cursor);
         return productos;
     }
 
@@ -486,4 +476,303 @@ public class BaseDatos extends SQLiteOpenHelper {
         }
         return productos;
     }
+
+    //Métodos para los filtros
+
+    //Mercancias
+
+    public void cursorFiltroMercancias(ArrayList<QueryMercancias> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String producto = cursor.getString(0);
+            String pais = cursor.getString(1);
+            int cantidadTotal = cursor.getInt(2);
+            int cantidad = cursor.getInt(3);
+            int turno = cursor.getInt(4);
+
+            productos.add(new QueryMercancias(producto, pais, cantidadTotal + "", cantidad + "", turno + ""));
+        }
+    }
+
+    public ArrayList<QueryMercancias> selectFiltroPais(String partida, String paisFiltro){
+        SQLiteDatabase db;
+        ArrayList<QueryMercancias>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Paises.Nombre = '"+paisFiltro+"'",null);
+
+        cursorFiltroMercancias(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryMercancias> selectFiltroMercancia(String partida, String mercanciaFiltro){
+        SQLiteDatabase db;
+        ArrayList<QueryMercancias>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Producciones.producto = '"+mercanciaFiltro+"'",null);
+
+        cursorFiltroMercancias(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryMercancias> selectFiltroTurno(String partida, String turno){
+        SQLiteDatabase db;
+        ArrayList<QueryMercancias>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Mercancias.id_turno = '"+turno+"'",null);
+
+        cursorFiltroMercancias(productos, cursor);
+        return productos;
+    }
+
+    //Flotas
+
+    public void cursorFiltroFlotas(ArrayList<QueryMercanciasFlotas> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String paiss = cursor.getString(0);
+            String mercan = cursor.getString(1);
+            int turno = cursor.getInt(2);
+            String partidaa = cursor.getString(3);
+            productos.add(new QueryMercanciasFlotas(paiss, mercan, turno + "", partidaa));
+        }
+    }
+
+    public ArrayList<QueryMercanciasFlotas> selectFiltroFlotaMercancia(String partida, String mercancia){
+        SQLiteDatabase db;
+        ArrayList<QueryMercanciasFlotas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.producto,Turnos.turno,Partidas.usuario FROM MercanciasFlota,Flota,Paises,Mercancias,Partidas,Producciones,Turnos WHERE MercanciasFlota.id_flota=Flota.id_flota and Flota.id_pais=Paises.id_pais and MercanciasFlota.id_mercancia=Mercancias.id_mercancia and Mercancias.id_produccion=Producciones.id_produccion and MercanciasFlota.id_turno=Turnos.id_turno and MercanciasFlota.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Producciones.producto ='"+mercancia+"'",null);
+
+        cursorFiltroFlotas(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryMercanciasFlotas> selectFiltroFlotaPais(String partida, String pais){
+        SQLiteDatabase db;
+        ArrayList<QueryMercanciasFlotas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.producto,Turnos.turno,Partidas.usuario FROM MercanciasFlota,Flota,Paises,Mercancias,Partidas,Producciones,Turnos WHERE MercanciasFlota.id_flota=Flota.id_flota and Flota.id_pais=Paises.id_pais and MercanciasFlota.id_mercancia=Mercancias.id_mercancia and Mercancias.id_produccion=Producciones.id_produccion and MercanciasFlota.id_turno=Turnos.id_turno and MercanciasFlota.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Paises.nombre = '"+pais+"'",null);
+
+        cursorFiltroFlotas(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryMercanciasFlotas> selectFiltroFlotaTurno(String partida, String turnoNum){
+        SQLiteDatabase db;
+        ArrayList<QueryMercanciasFlotas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.producto,Turnos.turno,Partidas.usuario FROM MercanciasFlota,Flota,Paises,Mercancias,Partidas,Producciones,Turnos WHERE MercanciasFlota.id_flota=Flota.id_flota and Flota.id_pais=Paises.id_pais and MercanciasFlota.id_mercancia=Mercancias.id_mercancia and Mercancias.id_produccion=Producciones.id_produccion and MercanciasFlota.id_turno=Turnos.id_turno and MercanciasFlota.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Turnos.turno = '"+turnoNum+"'",null);
+
+        cursorFiltroFlotas(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryMercanciasFlotas> selectFiltroFlotaPartida(String partida, String partidaNum){
+        SQLiteDatabase db;
+        ArrayList<QueryMercanciasFlotas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.producto,Turnos.turno,Partidas.usuario FROM MercanciasFlota,Flota,Paises,Mercancias,Partidas,Producciones,Turnos WHERE MercanciasFlota.id_flota=Flota.id_flota and Flota.id_pais=Paises.id_pais and MercanciasFlota.id_mercancia=Mercancias.id_mercancia and Mercancias.id_produccion=Producciones.id_produccion and MercanciasFlota.id_turno=Turnos.id_turno and MercanciasFlota.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Partidas.usuario = '"+partidaNum+"'",null);
+
+        cursorFiltroFlotas(productos, cursor);
+        return productos;
+    }
+
+    //Demandas
+
+    public void cursorFiltroDemandas(ArrayList<QueryDemandas> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String descripcion = cursor.getString(0);
+            String pais = cursor.getString(1);
+            String realizada = cursor.getString(2);
+            String usuario = cursor.getString(3);
+
+            productos.add(new QueryDemandas(descripcion, pais, realizada, usuario));
+        }
+    }
+
+    public ArrayList<QueryDemandas> selectFiltroDemandasDescripcion(String partida, String producto){
+        SQLiteDatabase db;
+        ArrayList<QueryDemandas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Demandas.descripcion,Paises.nombre,Demandas.realizada,Partidas.usuario FROM Demandas,Paises,Partidas WHERE Demandas.id_pais=Paises.id_pais and Demandas.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Demandas.descripcion = '"+producto+"'",null);
+
+        cursorFiltroDemandas(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryDemandas> selectFiltroDemandasPais(String partida, String paisNombre){
+        SQLiteDatabase db;
+        ArrayList<QueryDemandas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Demandas.descripcion,Paises.nombre,Demandas.realizada,Partidas.usuario FROM Demandas,Paises,Partidas WHERE Demandas.id_pais=Paises.id_pais and Demandas.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Paises.nombre = '"+paisNombre+"'",null);
+
+        cursorFiltroDemandas(productos, cursor);
+        return productos;
+    }
+
+    //Sublevaciones
+
+    public void cursorFiltroSublevacion(ArrayList<QuerySublevaciones> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String paiss = cursor.getString(0);
+            String hora = cursor.getString(1);
+            int turno = cursor.getInt(2);
+            String user = cursor.getString(3);
+
+            productos.add(new QuerySublevaciones(paiss, hora, turno + "", user));
+        }
+    }
+
+    public ArrayList<QuerySublevaciones> selectFiltroSublevacionPais(String partida, String paisNombre){
+        SQLiteDatabase db;
+        ArrayList<QuerySublevaciones>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Sublevaciones.hora,Turnos.turno,Partidas.usuario FROM Sublevaciones,Paises,Turnos,Partidas WHERE Sublevaciones.id_pais=Paises.id_pais and Sublevaciones.id_turno=Turnos.id_turno and Sublevaciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Paises.nombre = '"+paisNombre+"'",null);
+
+        cursorFiltroSublevacion(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QuerySublevaciones> selectFiltroSublevacionTurno(String partida, String turnoNum){
+        SQLiteDatabase db;
+        ArrayList<QuerySublevaciones>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Sublevaciones.hora,Turnos.turno,Partidas.usuario FROM Sublevaciones,Paises,Turnos,Partidas WHERE Sublevaciones.id_pais=Paises.id_pais and Sublevaciones.id_turno=Turnos.id_turno and Sublevaciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Turnos.turno = '"+turnoNum+"'",null);
+
+        cursorFiltroSublevacion(productos, cursor);
+        return productos;
+    }
+
+    //Producciones
+
+    public void cursorFiltroProducciones(ArrayList<QueryProductos> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String paiss = cursor.getString(0);
+            int turn = cursor.getInt(1);
+            String produ = cursor.getString(2);
+            int cantida = cursor.getInt(3);
+            String user = cursor.getString(4);
+            productos.add(new QueryProductos(paiss, turn + "", produ, cantida + "", user));
+        }
+    }
+
+    public ArrayList<QueryProductos> selectFiltroProduccionesPaises(String partida, String pais){
+        SQLiteDatabase db;
+        ArrayList<QueryProductos>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Paises.nombre = '"+pais+"'",null);
+
+        cursorFiltroProducciones(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryProductos> selectFiltroProduccionesTurno(String partida, String turno){
+        SQLiteDatabase db;
+        ArrayList<QueryProductos>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Producciones.id_turno = '"+turno+"'",null);
+
+        cursorFiltroProducciones(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryProductos> selectFiltroProduccionesPartida(String partida, String nPartida){
+        SQLiteDatabase db;
+        ArrayList<QueryProductos>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Partidas.usuario = '"+nPartida+"'",null);
+
+        cursorFiltroProducciones(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryProductos> selectFiltroProduccionesProducto(String partida, String producto){
+        SQLiteDatabase db;
+        ArrayList<QueryProductos>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and Producciones.producto = '"+producto+"'",null);
+
+        cursorFiltroProducciones(productos, cursor);
+        return productos;
+    }
+
+    // Flota enviada
+
+    public void cursorFiltroFlotaEnviada(ArrayList<QueryFlotasEnviadas> productos, Cursor cursor) {
+        while (cursor.moveToNext()) {
+            String paiss = cursor.getString(0);
+            int cantidad = cursor.getInt(1);
+            int turno = cursor.getInt(2);
+            String usuario = cursor.getString(3);
+            String destino = cursor.getString(4);
+            int distancia = cursor.getInt(5);
+
+            productos.add(new QueryFlotasEnviadas(paiss, cantidad + "", usuario, turno + "", destino, distancia + ""));
+        }
+    }
+
+    public ArrayList<QueryFlotasEnviadas> selectFiltroFlotaEnviadaPais(String partida, String destino){
+        SQLiteDatabase db;
+        ArrayList<QueryFlotasEnviadas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT origen.nombre as origen,FlotaEnviada.cantidad_almacenada,Turnos.turno,Partidas.usuario,destino.nombre as destino,FlotaEnviada.distancia_destino FROM FlotaEnviada,Paises AS origen,Paises AS destino,Flota,Partidas,Turnos where FlotaEnviada.id_flota=Flota.id_flota and Flota.id_pais=origen.id_pais and FlotaEnviada.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and FlotaEnviada.id_turno=Turnos.id_turno and FlotaEnviada.pais_envio=destino.id_pais and destino.nombre='"+destino+"'",null);
+
+        cursorFiltroFlotaEnviada(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryFlotasEnviadas> selectFiltroFlotaEnviadaTurno(String partida, String turno){
+        SQLiteDatabase db;
+        ArrayList<QueryFlotasEnviadas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT origen.nombre as origen,FlotaEnviada.cantidad_almacenada,Turnos.turno,Partidas.usuario,destino.nombre as destino,FlotaEnviada.distancia_destino FROM FlotaEnviada,Paises AS origen,Paises AS destino,Flota,Partidas,Turnos where FlotaEnviada.id_flota=Flota.id_flota and Flota.id_pais=origen.id_pais and FlotaEnviada.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and FlotaEnviada.id_turno=Turnos.id_turno and FlotaEnviada.pais_envio=destino.id_pais and Turnos.turno = '"+turno+"'",null);
+
+        cursorFiltroFlotaEnviada(productos, cursor);
+        return productos;
+    }
+
+    public ArrayList<QueryFlotasEnviadas> selectFiltroFlotaEnviadaPartida(String partida, String nPartida){
+        SQLiteDatabase db;
+        ArrayList<QueryFlotasEnviadas>productos = new ArrayList<>();
+        Cursor cursor;
+        db=this.getReadableDatabase();
+
+        cursor=db.rawQuery("SELECT origen.nombre as origen,FlotaEnviada.cantidad_almacenada,Turnos.turno,Partidas.usuario,destino.nombre as destino,FlotaEnviada.distancia_destino FROM FlotaEnviada,Paises AS origen,Paises AS destino,Flota,Partidas,Turnos where FlotaEnviada.id_flota=Flota.id_flota and Flota.id_pais=origen.id_pais and FlotaEnviada.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"' and FlotaEnviada.id_turno=Turnos.id_turno and FlotaEnviada.pais_envio=destino.id_pais and Partidas.usuario = '"+nPartida+"'",null);
+
+        cursorFiltroFlotaEnviada(productos, cursor);
+        return productos;
+    }
+
 }

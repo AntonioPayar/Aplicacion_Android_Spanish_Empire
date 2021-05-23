@@ -48,140 +48,170 @@ public class Demandas extends Fragment {
         int contador=0;
         int bounds=10;
 
-        if(control.getEspana().getNuevaEspana().getProductosDemandados().length!=0) {
+        if(control.getEspana().getCastilla().isSublevaciones()==false) {
+            if (control.getEspana().getNuevaEspana().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getNuevaEspana().getProductosDemandados()[0]!=null) {
-                etiqueta1.setText("Nueva España demanda: "+control.getEspana().getNuevaEspana().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta1.setText("Nueva España ha obtenido su demanda");
-            }
+                if (control.getEspana().getNuevaEspana().getProductosDemandados()[0] != null) {
+                    etiqueta1.setText("Nueva España demanda: " + control.getEspana().getNuevaEspana().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta1.setText("Nueva España ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta1.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta1);
+            } else {
+                System.out.println("a1");
+            }
         }else{
-            System.out.println("a1");
+            etiqueta1.setText("Nueva España en sublevación");
         }
 
-        if(control.getEspana().getNuevaGranda().getProductosDemandados().length!=0) {
+        if(control.getEspana().getNuevaGranda().isSublevaciones()==false) {
+            if (control.getEspana().getNuevaGranda().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getNuevaGranda().getProductosDemandados()[0]!=null) {
-                etiqueta2.setText("Nueva Granada demanda: "+control.getEspana().getNuevaGranda().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta2.setText("Nueva Granada ha obtenido su demanda");
-            }
+                if (control.getEspana().getNuevaGranda().getProductosDemandados()[0] != null) {
+                    etiqueta2.setText("Nueva Granada demanda: " + control.getEspana().getNuevaGranda().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta2.setText("Nueva Granada ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta2.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta2);
+            } else {
+                System.out.println("a2");
+            }
         }else{
-            System.out.println("a2");
+            etiqueta2.setText("Nueva Granada en sublevación");
         }
 
-        if(control.getEspana().getPeru().getProductosDemandados().length!=0) {
+        if(control.getEspana().getPeru().isSublevaciones()==false) {
+            if (control.getEspana().getPeru().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getPeru().getProductosDemandados()[0]!=null) {
-                etiqueta3.setText("Peru demanda: "+control.getEspana().getPeru().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta3.setText("Perú ha obtenido su demanda");
-            }
+                if (control.getEspana().getPeru().getProductosDemandados()[0] != null) {
+                    etiqueta3.setText("Perú demanda: " + control.getEspana().getPeru().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta3.setText("Perú ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta3.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta3);
+            } else {
+                System.out.println("a3");
+            }
         }else{
-            System.out.println("a3");
+            etiqueta3.setText("Perú en sublevación");
         }
 
-        if(control.getEspana().getPlata().getProductosDemandados().length!=0) {
+        if(control.getEspana().getPlata().isSublevaciones()==false) {
+            if (control.getEspana().getPlata().getProductosDemandados().length != 0) {
+                if (control.getEspana().getPlata().getProductosDemandados()[0] != null) {
+                    etiqueta4.setText("Plata demanda: " + control.getEspana().getPlata().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta4.setText("Plata ha obtenido su demanda");
+                }
 
-            if(control.getEspana().getPlata().getProductosDemandados()[0]!=null) {
-                etiqueta4.setText("Plata demanda: "+control.getEspana().getPlata().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta4.setText("Plata ha obtenido su demanda");
-            }
-
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta4.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta4);
+            } else {
+                System.out.println("a4");
+            }
         }else{
-            System.out.println("a4");
+            etiqueta4.setText("Plata en sublevación");
         }
 
-        if(control.getEspana().getCastilla().getProductosDemandados().length!=0) {
+        if(control.getEspana().getCastilla().isSublevaciones()==false) {
+            if (control.getEspana().getCastilla().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getCastilla().getProductosDemandados()[0]!=null) {
-                etiqueta5.setText("Castilla demanda: "+control.getEspana().getCastilla().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta5.setText("Castilla ha obtenido su demanda");
-            }
+                if (control.getEspana().getCastilla().getProductosDemandados()[0] != null) {
+                    etiqueta5.setText("Castilla demanda: " + control.getEspana().getCastilla().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta5.setText("Castilla ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta5.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta5);
+            } else {
+                System.out.println("a5");
+            }
         }else{
-            System.out.println("a5");
+            etiqueta5.setText("Castilla en sublevación");
         }
 
-        if(control.getEspana().getAragon().getProductosDemandados().length!=0) {
+        if(control.getEspana().getAragon().isSublevaciones()==false) {
+            if (control.getEspana().getAragon().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getAragon().getProductosDemandados()[0]!=null) {
-                etiqueta6.setText("Aragon demanda: "+control.getEspana().getAragon().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta6.setText("Aragon ha obtenido su demanda");
-            }
+                if (control.getEspana().getAragon().getProductosDemandados()[0] != null) {
+                    etiqueta6.setText("Aragón demanda: " + control.getEspana().getAragon().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta6.setText("Aragón ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta6.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta6);
+            } else {
+                System.out.println("a6");
+            }
         }else{
-            System.out.println("a6");
+            etiqueta6.setText("Aragón en sublevación");
         }
 
-        if(control.getEspana().getBorgona().getProductosDemandados().length!=0) {
+        if(control.getEspana().getBorgona().isSublevaciones()==false) {
+            if (control.getEspana().getBorgona().getProductosDemandados().length != 0) {
 
-            if(control.getEspana().getBorgona().getProductosDemandados()[0]!=null) {
-                etiqueta7.setText("Borgoña demanda: "+control.getEspana().getBorgona().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta7.setText("Borgoña ha obtenido su demanda");
-            }
+                if (control.getEspana().getBorgona().getProductosDemandados()[0] != null) {
+                    etiqueta7.setText("Borgoña demanda: " + control.getEspana().getBorgona().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta7.setText("Borgoña ha obtenido su demanda");
+                }
 
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta7.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta7);
+            } else {
+                System.out.println("a7");
+            }
         }else{
-            System.out.println("a7");
+            etiqueta7.setText("Borgoña en sublevación");
         }
 
-        if(control.getEspana().getAustria().getProductosDemandados().length!=0) {
+        if(control.getEspana().getAustria().isSublevaciones()==false) {
+            if (control.getEspana().getAustria().getProductosDemandados().length != 0) {
+                if (control.getEspana().getAustria().getProductosDemandados()[0] != null) {
+                    etiqueta8.setText("Austria demanda: " + control.getEspana().getAustria().getProductosDemandados()[0].toString());
+                } else {
+                    etiqueta8.setText("Austria ha obtenido su demanda");
+                }
 
-            if(control.getEspana().getAustria().getProductosDemandados()[0]!=null) {
-                etiqueta8.setText("Austria demanda: "+control.getEspana().getAustria().getProductosDemandados()[0].toString());
-            }else {
-                etiqueta8.setText("Austria ha obtenido su demanda");
-            }
-
-            bounds=bounds+(20*contador);
+                bounds = bounds + (20 * contador);
 //            etiqueta8.setBounds(75, bounds, 400, 100);
-            contador++;
-            bounds=10;
+                contador++;
+                bounds = 10;
 //            panel.add(etiqueta8);
+            } else {
+                System.out.println("a8");
+            }
         }else{
-            System.out.println("a8");
+            etiqueta8.setText("Austria en sublevación");
         }
 
 

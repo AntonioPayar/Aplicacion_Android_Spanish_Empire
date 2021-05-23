@@ -12,47 +12,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageFloEnviId"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.91"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageFloEnviId"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.91"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageFloEnviPais"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageFloEnviPais"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.06"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageFloEnviTurno"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/imageFloEnviTurno"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.22"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageFloEnviTurno2"
+        <Button
+            android:id="@+id/botonFiltroFlotaEnviadaDestino"
             android:layout_width="50dp"
             android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
+            android:background="@drawable/boton_mercancias"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.74"
@@ -60,23 +60,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.05" />
 
-        <ImageView
-            android:id="@+id/imageFloEnviProducto"
-            android:layout_width="50dp"
-            android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+<!--        <Button-->
+<!--            android:id="@+id/botonFiltroFlotaEnviadaPartida"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:background="@drawable/boton_mercancias"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.43"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.05" />-->
 
-        <ImageView
-            android:id="@+id/imageFloEnviCantidad"
+        <Button
+            android:id="@+id/botonFiltroFlotaEnviadaTurno"
             android:layout_width="50dp"
             android:layout_height="42dp"
-            android:src="@drawable/boton_opciones"
+            android:background="@drawable/boton_mercancias"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.58"
