@@ -343,7 +343,7 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                     }else if(Juego.getContadorVentanas()>0){
                         Juego.setContadorVentanas(0);
                     }
-
+                    getActivity().getSupportFragmentManager().popBackStack();
 //                    Intent i = new Intent(getActivity(), Juego.class);
 //                    startActivity(i);
 //                    getActivity().finish();

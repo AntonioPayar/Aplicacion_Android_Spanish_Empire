@@ -25,41 +25,42 @@
 
     <RadioGroup
         android:id="@+id/radioGroupPeru"
-        android:layout_width="200dp"
-        android:layout_height="261dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_width="181dp"
+        android:layout_height="228dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666"></RadioGroup>
+        app:layout_constraintVertical_bias="0.48000002"></RadioGroup>
 
     <Button
         android:id="@+id/embarcarBotonPeru"
-        android:layout_width="161dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="146dp"
+        android:layout_height="52dp"
         android:background="@drawable/boton_mercancias"
         android:text="Embarcar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroupPeru"
-        app:layout_constraintHorizontal_bias="0.772"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 
     <LinearLayout
         android:id="@+id/contenedorPeru"
-        android:layout_width="244dp"
-        android:layout_height="237dp"
+        android:layout_width="226dp"
+        android:layout_height="220dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682">
+        app:layout_constraintVertical_bias="0.45">
 
         <ListView
             android:id="@+id/listViewMercancias"
@@ -83,17 +84,27 @@
         app:layout_constraintVertical_bias="0.352"
         app:srcCompat="@drawable/atras" />
 
-    <ImageView
-        android:id="@+id/imageViewPeru"
-        android:layout_width="316dp"
-        android:layout_height="158dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/embarcarBotonPeru"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroupPeru"
-        app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toEndOf="@+id/contenedorPeru"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.755" />
+    <FrameLayout
+        android:id="@+id/fragment7"
+        android:layout_width="190dp"
+        android:layout_height="227dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
 
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="208dp"
+        android:layout_height="269dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@drawable/marco03" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

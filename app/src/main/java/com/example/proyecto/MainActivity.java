@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         this.etusuaio=findViewById(R.id.editTextTextPersonName);
         Glide.with(getApplicationContext()).load(R.drawable.barconav).into(imageView);
 
+        /**Poner gif de backgroud**/
+        ImageView imageView02 = (ImageView)findViewById(R.id.imageView20);
+        Glide.with(getApplicationContext()).load(R.drawable.mar).into(imageView02);
+
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override

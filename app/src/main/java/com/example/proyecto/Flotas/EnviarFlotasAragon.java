@@ -1,6 +1,7 @@
 package com.example.proyecto.Flotas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyecto.Clases.Alimentos;
+import com.example.proyecto.FragmentoGoogleMaps;
 import com.example.proyecto.Juego;
 import com.example.proyecto.PanelDeControl;
 import com.example.proyecto.R;
@@ -33,12 +35,12 @@ public class EnviarFlotasAragon extends AppCompatActivity implements View.OnClic
     private PanelDeControl control;
     private RadioGroup radio;
     private Button embarca;
-    private ImageView imagen;
     private String texto;
 
     private View decorView;
     private MediaPlayer media;
     public static int time;
+    private FragmentoGoogleMaps fragmentMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +54,17 @@ public class EnviarFlotasAragon extends AppCompatActivity implements View.OnClic
         contenedor = (LinearLayout)findViewById(R.id.contenedorAragon);
         radio = (RadioGroup)findViewById(R.id.radioGroupAragon);
         embarca = (Button)findViewById(R.id.embarcarBotonAragon);
-        imagen = (ImageView)findViewById(R.id.imageViewAragon);
-        imagen.setBackgroundResource(R.drawable.continentes_por_defecto);
 
         media = MediaPlayer.create(this, R.raw.partida);
         media.setVolume(10, 10);
         media.setLooping(true);
         media.seekTo(time);
         media.start();
+
+        //GOGLE MAPAS
+        Fragment fragmentMaps01 = new FragmentoGoogleMaps();
+        this.fragmentMaps= (FragmentoGoogleMaps) fragmentMaps01;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment2,fragmentMaps01).commit();
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -393,49 +398,50 @@ public class EnviarFlotasAragon extends AppCompatActivity implements View.OnClic
 
         int id;
         RadioButton rb;
+        this.fragmentMaps.ponerPutoOrigen("Aragon");
 
         switch (checkedId) {
             case R.id.aragonAustria:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_austria);
+                this.fragmentMaps.cambiarmapa("Austria");
                 break;
             case R.id.aragonBorgona:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_borgona);
+                this.fragmentMaps.cambiarmapa("Borgona");
                 break;
             case R.id.aragonCastilla:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_castilla);
+                this.fragmentMaps.cambiarmapa("Castilla");
                 break;
             case R.id.aragonNuevaEspana:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_nueva_espana);
+                this.fragmentMaps.cambiarmapa("Nueva Espana");
                 break;
             case R.id.aragonNuevaGranada:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_nueva_granada);
+                this.fragmentMaps.cambiarmapa("Nueva Granada");
                 break;
             case R.id.aragonPeru:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_peru);
+                this.fragmentMaps.cambiarmapa("Peru");
                 break;
             case R.id.aragonPlata:
                 id = group.getCheckedRadioButtonId();
                 rb = (RadioButton)findViewById(id);
                 texto = rb.getText().toString().toUpperCase();
-                imagen.setBackgroundResource(R.drawable.aragon_to_plata);
+                this.fragmentMaps.cambiarmapa("Plata");
                 break;
         }
 
