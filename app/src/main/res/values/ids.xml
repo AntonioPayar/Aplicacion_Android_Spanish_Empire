@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="castillaNE" type="id"/>
+    <item name="castillaNG" type="id"/>
+    <item name="castillaPeru" type="id"/>
+    <item name="castillaPlata" type="id"/>
+    <item name="castillaAustria" type="id"/>
+    <item name="castillaAragon" type="id"/>
+    <item name="castillaBorgona" type="id"/>
+
+    <item name="NEcastilla" type="id"/>
+    <item name="NENuevaGranada" type="id"/>
+    <item name="NEperu" type="id"/>
+    <item name="NEplata" type="id"/>
+    <item name="NEaustria" type="id"/>
+    <item name="NEaragon" type="id"/>
+    <item name="NEborgona" type="id"/>
+
+    <item name="NGcastilla" type="id"/>
+    <item name="NGNuevaEspana" type="id"/>
+    <item name="NGperu" type="id"/>
+    <item name="NGplata" type="id"/>
+    <item name="NGaustria" type="id"/>
+    <item name="NGaragon" type="id"/>
+    <item name="NGborgona" type="id"/>
+
+    <item name="peruCastilla" type="id"/>
+    <item name="peruPlata" type="id"/>
+    <item name="peruAragon" type="id"/>
+    <item name="peruBorgona" type="id"/>
+    <item name="peruAustria" type="id"/>
+    <item name="peruNuevaEspana" type="id"/>
+    <item name="peruNuevaGranada" type="id"/>
+
+    <item name="plataCastilla" type="id"/>
+    <item name="plataPeru" type="id"/>
+    <item name="plataAragon" type="id"/>
+    <item name="plataBorgona" type="id"/>
+    <item name="plataAustria" type="id"/>
+    <item name="plataNuevaEspana" type="id"/>
+    <item name="plataNuevaGranada" type="id"/>
+
+    <item name="aragonCastilla" type="id"/>
+    <item name="aragonPeru" type="id"/>
+    <item name="aragonBorgona" type="id"/>
+    <item name="aragonAustria" type="id"/>
+    <item name="aragonPlata" type="id"/>
+    <item name="aragonNuevaEspana" type="id"/>
+    <item name="aragonNuevaGranada" type="id"/>
+
+    <item name="austriaCastilla" type="id"/>
+    <item name="austriaAragon" type="id"/>
+    <item name="austriaBorgona" type="id"/>
+    <item name="austriaPlata" type="id"/>
+    <item name="austriaPeru" type="id"/>
+    <item name="austriaNuevaGranada" type="id"/>
+    <item name="austriaNuevaEspana" type="id"/>
+
+    <item name="borgonaCastilla" type="id"/>
+    <item name="borgonaAustria" type="id"/>
+    <item name="borgonaAragon" type="id"/>
+    <item name="borgonaPeru" type="id"/>
+    <item name="borgonaPlata" type="id"/>
+    <item name="borgonaNuevaEspana" type="id"/>
+    <item name="borgonaNuevaGranada" type="id"/>
+
+</resources>

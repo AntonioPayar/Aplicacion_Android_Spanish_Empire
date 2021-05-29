@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpcionesBaseDatos"
+    android:background="@drawable/tablas">
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999"
+        app:srcCompat="@drawable/atras"
+        android:onClick="atras"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup01"
+        android:layout_width="188dp"
+        android:layout_height="280dp"
+        android:background="#BC873A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.79">
+
+        <RadioButton
+            android:id="@+id/rbproducciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Producciones" />
+
+        <RadioButton
+            android:id="@+id/rbdemandas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Demandas" />
+
+        <RadioButton
+            android:id="@+id/rbmercancias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mercancias" />
+
+        <RadioButton
+            android:id="@+id/rbmercaflota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mercancias en Flotas" />
+
+        <RadioButton
+            android:id="@+id/rbflotaenvia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flotas Enviadas" />
+
+        <RadioButton
+            android:id="@+id/rbsubleva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sublevaciones" />
+
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/list_partidas"
+        android:layout_width="405dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="392dp"
+        android:layout_height="50dp"
+        android:text="Seleccione Partida y Datos"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.009" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="79dp"
+        android:layout_height="60dp"
+        android:background="@drawable/enter"
+        android:onClick="botonEnter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="162dp"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="149dp"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

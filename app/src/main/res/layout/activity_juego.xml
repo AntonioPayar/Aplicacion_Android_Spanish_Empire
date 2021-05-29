@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo02"
+    tools:context=".Juego">
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="75dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98"
+        app:srcCompat="@drawable/boton_opciones" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="71dp"
+        android:layout_height="47dp"
+        android:gravity="center"
+        android:text="TURNO "
+        android:textColor="#F8F6F6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94" />
+
+    <ImageView
+        android:id="@+id/imagenMonarca"
+        android:layout_width="111dp"
+        android:layout_height="100dp"
+        android:background="@drawable/imagen"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <Button
+        android:id="@+id/siguienteTurno"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_mercancias"
+        android:onClick="siguienteTurno"
+        android:text="Siguiente Turno"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.example.proyecto.MapaFragmento02"
+        android:layout_width="423dp"
+        android:layout_height="242dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        tools:layout="@layout/fragment_mapa_fragmento02" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="113dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/boton_mercancias"
+        android:onClick="abrirDemandas"
+        android:text="Demandas"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="61dp"
+        android:layout_height="38dp"
+        android:background="@drawable/boton_mercancias"
+        android:onClick="cambioContinente"
+        android:text="Cambio"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="126dp"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38">
+
+        <Button
+            android:id="@+id/crearMercanciasButton"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_mercancias"
+            android:onClick="abrirMercanciasMenu"
+            android:text="Crear mercancias"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp"></Space>
+
+        <Button
+            android:id="@+id/crearFlotaButton"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_mercancias"
+            android:onClick="abrirFlotassMenu"
+            android:text="Crear Flota"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp"></Space>
+
+        <Button
+            android:id="@+id/enviarFlotaButton"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_mercancias"
+            android:onClick="abrirEnviarFlotas"
+            android:text="Enviar Flota"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="491dp"
+        android:layout_height="297dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998"
+        app:srcCompat="@drawable/marco05" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="540dp"
+        android:layout_height="307dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="266dp"
+        android:layout_height="307dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
