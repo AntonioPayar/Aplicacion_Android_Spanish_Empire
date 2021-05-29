@@ -35,7 +35,7 @@ public class FragmentFlotaEnviada extends Fragment implements AdapterView.OnItem
     private String partida;
     private Context context;
 
-//    private Button botonPartida;
+    //    private Button botonPartida;
     private Button botonDestino;
     private Button botonTurno;
     private Button borrar;
@@ -107,7 +107,7 @@ public class FragmentFlotaEnviada extends Fragment implements AdapterView.OnItem
     private void mostrarFiltros(String columna) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Filtro");
-        String[] paises = {"Castilla", "Aragón", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
+        String[] paises = {"Castilla", "Aragon", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
 //        String[] mercancias = {"Trigo", "Uvas", "Maiz", "Arroz", "Hierro", "Plata", "Tomates", "Patatas", "Oro", "Tabaco", "Cafe"};
         int select = 0;
         alert.setNegativeButton("Salir", null);

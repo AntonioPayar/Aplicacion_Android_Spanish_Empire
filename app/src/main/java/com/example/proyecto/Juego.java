@@ -14,7 +14,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,8 +30,8 @@ public class Juego extends AppCompatActivity {
     private static int time;
     private static int contador = 0;
     private static int contadorVentanas = 0;
-    private boolean mapa=false;
-    private boolean frag_prod=false;
+    private static boolean mapa=false;
+    private static boolean frag_prod=false;
     private int sec;
     private ImageView monarca;
     private static boolean tutorial;
@@ -137,145 +136,109 @@ public class Juego extends AppCompatActivity {
         }
     }
 
-    protected void comprobarSublevacionesAmerica(){
-        if(pdc.getEspana().getNuevaEspana().isSublevaciones()){
-            ImageButton boton=findViewById(R.id.boton_nuevaespana);
-            boton.setImageResource(R.drawable.nodispo);
-        }
-        if(pdc.getEspana().getNuevaGranda().isSublevaciones()){
-            ImageButton boton=findViewById(R.id.boton_nuevagranada);
-            boton.setImageResource(R.drawable.nodispo);
-        }
+    public void avisoSublevacion(String nombre){
 
-        if(pdc.getEspana().getPeru().isSublevaciones()){
-            ImageButton boton=findViewById(R.id.boton_peru);
-            boton.setImageResource(R.drawable.nodispo);
-        }
-
-        if(pdc.getEspana().getPlata().isSublevaciones()){
-            ImageButton boton=findViewById(R.id.boton_plata);
-            boton.setImageResource(R.drawable.nodispo);
-        }
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setMessage(nombre+" está en sublevacion, no puedes acceder");
+        adb.setNegativeButton("Volver atrás", null);
+        adb.setCancelable(false);
+        adb.show();
     }
-
     /**Onclick al pulsal el ImagenView Castilla**/
     public void botoncastilla(View view){
-        ImageButton boton=findViewById(R.id.boton_castilla);
-        if(!this.pdc.getEspana().getCastilla().isSublevaciones()){
-            if(mapa==false && contador==0 && contadorVentanas==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
+            if(pdc.getEspana().getCastilla().isSublevaciones() == false) {
                 abrirFrameProductos(1);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Castilla");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Castilla esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-
     }
     /**Onclick al pulsal el ImagenView Aragon**/
     public void botonaragon(View view){
-        ImageButton boton=findViewById(R.id.boton_aragon);
-        if(!this.pdc.getEspana().getAragon().isSublevaciones()){
-            if(mapa==false && contador==0 && contadorVentanas==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
+            if(pdc.getEspana().getAragon().isSublevaciones() == false) {
                 abrirFrameProductos(2);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Aragón");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Aragon esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-
     }
     /**Onclick al pulsal el ImagenView Flandes**/
     public void botonborgona(View view){
-        ImageButton boton=findViewById(R.id.boton_borgona);
-        if(!this.pdc.getEspana().getBorgona().isSublevaciones()){
-            if(mapa==false && contador==0 && contadorVentanas==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
+            if(pdc.getEspana().getBorgona().isSublevaciones() == false) {
                 abrirFrameProductos(3);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Borgoña");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Borgoña esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-
     }
     /**Onclick al pulsal el ImagenView Austia**/
     public void botonhasburgo(View view){
-        ImageButton boton=findViewById(R.id.boton_hasburgo);
-        if(!this.pdc.getEspana().getAustria().isSublevaciones()){
-            if(mapa==false && contador==0 && contadorVentanas==0){
+        if(mapa==false && contador==0 && contadorVentanas==0){
+            if(pdc.getEspana().getAustria().isSublevaciones() == false) {
                 abrirFrameProductos(4);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Austria");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Austria esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
     }
     /**Onclick al pulsal el ImagenView NuevaCastilla**/
     public void botonNuevaEspana(View view){
-        ImageButton boton=findViewById(R.id.boton_nuevaespana);
-        if(!this.pdc.getEspana().getNuevaEspana().isSublevaciones()){
-            if(contador==0){
+        if(contador==0){
+            if(pdc.getEspana().getNuevaEspana().isSublevaciones() == false) {
                 abrirFrameProductos(5);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Nueva España");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "N.España esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-        comprobarSublevacionesAmerica();
     }
     /**Onclick al pulsal el ImagenView Nueva Granada**/
     public void botonNuevaGranada(View view){
-        ImageButton boton=findViewById(R.id.boton_nuevagranada);
-        if(!this.pdc.getEspana().getNuevaGranda().isSublevaciones()){
-            if(contador==0){
+        if(contador==0){
+            if(pdc.getEspana().getNuevaGranda().isSublevaciones() == false) {
                 abrirFrameProductos(6);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Nueva Granada");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "N.Granada esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-        comprobarSublevacionesAmerica();
     }
     /**Onclick al pulsal el ImagenView Peru**/
     public void botonPeru(View view){
-        ImageButton boton=findViewById(R.id.boton_peru);
-        if(!this.pdc.getEspana().getPeru().isSublevaciones()){
-            if(contador==0){
+        if(contador==0){
+            if(pdc.getEspana().getPeru().isSublevaciones() == false) {
                 abrirFrameProductos(7);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Perú");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Peru esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-        comprobarSublevacionesAmerica();
     }
     /**Onclick al pulsal el ImagenView Plata**/
     public void botonPlata(View view){
-        ImageButton boton=findViewById(R.id.boton_plata);
-        if(!this.pdc.getEspana().getPeru().isSublevaciones()){
-            if(contador==0){
+        if(contador==0){
+            if(pdc.getEspana().getPlata().isSublevaciones() == false) {
                 abrirFrameProductos(8);
             }else{
-                Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
+                avisoSublevacion("Plata");
             }
         }else{
-            boton.setImageResource(R.drawable.nodispo);
-            Toast.makeText(this, "Plata esta en sublevación", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "contadro"+contador, Toast.LENGTH_SHORT).show();
         }
-        comprobarSublevacionesAmerica();
     }
 
     /**Metodo no terminado se encarga de abrir el frame donde estan los productos de cada zona**/
@@ -396,8 +359,8 @@ public class Juego extends AppCompatActivity {
             transaction.addToBackStack(null);
             transaction.commit();
             contadorVentanas++;
-            //TextView texto_turno=findViewById(R.id.textView20);
-            //texto_turno.setText("TURNO\n"+this.pdc.getContadorTurnos());
+//            TextView texto_turno=findViewById(R.id.textView20);
+//            texto_turno.setText("TURNO\n"+this.pdc.getContadorTurnos());
         }else{
             Toast.makeText(this, "Debe cerrar la ventana antes de acceder a otra", Toast.LENGTH_LONG).show();
         }
@@ -558,6 +521,9 @@ public class Juego extends AppCompatActivity {
 //        contadorVentanas = n;
 //    }
 
+    public static MediaPlayer getMediaPlayer(){
+        return media;
+    }
     public static int getMedia(){
         return media.getCurrentPosition();
     }
@@ -576,6 +542,18 @@ public class Juego extends AppCompatActivity {
     }
     public static void setContadorVentanas(int contador){
         contadorVentanas = contador;
+    }
+
+    public static boolean getMapa(){
+        return mapa;
+    }
+
+    public static void setMapa(boolean b){
+        mapa = b;
+    }
+
+    public static void setFrag_prod(boolean b){
+        frag_prod = b;
     }
 
 }

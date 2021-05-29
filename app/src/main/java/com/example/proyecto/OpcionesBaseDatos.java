@@ -121,8 +121,9 @@ public class OpcionesBaseDatos extends AppCompatActivity implements AdapterView.
     }
 
     public void atras(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+        onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        this.finish();
     }
 
     public void botonEnter(View view){

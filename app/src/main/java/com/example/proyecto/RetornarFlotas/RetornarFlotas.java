@@ -9,12 +9,15 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +61,8 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
 
     private Button botonRetornar;
 
+    private View europa;
+
     /**
      * Declaramos un atributo de tipo PanelControl que se encargará de administrar los datos
      */
@@ -71,6 +76,8 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
         View frag = inflater.inflate(R.layout.fragment_retornar_flotas, container, false);
 
         control = Juego.getPanelDeControl();
+
+        europa = getActivity().findViewById(R.id.fragment3);
 
         contenedor = (LinearLayout)frag.findViewById(R.id.linearLayoutRetornarFlotas);
 
@@ -326,7 +333,6 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                         adb3.setTitle("Fin");
                         adb3.setMessage("Fin de la partida, ");
                         adb3.setNegativeButton("Volver al menú de Inicio", new AlertDialog.OnClickListener() {
-                            @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent i = new Intent(getActivity(), MainActivity.class);
                                 Juego.getPanelDeControl().setContadorTurnos(0);
@@ -336,6 +342,166 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                             }
                         });
                         adb3.show();
+                    }else{
+
+                        boolean castilla = control.getEspana().getCastilla().isSublevaciones();
+                        boolean aragon = control.getEspana().getAragon().isSublevaciones();
+                        boolean austria = control.getEspana().getAustria().isSublevaciones();
+                        boolean borgona = control.getEspana().getBorgona().isSublevaciones();
+
+//                        boolean peru = control.getEspana().getPeru().isSublevaciones();
+//                        boolean plata = control.getEspana().getPlata().isSublevaciones();
+//                        boolean ne = control.getEspana().getNuevaEspana().isSublevaciones();
+//                        boolean ng = control.getEspana().getNuevaGranda().isSublevaciones();
+
+
+//                     ImageView europa = getActivity().findViewById(R.id.fragmentEuropa);
+//                     ImageView america = getActivity().findViewById(R.id.fragmentAmerica);
+
+                        //Europa disabled buttons (Sublevaciones)
+
+                        if(castilla){
+                            europa.setBackgroundResource(R.drawable.europa_castillasub);
+                        }
+
+                        if(aragon){
+                            europa.setBackgroundResource(R.drawable.europa_aragonsub);
+                        }
+
+                        if(austria){
+                            europa.setBackgroundResource(R.drawable.europa_austriasub);
+                        }
+
+                        if(borgona){
+                            europa.setBackgroundResource(R.drawable.europa_borgonasub);
+                        }
+
+                        if(castilla && aragon){
+                            europa.setBackgroundResource(R.drawable.europa_castillaaragonsub);
+                        }
+
+                        if(castilla && borgona){
+                            europa.setBackgroundResource(R.drawable.europa_castillaborgonasub);
+                        }
+
+                        if(castilla && austria){
+                            europa.setBackgroundResource(R.drawable.europa_castillaaustriasub);
+                        }
+
+                        if(aragon && austria){
+                            europa.setBackgroundResource(R.drawable.europa_aragonaustriasub);
+                        }
+
+                        if(aragon && borgona){
+                            europa.setBackgroundResource(R.drawable.europa_borgonaaragonsub);
+                        }
+
+                        if(austria && borgona){
+                            europa.setBackgroundResource(R.drawable.europa_austriaborgonasub);
+                        }
+
+                        if(castilla && aragon && austria){
+                            europa.setBackgroundResource(R.drawable.europa_aragoncastillaaustriasub);
+                        }
+
+                        if(castilla && aragon && borgona){
+                            europa.setBackgroundResource(R.drawable.europa_castillaaragonborgonasub);
+                        }
+
+                        if(castilla && borgona && austria){
+                            europa.setBackgroundResource(R.drawable.europa_castillaaustriasub);
+                        }
+
+                        if(aragon && borgona && austria){
+                            europa.setBackgroundResource(R.drawable.europa_austriaborgonaaragonsub);
+                        }
+
+                        if(castilla && aragon && austria && borgona){
+                            europa.setBackgroundResource(R.drawable.europa_todossub);
+                        }
+
+                        //America disabled buttons (Sublevaciones)
+
+//                        if(plata){
+//                            america.setBackgroundResource(R.drawable.america_platasub);
+//                        }
+//
+//                        if(peru){
+//                            america.setBackgroundResource(R.drawable.america_perusub);
+//                        }
+//
+//                        if(ne){
+//                            america.setBackgroundResource(R.drawable.america_nesub);
+//                        }
+//
+//                        if(ng){
+//                            america.setBackgroundResource(R.drawable.america_ngsub);
+//                        }
+//
+//                        if(plata && peru){
+//                            america.setBackgroundResource(R.drawable.america_plataperusub);
+//                        }
+//
+//                        if(plata && ne){
+//                            america.setBackgroundResource(R.drawable.america_platanesub);
+//                        }
+//
+//                        if(plata && ng){
+//                            america.setBackgroundResource(R.drawable.america_platangsub);
+//                        }
+//
+//                        if(peru && ne){
+//                            america.setBackgroundResource(R.drawable.america_perunesub);
+//                        }
+//
+//                        if(peru && ng){
+//                            america.setBackgroundResource(R.drawable.america_perungsub);
+//                        }
+//
+//                        if(ng && ne){
+//                            america.setBackgroundResource(R.drawable.america_ngnesub);
+//                        }
+//
+//                        if(plata && peru && ne){
+//                            america.setBackgroundResource(R.drawable.america_plataperunesub);
+//                        }
+//
+//                        if(plata && ne && ng){
+//                            america.setBackgroundResource(R.drawable.america_ngneplatasub);
+//                        }
+//
+//                        if(plata && peru && ng){
+//                            america.setBackgroundResource(R.drawable.america_plataperungsub);
+//                        }
+//
+//                        if(peru && ne && ng){
+//                            america.setBackgroundResource(R.drawable.america_perunengsub);
+//                        }
+//
+//                        if(peru && ne && ng && plata){
+//                            america.setBackgroundResource(R.drawable.america_todos);
+//                        }
+
+                        Fragment mapa2;
+                        FragmentTransaction transaction ;
+
+                        if(Juego.getMapa()==true){
+                            Juego.setMapa(false);
+                            Juego.setContador(0);
+                            Juego.setFrag_prod(false);
+                            FragmentManager fragMgr = getActivity().getSupportFragmentManager();
+                            mapa2 = fragMgr.findFragmentById(R.id.fragment3);
+                            if(mapa2!=null){
+                                transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                transaction.remove(mapa2);
+                                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                                transaction.commit();
+                            }else{
+                                Toast.makeText(getActivity(), "Error transicion mapa", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        getActivity().getSupportFragmentManager().popBackStack();
                     }
 
 
@@ -344,8 +510,6 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                     }else if(Juego.getContadorVentanas()>0){
                         Juego.setContadorVentanas(0);
                     }
-
-                    getActivity().getSupportFragmentManager().popBackStack();
                     TextView txt = getActivity().findViewById(R.id.textView20);
                     txt.setText("TURNO\n"+control.getContadorTurnos());
 

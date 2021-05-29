@@ -100,8 +100,8 @@ public class OpcionesBaseDatos02 extends AppCompatActivity{
     }
 
     public void atras(View view){
-        Intent i = new Intent(this, OpcionesBaseDatos.class);
-        startActivity(i);
+        onBackPressed();
+        this.finish();
     }
 
 
@@ -122,10 +122,9 @@ public class OpcionesBaseDatos02 extends AppCompatActivity{
     @Override
     public void onBackPressed(){
 
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, OpcionesBaseDatos.class);
         i.putExtra("segundos", media2.getCurrentPosition());
         startActivity(i);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         this.finish();
     }
 

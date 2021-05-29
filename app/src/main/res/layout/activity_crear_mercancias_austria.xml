@@ -96,30 +96,21 @@
         android:layout_width="50dp"
         android:layout_height="63dp"
         android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/seekBar_arrozAustria"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.451"
         app:srcCompat="@drawable/hierro" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_arrozAustria"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/plata" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="63dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toStartOf="@+id/seekBar_arrozAustria"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arroz" />
@@ -128,12 +119,23 @@
         android:id="@+id/imageView6"
         android:layout_width="50dp"
         android:layout_height="63dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toStartOf="@+id/seekBar_arrozAustria"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/uvas" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_arrozAustria"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/plata" />
 
     <TextView
         android:id="@+id/arrozAustria_txtv"
@@ -199,10 +201,40 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/hierro_kilosAustria"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_hierroAustria"
+        app:layout_constraintTop_toBottomOf="@+id/uvas_kilosAustria"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Kg"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/arroz_kilosAustria"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/arroz_kilosAustria"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"
@@ -214,51 +246,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Kg"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/arroz_kilosAustria"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/plata_kilosAustria"
-        android:layout_width="77dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginRight="208dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_plataAustria"
-        app:layout_constraintTop_toBottomOf="@+id/arroz_kilosAustria" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Kg"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/uvas_kilosAustria"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -275,13 +266,28 @@
         android:text="Kg"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/hierro_kilosAustria"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.135" />
 
     <TextView
-        android:id="@+id/hierro_kilosAustria"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Kg"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/uvas_kilosAustria"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/plata_kilosAustria"
         android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="56dp"
@@ -292,14 +298,14 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_hierroAustria"
-        app:layout_constraintTop_toBottomOf="@+id/uvas_kilosAustria" />
+        app:layout_constraintStart_toEndOf="@+id/seekBar_plataAustria"
+        app:layout_constraintTop_toBottomOf="@+id/arroz_kilosAustria" />
 
     <TextView
         android:id="@+id/uvas_kilosAustria"
         android:layout_width="77dp"
         android:layout_height="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:gravity="center"

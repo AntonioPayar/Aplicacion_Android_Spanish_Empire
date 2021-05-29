@@ -103,11 +103,11 @@ public class FragmentSublevaciones extends Fragment implements AdapterView.OnIte
     private void mostrarFiltros(String columna) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Filtro");
-        String[] paises = {"Castilla", "Aragón", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
+        String[] paises = {"Castilla", "Aragon", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
         int select = 0;
         alert.setNegativeButton("Salir", null);
 
-       if(columna == "paises"){
+        if(columna == "paises"){
 
             alert.setSingleChoiceItems(paises, select, new DialogInterface.OnClickListener() {
                 @Override

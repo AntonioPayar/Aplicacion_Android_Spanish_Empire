@@ -37,7 +37,7 @@ public class FragmetProducciones extends Fragment implements AdapterView.OnItemC
     private Button botonPais;
     private Button botonProducto;
     private Button botonTurno;
-//    private Button botonPartida;
+    //    private Button botonPartida;
     private Button borrar;
 
     private List<QueryProductos> lista;
@@ -49,8 +49,8 @@ public class FragmetProducciones extends Fragment implements AdapterView.OnItemC
         View frag = inflater.inflate(R.layout.fragment_fragmet_producciones, container, false);
 
         botonPais = (Button)frag.findViewById(R.id.botonFiltroProduccionesPais);
-        botonProducto = (Button)frag.findViewById(R.id.botonFiltroProduccionesPais);
-        botonTurno = (Button)frag.findViewById(R.id.botonFiltroProduccionesPais);
+        botonProducto = (Button)frag.findViewById(R.id.botonFiltroProduccionesProducto);
+        botonTurno = (Button)frag.findViewById(R.id.botonFiltroProduccionesTurno);
 //        botonPartida = (Button)frag.findViewById(R.id.botonFiltroProduccionesPais);
 
         borrar = (Button)getActivity().findViewById(R.id.button5);
@@ -114,7 +114,7 @@ public class FragmetProducciones extends Fragment implements AdapterView.OnItemC
     private void mostrarFiltros(String columna) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Filtro");
-        String[] paises = {"Castilla", "Aragón", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
+        String[] paises = {"Castilla", "Aragon", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
         String[] mercancias = {"Trigo", "Uvas", "Maiz", "Arroz", "Hierro", "Plata", "Tomates", "Patatas", "Oro", "Tabaco", "Cafe"};
         int select = 0;
         alert.setNegativeButton("Salir", null);
@@ -165,6 +165,7 @@ public class FragmetProducciones extends Fragment implements AdapterView.OnItemC
 
                     adaptador = new CustomListProductos(context, R.layout.row_producciones, lista);
                     listaProductos.setAdapter(adaptador);
+                    dialog.dismiss();
                 }
             });
 

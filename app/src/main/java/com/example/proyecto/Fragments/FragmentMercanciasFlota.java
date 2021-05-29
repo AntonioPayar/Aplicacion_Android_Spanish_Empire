@@ -38,7 +38,7 @@ public class FragmentMercanciasFlota extends Fragment implements AdapterView.OnI
     private Button botonFlotaPais;
     private Button botonFlotaTurno;
     private Button botonFlotaMercancia;
-//    private Button botonFlotaPartida;
+    //    private Button botonFlotaPartida;
     private Button borrar;
 
     private List<QueryMercanciasFlotas> lista;
@@ -114,7 +114,7 @@ public class FragmentMercanciasFlota extends Fragment implements AdapterView.OnI
     private void mostrarFiltros(String columna) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Filtro");
-        String[] paises = {"Castilla", "Aragón", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
+        String[] paises = {"Castilla", "Aragon", "Borgoña", "Austria", "Peru", "Plata", "Nueva España", "Nueva Granada"};
         String[] mercancias = {"Trigo", "Uvas", "Maiz", "Arroz", "Hierro", "Plata", "Tomates", "Patatas", "Oro", "Tabaco", "Cafe"};
         int select = 0;
         alert.setNegativeButton("Salir", null);

@@ -412,7 +412,15 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
 
-        cursorFiltroMercancias(productos, cursor);
+        while (cursor.moveToNext()) {
+            String producto = cursor.getString(0);
+            String pais = cursor.getString(1);
+            int cantidadTotal = cursor.getInt(2);
+            int cantidad = cursor.getInt(3);
+            int turno = cursor.getInt(4);
+
+            productos.add(new QueryMercancias(producto, pais, cantidadTotal + "", cantidad + "", turno + ""));
+        }
         return productos;
     }
 

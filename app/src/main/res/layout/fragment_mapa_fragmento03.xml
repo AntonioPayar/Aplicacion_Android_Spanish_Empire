@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragmentMapaFragmentoAmerica"
     android:background="@drawable/fragmenamerica02"
     tools:context=".Juego">
 
@@ -11,7 +12,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
 
         <ImageButton
@@ -73,8 +73,8 @@
 
         <FrameLayout
             android:id="@+id/frameamerica"
-            android:layout_width="349dp"
-            android:layout_height="391dp"
+            android:layout_width="294dp"
+            android:layout_height="340dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.041"

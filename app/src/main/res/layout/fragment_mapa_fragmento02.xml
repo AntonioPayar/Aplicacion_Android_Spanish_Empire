@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageButton
             android:id="@+id/boton_borgona"
             android:layout_width="77dp"
@@ -69,8 +68,8 @@
 
         <FrameLayout
             android:id="@+id/frameuropa"
-            android:layout_width="299dp"
-            android:layout_height="327dp"
+            android:layout_width="267dp"
+            android:layout_height="309dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.046"

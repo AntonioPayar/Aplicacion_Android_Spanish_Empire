@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="0.98"
         app:srcCompat="@drawable/boton_opciones" />
 
+
     <TextView
         android:id="@+id/textView20"
         android:layout_width="71dp"
@@ -46,21 +47,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
 
-    <Button
-        android:id="@+id/siguienteTurno"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/boton_mercancias"
-        android:onClick="siguienteTurno"
-        android:text="Siguiente Turno"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
-
     <fragment
         android:id="@+id/fragment3"
         android:name="com.example.proyecto.MapaFragmento02"
@@ -74,37 +60,17 @@
         app:layout_constraintVertical_bias="0.25"
         tools:layout="@layout/fragment_mapa_fragmento02" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="113dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="300dp"
-        android:background="@drawable/boton_mercancias"
-        android:onClick="abrirDemandas"
-        android:text="Demandas"
-        android:textColor="@color/white"
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="491dp"
+        android:layout_height="297dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="61dp"
-        android:layout_height="38dp"
-        android:background="@drawable/boton_mercancias"
-        android:onClick="cambioContinente"
-        android:text="Cambio"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.07999998"
+        app:srcCompat="@drawable/marco05" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -154,17 +120,60 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="491dp"
-        android:layout_height="297dp"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998"
-        app:srcCompat="@drawable/marco05" />
+        app:layout_constraintVertical_bias="0.13">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="76dp"
+            android:layout_height="44dp"
+            android:background="@drawable/boton_mercancias"
+            android:onClick="cambioContinente"
+            android:text="Cambio"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97">
+
+        <Button
+            android:id="@+id/siguienteTurno"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_mercancias"
+            android:onClick="siguienteTurno"
+            android:text="Siguiente Turno"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.97" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout2"
@@ -174,8 +183,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -185,7 +194,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.586">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="113dp"
+        android:layout_height="46dp"
+        android:background="@drawable/boton_mercancias"
+        android:onClick="abrirDemandas"
+        android:text="Demandas"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.608" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
