@@ -331,7 +331,8 @@ public class RetornarFlotas extends Fragment implements View.OnClickListener {
                     if(control.getZonasSinProductosDemandados().size()==8) {
                         AlertDialog.Builder adb3 = new AlertDialog.Builder(getActivity());
                         adb3.setTitle("Fin");
-                        adb3.setMessage("Fin de la partida, ");
+                        adb3.setCancelable(false);
+                        adb3.setMessage("Fin de la partida, ha aguantado "+control.getContadorTurnos()+" turnos.");
                         adb3.setNegativeButton("Volver al menú de Inicio", new AlertDialog.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent i = new Intent(getActivity(), MainActivity.class);

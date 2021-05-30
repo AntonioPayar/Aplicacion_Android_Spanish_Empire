@@ -1,8 +1,10 @@
 package com.example.proyecto.Flotas;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -323,50 +325,66 @@ public class EnviarFlotasPeru extends AppCompatActivity implements View.OnClickL
                 if(texto.equals("")){
                     Toast.makeText(this, "Debe seleccionar un reino", Toast.LENGTH_SHORT).show();
                 }else{
-                    switch (texto) {
-                        case "NUEVA ESPAÑA":
+
+                    AlertDialog.Builder adb3 = new AlertDialog.Builder(this);
+                    adb3.setTitle("Enviar Flota");
+                    adb3.setMessage("¿Está seguro de enviar la flota al destino elegido?");
+                    adb3.setCancelable(false);
+                    adb3.setNegativeButton("Volver atrás", null);
+                    adb3.setPositiveButton("Si", new AlertDialog.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            try {
+
+                                switch (texto) {
+                                    case "NUEVA ESPAÑA":
 //                            Toast.makeText(this, "Entro en nueva españa 1", Toast.LENGTH_SHORT).show();
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaEspana());
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaEspana());
 //                            Toast.makeText(this, "Entro en nueva españa 2", Toast.LENGTH_SHORT).show();
-                            System.out.println("Importaciones Nueva España");
-                            control.getEspana().getNuevaEspana().verMercanciasImportacion();
+                                        System.out.println("Importaciones Nueva España");
+                                        control.getEspana().getNuevaEspana().verMercanciasImportacion();
 //                            Toast.makeText(this, "envio flota nueva españa 3", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "NUEVA GRANADA":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaGranda());
-                            System.out.println("Importaciones Nueva Granada");
-                            control.getEspana().getNuevaGranda().verMercanciasImportacion();
-                            break;
-                        case "CASTILLA":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getCastilla());
-                            System.out.println("Importaciones Castilla");
-                            control.getEspana().getPeru().verMercanciasImportacion();
-                            break;
-                        case "PLATA":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getPlata());
-                            System.out.println("Importaciones Plata");
-                            control.getEspana().getPlata().verMercanciasImportacion();
-                            break;
-                        case "AUSTRIA":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getAustria());
-                            System.out.println("Importaciones Austria ");
-                            control.getEspana().getAustria().verMercanciasImportacion();
-                            break;
-                        case "BORGOÑA":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getBorgona());
-                            System.out.println("Importaciones Borgoña");
-                            control.getEspana().getBorgona().verMercanciasImportacion();
-                            break;
-                        case "ARAGON":
-                            control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getAragon());
-                            System.out.println("Importaciones Aragón");
-                            control.getEspana().getAragon().verMercanciasImportacion();
-                            break;
-                        default:
+                                        break;
+                                    case "NUEVA GRANADA":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getNuevaGranda());
+                                        System.out.println("Importaciones Nueva Granada");
+                                        control.getEspana().getNuevaGranda().verMercanciasImportacion();
+                                        break;
+                                    case "CASTILLA":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getCastilla());
+                                        System.out.println("Importaciones Castilla");
+                                        control.getEspana().getPeru().verMercanciasImportacion();
+                                        break;
+                                    case "PLATA":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getPlata());
+                                        System.out.println("Importaciones Plata");
+                                        control.getEspana().getPlata().verMercanciasImportacion();
+                                        break;
+                                    case "AUSTRIA":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getAustria());
+                                        System.out.println("Importaciones Austria ");
+                                        control.getEspana().getAustria().verMercanciasImportacion();
+                                        break;
+                                    case "BORGOÑA":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getBorgona());
+                                        System.out.println("Importaciones Borgoña");
+                                        control.getEspana().getBorgona().verMercanciasImportacion();
+                                        break;
+                                    case "ARAGON":
+                                        control.getEspana().enviarFlota(control.getEspana().getPeru(), control.getEspana().getAragon());
+                                        System.out.println("Importaciones Aragón");
+                                        control.getEspana().getAragon().verMercanciasImportacion();
+                                        break;
+                                    default:
 //                        throw new IllegalArgumentException(box2.getSelectedItem().toString().toUpperCase());
-                    }
-                    Toast.makeText(this, "Flota enviada", Toast.LENGTH_SHORT).show();
-                    contenedor.removeAllViews();
+                                }
+                                Toast.makeText(getApplicationContext(), "Flota enviada", Toast.LENGTH_SHORT).show();
+                                contenedor.removeAllViews();
+                            } catch (Exception exception) {
+                            }
+                        }
+                    });
+                    adb3.show();
                 }
 
 //                jmenu.removeAll();

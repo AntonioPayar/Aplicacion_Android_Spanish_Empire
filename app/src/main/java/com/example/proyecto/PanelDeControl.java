@@ -69,6 +69,7 @@ public class PanelDeControl {
 
         if(contadorTurnos!=0) {
             contadorTurnos++;
+            insertarBaseDatosTurnos();
             PanelDeControl.database.updateDemandasNoRealizadas(this.contadorTurnos);
             pasarTurno(espana);
             constructor();
@@ -78,10 +79,11 @@ public class PanelDeControl {
 //            this.principal.dispose();
         }else {
             contadorTurnos++;
+            insertarBaseDatosTurnos();
             constructor();
         }
-        insertarBaseDatosTurnos();
-//        constructor();
+       //insertarBaseDatosTurnos();
+       //constructor();
         System.out.println("Nueva España"+this.espana.getNuevaEspana().isSublevaciones());
         System.out.println("Nueva Granada"+this.espana.getNuevaGranda().isSublevaciones());
         System.out.println("Peru"+this.espana.getPeru().isSublevaciones());

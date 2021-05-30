@@ -24,7 +24,7 @@ public class Tutorial extends AppCompatActivity {
     private static PanelDeControl pdc;
     private static int time;
     private int sec;
-    private static int diapositiva = -1;
+    private static int diapositiva;
     private TextView txtTutorial;
     private String cadena;
     private Thread t;
@@ -35,6 +35,7 @@ public class Tutorial extends AppCompatActivity {
     private ImageButton pasarPic;
     private ImageButton comenzarPartida;
     private ImageView imagenDiapositiva;
+    private ImageView imagenIlloJuan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,9 @@ public class Tutorial extends AppCompatActivity {
         ImageView iv = (ImageView)findViewById(R.id.fondoTutorial);
         Glide.with(getApplicationContext()).load(R.drawable.mar).into(iv);
 
+        diapositiva = -1;
+
+        imagenIlloJuan = (ImageView)findViewById(R.id.imageView13);
         txtTutorial = (TextView)findViewById(R.id.textoTutorial);
 //        txtTutorial.setText(cadena);
         imagenVolverAtras = (ImageButton)findViewById(R.id.volverAtrasPic2);
@@ -76,6 +80,9 @@ public class Tutorial extends AppCompatActivity {
 
 //        ThreadTexto t = new ThreadTexto(cadena, txtTutorial, diapositiva);
 //        t.run();
+        Glide.with(getApplicationContext()).load(R.drawable.tutos10).into(imagenDiapositiva);
+        Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
+        imagenDiapositiva.setBackgroundResource(R.drawable.oceano);
         mostrarTexto(cadena);
     }
 
@@ -126,13 +133,15 @@ public class Tutorial extends AppCompatActivity {
 
                         if (diapositiva == 0 || diapositiva == -1) {
                             pasarPic.setVisibility(View.VISIBLE);
-                        } else if (diapositiva == 25) {
+                        } else if (diapositiva == 21) {
                             botonHaciaAtras.setVisibility(View.VISIBLE);
                             comenzarPartida.setVisibility(View.VISIBLE);
                         } else {
                             botonHaciaAtras.setVisibility(View.VISIBLE);
                             pasarPic.setVisibility(View.VISIBLE);
                         }
+
+                        Glide.with(getApplicationContext()).load(R.drawable.illojuan_ii).into(imagenIlloJuan);
                     }
                 });
             }
@@ -152,135 +161,160 @@ public class Tutorial extends AppCompatActivity {
         switch(diapositiva){
             case 0:
                 cadena = "!Saludos grumete¡ Bienvenido a SyberPun, en este escueto tutorial te enseñaré las funcionalidades de esta aplicación. ¡Comenzemos!";
-                Glide.with(getApplicationContext()).load(R.drawable.tutos10).into(imagenDiapositiva);
+                imagenDiapositiva.setBackgroundResource(R.drawable.oceano);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
+                botonHaciaAtras.setVisibility(View.INVISIBLE);
                 mostrarTexto(cadena);
                 break;
             case 1:
                 cadena = "Este es el menu principal, Antes de empezar tu aventura tendras que introducir un nombre de usuario";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos10).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 2:
                 cadena = "Una vez comenzada nuestra aventura todo te parecera nuevo y un tanto complejo, Pero ya veras que con mi compañia esta aventura sera de lo mas amena";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos15).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 3:
                 cadena = "Nuestro principal objetivo como gestores de las Cortes de Indias es conocer lo que Producen nuetras Regiones y sobre todo lo que Demandan.";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos15).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 4:
                 cadena = "Si presionas sobre alguna region del mapa te mostrara los productos que se poducen en esa determinada zona, usa el boton de CAMBIO para cambiar de continente";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos16).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 5:
                 cadena = "Una vez sabemos las producciones que generan cada zona. Presiona sobre el boton de DEMANDAS";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos14).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 6:
                 cadena=" En esta ventana te mostrara los productos que requieren nuestas regiones, pero ¡Cuidado! satifacelas todas o caeran en Sublevacion";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos14).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 7:
                 cadena = "Para crear una mercancia presionamos el boton de CREAR MERCANCIAS este nos desplegara un glosario ";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos12).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 8:
                 cadena="En el que podremos seleccionar la cantidad y productos y simplemente dando a su boton especifico se nos creara una mercancia con esas propiedades";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos4).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 9:
                 cadena = "Una vez creada nuestra Mercancia tenemos que proceder a Embarcarla ";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos3).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 10:
                 cadena="Para ello pulsaremos sobre el boton de CREAR FLOTA. Y seleccionamos las mercancias que queremos embarcar";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos7).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 11:
                 cadena = "Una vez Embarcadas todas las mercancias solo queda enviarlas a nuestro destino.";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos2).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
             case 12:
                 cadena=" Para ello presiona sobre el boton ENVIAR FLOTAS y seleccionamos un destino al que queremos enviar dicha flota";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos6).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 14:
+            case 13:
                 cadena = "Para confirmar todos los envios solo queda pulsar SIGUIENTE TURNO ";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos13).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 15:
+            case 14:
                 cadena=" Recuerda presionar sobre las mismas flotas enviadas.Tienes que marcar su regreso o si no el siguiente turno no estaran disponibles";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos5).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 16:
+            case 15:
                 cadena = "Genial ya has pasado de turno. Recuerda satisfacer todas las demandas o los paises caeran en Sublevacion.";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos9).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 17:
+            case 16:
                 cadena = "Una vez TODOS tus reinos se sublevan habras perdido. El objetivo del juego es mantener el mayor nuemero de turnos tu Imperio";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos9).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 18:
+            case 17:
                 cadena = "Una vez terminada tu partida puedes ver todas las interacciones que has hecho en tu partida gracias a la base de datos";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos11).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 19:
+            case 18:
                 cadena = "Solo tienes que seleccionar el nombre de usuario que has introducido al iniciar tu partida y la seccion que quieres ojear";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos1).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 20:
+            case 19:
                 cadena = "Una vez dentro puedes revisar hasta el ultimo apice de tus interacciones";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos8).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 21:
+            case 20:
                 cadena = "Bueno espero que todo este claro.";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos10).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                pasarPic.setVisibility(View.VISIBLE);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
-            case 22:
+            case 21:
                 cadena = "Te deseo una feliz experiencia y nos veremos en proximas aventuras.¡Hasta la vista marinero!";
                 Glide.with(getApplicationContext()).load(R.drawable.tutos10).into(imagenDiapositiva);
                 txtTutorial.setText(cadena);
+                pasarPic.setVisibility(View.INVISIBLE);
                 comenzarPartida.setVisibility(View.INVISIBLE);
+                Glide.with(getApplicationContext()).load(R.drawable.illojuangif).into(imagenIlloJuan);
                 mostrarTexto(cadena);
                 break;
         }

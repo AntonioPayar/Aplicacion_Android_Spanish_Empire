@@ -284,7 +284,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         SQLiteDatabase db;
         db=this.getWritableDatabase();
 
-        db.execSQL("INSERT INTO Producciones (id_pais,id_turno,producto, cantidad, id_partida) VALUES ((SELECT id_pais FROM Paises WHERE nombre='"+zona+"'),(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)),'"+producto.getNombre()+"',"+producto.getCantidad()+",(SELECT max(id_partida) FROM Partidas))");
+        db.execSQL("INSERT INTO Producciones (id_pais,id_turno,producto, cantidad, id_partida) VALUES ((SELECT id_pais FROM Paises WHERE nombre='"+zona+"'),(SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))),'"+producto.getNombre()+"',"+producto.getCantidad()+",(SELECT max(id_partida) FROM Partidas))");
     }
 
     /**Metodo encargado de insertar las Mercancias**/
@@ -292,7 +292,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         SQLiteDatabase db;
         db=this.getWritableDatabase();
 
-        db.execSQL("INSERT INTO Mercancias(id_turno,id_pais,id_produccion,cantidad,id_partida) VALUES((SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)),(SELECT id_pais FROM Paises WHERE nombre='"+pais.getNombre()+"'),(SELECT id_produccion FROM Producciones WHERE id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+pais.getNombre()+"') and id_turno=(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)) and producto ='"+producto+"' and id_partida=(SELECT max(id_partida) FROM Partidas)),"+cantidad+",(SELECT max(id_partida) FROM Partidas))");
+        db.execSQL("INSERT INTO Mercancias(id_turno,id_pais,id_produccion,cantidad,id_partida) VALUES((SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))),(SELECT id_pais FROM Paises WHERE nombre='"+pais.getNombre()+"'),(SELECT id_produccion FROM Producciones WHERE id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+pais.getNombre()+"') and id_turno=(SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))) and producto ='"+producto+"' and id_partida=(SELECT max(id_partida) FROM Partidas)),"+cantidad+",(SELECT max(id_partida) FROM Partidas))");
         //INSERT INTO Mercancias(id_turno,id_pais,id_produccion,cantidad,id_partida) VALUES((SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)),(SELECT id_pais FROM Paises WHERE nombre='"+pais.getNombre()+"'),SELECT id_produccion FROM Producciones WHERE id_pais='"+pais.getNombre()+"' and id_turno=(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)) and producto ='"+producto+"' and id_partida=(SELECT max(id_partida) FROM Partidas)),cantidad,(SELECT max(id_partida) FROM Partidas));
         //SELECT id_produccion FROM Producciones WHERE id_pais=(SELECT id_pais FROM Paises WHERE nombre='Castilla') and id_turno=(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)) and producto ='Uvas' and id_partida=(SELECT max(id_partida) FROM Partidas)
     }
@@ -303,7 +303,8 @@ public class BaseDatos extends SQLiteOpenHelper {
         db=this.getWritableDatabase();
         mercancia=reino.getMercancia().get(idMercancia);
         System.out.println(mercancia.getTotalkg());
-        db.execSQL("INSERT INTO MercanciasFlota(id_flota,id_mercancia,id_turno,id_partida)VALUES ((SELECT id_flota FROM Flota WHERE id_pais=(select id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"')), (SELECT id_mercancia FROM Mercancias WHERE id_turno=(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)) AND id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"') AND id_produccion=(SELECT id_produccion FROM Producciones WHERE id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"') AND id_turno=(SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)) AND producto='"+mercancia.getProducto().getNombre().toString()+"'AND id_partida=(SELECT max(id_partida) FROM Partidas)) AND cantidad="+mercancia.getTotalkg()+" AND id_partida=(SELECT max(id_partida) FROM Partidas)), (SELECT max(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas)), (SELECT max(id_partida) FROM Partidas))");
+        db.execSQL("INSERT INTO MercanciasFlota(id_flota,id_mercancia,id_turno,id_partida)VALUES ((SELECT id_flota FROM Flota WHERE id_pais=(select id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"')),(SELECT id_mercancia FROM Mercancias WHERE id_turno=(SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))) AND id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"') AND id_produccion=(SELECT id_produccion FROM Producciones WHERE id_pais=(SELECT id_pais FROM Paises WHERE nombre='"+reino.getNombre()+"') AND id_turno=(SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))) AND producto='"+mercancia.getProducto().getNombre().toString()+"' AND id_partida=(SELECT max(id_partida) FROM Partidas)) AND cantidad="+mercancia.getTotalkg()+
+                " AND id_partida=(SELECT max(id_partida) FROM Partidas)),(SELECT max(id_turno) FROM Turnos WHERE turno=(SELECT MAX(turno) FROM Turnos WHERE id_partida=(SELECT MAX(id_partida)FROM Partidas))),(SELECT max(id_partida) FROM Partidas))");
     }
 
     public void updateDemandasRealizadas(Productos producto, String zona){
@@ -370,7 +371,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         Cursor cursor;
         db=this.getReadableDatabase();
 
-        cursor=db.rawQuery("SELECT Paises.nombre,Producciones.id_turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+        cursor=db.rawQuery("SELECT Paises.nombre,Turnos.turno,Producciones.producto,Producciones.cantidad,Partidas.usuario FROM Producciones,Paises,Partidas,Turnos WHERE Producciones.id_pais=Paises.id_pais and Producciones.id_partida=Partidas.id_partida and Producciones.id_turno=Turnos.id_turno and Partidas.usuario='"+partida+"'",null);
 
         while(cursor.moveToNext()){
             String paiss =cursor.getString(0);
@@ -410,7 +411,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         Cursor cursor;
         db=this.getReadableDatabase();
 
-        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Mercancias.id_turno FROM Mercancias,Producciones,Paises,Partidas WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Partidas.usuario='"+partida+"'",null);
+        cursor=db.rawQuery("SELECT Producciones.producto,Paises.nombre,Producciones.cantidad,Mercancias.cantidad,Turnos.turno FROM Mercancias,Producciones,Paises,Partidas,Turnos WHERE Mercancias.id_produccion=Producciones.id_produccion and Mercancias.id_pais=Paises.id_pais and Mercancias.id_partida=Partidas.id_partida and Mercancias.id_turno=Turnos.id_turno and Partidas.usuario='"+partida+"'",null);
 
         while (cursor.moveToNext()) {
             String producto = cursor.getString(0);
