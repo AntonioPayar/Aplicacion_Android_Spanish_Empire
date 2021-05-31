@@ -52,8 +52,8 @@ public class CustomListFlotaEnviada extends ArrayAdapter<QueryFlotasEnviadas> {
         TextView almacenadoo = view.findViewById(R.id.textViewrowFEAlmacenada);
         almacenadoo.setText(flota_seleccionada.getAlmacenada()+"");
         /**Partida**/
-        TextView parti = view.findViewById(R.id.textViewrowFEPartida);
-        parti.setText(flota_seleccionada.getPartida());
+        //TextView parti = view.findViewById(R.id.textViewrowFEPartida);
+        //parti.setText(flota_seleccionada.getPartida());
         /**Turno**/
         TextView turno = view.findViewById(R.id.textViewrowFETurno);
         turno.setText(flota_seleccionada.getTurno()+"");

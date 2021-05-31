@@ -371,7 +371,7 @@ public class EnviarFlotasBorgona extends AppCompatActivity implements View.OnCli
                                     default:
 //                        throw new IllegalArgumentException(box2.getSelectedItem().toString().toUpperCase());
                                 }
-                                Toast.makeText(getApplicationContext(), "Flota enviada", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "La Flota se enviara al pasar de turno", Toast.LENGTH_SHORT).show();
                                 contenedor.removeAllViews();
                             } catch (Exception exception) {
                             }

@@ -43,7 +43,7 @@ public class CustomListPartidas extends ArrayAdapter<String> {
         String partida_seleccionada=partidas.get(position);
 
         ImageView imagen = view.findViewById(R.id.ImagenrowPartida);
-        imagen.setImageResource(R.drawable.engranaje);
+        imagen.setImageResource(R.drawable.engranaje1);
 
         TextView texto01 = view.findViewById(R.id.textViewrowPartida);
         texto01.setText(partida_seleccionada);

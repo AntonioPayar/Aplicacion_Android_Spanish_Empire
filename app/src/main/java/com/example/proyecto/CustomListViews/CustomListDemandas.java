@@ -56,7 +56,6 @@ public class CustomListDemandas extends ArrayAdapter<QueryDemandas> {
         pais01.setText(crearString(pais,13));
         /**Realizada**/
         TextView realiza = view.findViewById(R.id.textViewrowDemPro);
-        realiza.setText(demanda_seleccionada.getRealizada());
         /**Partida**/
         TextView partida = view.findViewById(R.id.textViewrowDemCant);
         partida.setText(demanda_seleccionada.getPartida());

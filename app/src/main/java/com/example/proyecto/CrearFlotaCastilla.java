@@ -52,6 +52,7 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         //pedir la zona
         this.zona =getIntent().getStringExtra("zona");
         mostrarMercancias();
+        cambiarBarcoMercancias();
         //poner musica
         time = getIntent().getIntExtra("segundosMerc", 4);
         if(sharedPref.getBoolean("insertado", false) == true){
@@ -163,55 +164,55 @@ public class CrearFlotaCastilla extends AppCompatActivity {
     private void mostrarMercancias(){
         LinkedHashMap<Integer, Mercancia> mercan=null;
         TextView texto_zona=findViewById(R.id.textView15);
-        TextView peso_disponible =findViewById(R.id.textView12);
-        TextView peso_total=findViewById(R.id.textView14);
+        TextView peso_total =findViewById(R.id.textView12);
+        TextView peso_disponible=findViewById(R.id.textView14);
         switch (this.zona){
             case "Castilla":
                 texto_zona.setText("Castilla");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getCastilla().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getCastilla().getFlota().getPesoMaximo()-control.getEspana().getCastilla().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getCastilla().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getCastilla().getFlota().getPesoMaximo()-control.getEspana().getCastilla().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getCastilla().getMercancia();
                 break;
             case "Aragon":
                 texto_zona.setText("Aragon");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getAragon().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getAragon().getFlota().getPesoMaximo()-control.getEspana().getAragon().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getAragon().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getAragon().getFlota().getPesoMaximo()-control.getEspana().getAragon().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getAragon().getMercancia();
                 break;
             case "Borgona":
                 texto_zona.setText("Borgoña");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getBorgona().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getBorgona().getFlota().getPesoMaximo()-control.getEspana().getBorgona().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getBorgona().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getBorgona().getFlota().getPesoMaximo()-control.getEspana().getBorgona().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getBorgona().getMercancia();
                 break;
             case "Austria":
                 texto_zona.setText("Austria");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getAustria().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getAustria().getFlota().getPesoMaximo()-control.getEspana().getAustria().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getAustria().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getAustria().getFlota().getPesoMaximo()-control.getEspana().getAustria().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getAustria().getMercancia();
                 break;
             case "NuevaEspana":
                 texto_zona.setText("Nueva Españaa");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getNuevaEspana().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getNuevaEspana().getFlota().getPesoMaximo()-control.getEspana().getNuevaEspana().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getNuevaEspana().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getNuevaEspana().getFlota().getPesoMaximo()-control.getEspana().getNuevaEspana().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getNuevaEspana().getMercancia();
                 break;
             case "NuevaGranada":
                 texto_zona.setText("Nueva Granada");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getNuevaGranda().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getNuevaGranda().getFlota().getPesoMaximo()-control.getEspana().getNuevaGranda().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getNuevaGranda().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getNuevaGranda().getFlota().getPesoMaximo()-control.getEspana().getNuevaGranda().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getNuevaGranda().getMercancia();
                 break;
             case "Peru":
                 texto_zona.setText("Peru");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getPeru().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getPeru().getFlota().getPesoMaximo()-control.getEspana().getPeru().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getPeru().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getPeru().getFlota().getPesoMaximo()-control.getEspana().getPeru().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getPeru().getMercancia();
                 break;
             case "Plata":
                 texto_zona.setText("Plata");
-                peso_disponible.setText("Peso introducido : "+String.valueOf(this.control.getEspana().getPlata().getFlota().getPesoTodasMercancias()));
-                peso_total.setText("Peso disponible : "+String.valueOf(control.getEspana().getPlata().getFlota().getPesoMaximo()-control.getEspana().getPlata().getFlota().getPesoTodasMercancias()));
+                peso_disponible.setText("Peso disponible : "+String.valueOf(this.control.getEspana().getPlata().getFlota().getPesoTodasMercancias()));
+                peso_total.setText("Peso introducido : "+String.valueOf(control.getEspana().getPlata().getFlota().getPesoMaximo()-control.getEspana().getPlata().getFlota().getPesoTodasMercancias()));
                 mercan=this.control.getEspana().getPlata().getMercancia();
                 break;
         }
@@ -241,6 +242,58 @@ public class CrearFlotaCastilla extends AppCompatActivity {
         editor.putBoolean("insertado", false);
         editor.commit();
         this.finish();
+    }
+
+
+    /**Metodo encargado de cambiar la imagen del barco dependiedo la cantidad de mercancias introducidas**/
+    protected void cambiarBarcoMercancias(){
+        ImageView imageView = (ImageView)findViewById(R.id.imageView9);
+        int res=0;
+        switch (this.zona){
+            case "Castilla":
+                res=((this.control.getEspana().getCastilla().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "Aragon":
+                res=((this.control.getEspana().getAragon().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "Borgona":
+                res=((this.control.getEspana().getBorgona().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "Austria":
+                res=((this.control.getEspana().getAustria().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "NuevaEspana":
+                res=((this.control.getEspana().getNuevaEspana().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "NuevaGranada":
+                res=((this.control.getEspana().getNuevaGranda().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "Peru":
+                res=((this.control.getEspana().getPeru().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+            case "Plata":
+                res=((this.control.getEspana().getPlata().getFlota().getPesoTodasMercancias()-50000)*100)/50000;
+                break;
+        }
+        if(res==100){
+            imageView.setImageResource(R.drawable.galleon_sin_mercancias);
+        }else{
+            res=Math.abs(res);
+
+            if(res<=20){
+                imageView.setImageResource(R.drawable.galleon_mercancias_25);
+                return;
+            }else if(res<=50){
+                imageView.setImageResource(R.drawable.galleon_mercancias_50);
+                return;
+            }else if(res<=70){
+                imageView.setImageResource(R.drawable.galleon_mercancias70);
+                return;
+            }else if(res<100){
+                imageView.setImageResource(R.drawable.galleon_mercancias_100);
+                return;
+            }
+        }
     }
 
     @Override

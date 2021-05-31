@@ -70,8 +70,7 @@ public class Juego extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        Toast.makeText(this, "bbb"+pdc.getContadorTurnos(), Toast.LENGTH_SHORT).show();
+        pdc.getContadorTurnos();
 
 //        Toast.makeText(this, "aaaa "+sec, Toast.LENGTH_SHORT).show();
 

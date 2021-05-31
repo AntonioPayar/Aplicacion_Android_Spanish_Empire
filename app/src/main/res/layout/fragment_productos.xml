@@ -16,7 +16,7 @@
             android:id="@+id/imageViewProdu"
             android:layout_width="220dp"
             android:layout_height="272dp"
-            android:background="@drawable/tablonaustria"
+            android:background="@drawable/tablonaustria01"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
